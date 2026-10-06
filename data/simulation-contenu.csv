@@ -1,0 +1,28 @@
+lesson_id,lesson_title,language,level,duration_minutes,concepts,source_count,status
+L_javascript_beginner_01,Les boucles en JavaScript,javascript,beginner,15,boucle for;boucle while;itération,3,published
+L_javascript_beginner_02,Les variables et types,javascript,beginner,12,variable;const;let;typeof,2,published
+L_javascript_beginner_03,Fonctions basiques,javascript,beginner,18,fonction;paramètre;return;scope,4,published
+L_javascript_intermediate_01,Programmation asynchrone,javascript,intermediate,25,async;await;promise;callback,4,published
+L_javascript_intermediate_02,Objets et prototypes,javascript,intermediate,22,objet;prototype;class;héritage,5,published
+L_javascript_advanced_01,Closures et scope,javascript,advanced,28,closure;scope;lexical;IIFE,4,published
+L_javascript_advanced_02,Patterns avancés,javascript,advanced,30,pattern;observer;singleton;factory,5,published
+L_javascript_bonus_01,WebAssembly avec JavaScript,javascript,bonus,45,wasm;binaire;performance;rust,3,published
+L_python_beginner_01,Syntaxe Python de base,python,beginner,14,variable;type;print;input,2,published
+L_python_beginner_02,Listes et dictionnaires,python,beginner,20,liste;dictionnaire;tuple;itération,3,published
+L_python_beginner_03,Conditions et boucles,python,beginner,16,if;elif;else;for;while,2,published
+L_python_intermediate_01,Fonctions et paramètres,python,intermediate,20,fonction;paramètre;retour;scope,4,published
+L_python_intermediate_02,Gestion des fichiers,python,intermediate,19,open;read;write;fichier;encodage,3,published
+L_python_advanced_01,Décorateurs et générateurs,python,advanced,27,décorateur;générateur;yield;fonction,5,published
+L_python_advanced_02,Programmation orientée objet,python,advanced,29,classe;héritage;polymorphisme;__init__,4,published
+L_python_bonus_01,Data Science avec Pandas,python,bonus,50,pandas;dataframe;numpy;analyse,5,published
+L_sql_beginner_01,Requêtes SELECT de base,sql,beginner,13,SELECT;FROM;WHERE;condition,2,published
+L_sql_beginner_02,Jointures simples,sql,beginner,17,JOIN;INNER;LEFT;table;clé,3,published
+L_sql_beginner_03,Agrégation et GROUP BY,sql,beginner,15,GROUP BY;COUNT;SUM;AVG;HAVING,2,published
+L_sql_intermediate_01,Subqueries et CTEs,sql,intermediate,23,subquery;CTE;WITH;sous-requête,4,published
+L_sql_intermediate_02,Transactions et contraintes,sql,intermediate,21,transaction;ACID;PRIMARY KEY;FOREIGN KEY,3,published
+L_sql_advanced_01,Optimisation des requêtes,sql,advanced,30,index;EXPLAIN;plan;performance;query,5,published
+L_sql_advanced_02,Fonctions SQL avancées,sql,advanced,28,window;PARTITION;RANK;DENSE_RANK,4,published
+L_sql_bonus_01,Modélisation et normalisation,sql,bonus,40,3NF;denormalisation;design;schéma,3,published
+L_javascript_beginner_04,,javascript,beginner,13,,2,draft
+L_python_intermediate_03,Librairies et modules,python,intermediate,18,import;module;package;pip;virtualenv,4,published
+L_sql_beginner_02,Jointures simples,sql,beginner,17,JOIN;INNER;LEFT;table;clé,3,published
