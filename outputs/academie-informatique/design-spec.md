@@ -2,7 +2,7 @@
 workflow: academie-informatique
 requirements_file: outputs/academie-informatique/requirements.md
 spec_version: 3.0
-approved: false
+approved: true
 definition_type: Goal-Driven
 mechanism: Agent
 involvement: Augmented
