@@ -20,12 +20,15 @@ Vous me donnez dans la conversation :
 Exemple : « Génère une leçon sur les boucles en JavaScript niveau débutant. Important : explique bien for et while. »
 
 ## Étapes
-1. **Trouver les sources** — Je cherche automatiquement les meilleures sources académiques pour ce concept (MDN, W3Schools, Codecademy, etc.) ou je réutilise celles que S1 a validées.
-2. **Synthétiser** — Je lis toutes les sources et écris **une seule leçon cohérente**, sans répétition, accessible pour le niveau demandé.
-3. **Inclure votre feedback** — Si vous aviez mentionné des points importants, je les mets en avant dans la leçon.
-4. **Générer l'HTML** — Je crée un fichier HTML formaté, bien lisible, avec sections claires.
-5. **Créer l'onglet Sources** — À la fin de la leçon, je crée un onglet cliquable qui liste **tous** les liens avec titres et résumés.
-6. **Ajouter les métadonnées** — Je calcule une durée estimée de lecture (ex: 10 min) et liste les concepts clés couverts.
+1. **Commencer par le problème** — Poser la question que l'étudiant se pose (« Comment afficher 1 à 10 sans réécrire 10 fois ? ») avant de montrer la solution.
+2. **Trouver les sources** — Je cherche automatiquement les meilleures sources académiques pour ce concept (MDN, W3Schools, Codecademy, etc.) ou je réutilise celles que S1 a validées.
+3. **Synthétiser** — Je lis toutes les sources et écris **une seule leçon cohérente**, sans répétition, accessible pour le niveau demandé.
+4. **Ajouter tableau comparatif** — Après avoir expliqué chaque option (for, while, for...of), je crée un **tableau « Quel type de boucle choisir ? »** pour aider l'étudiant à décider.
+5. **Inclure un exemple applicatif concret** — Au moins un exemple où l'étudiant voit clairement pourquoi c'est utile (ex: summing a list, processing user input, iterating a game board).
+6. **Inclure votre feedback** — Si vous aviez mentionné des points importants, je les mets en avant dans la leçon.
+7. **Générer l'HTML** — Je crée un fichier HTML formaté, bien lisible, avec sections claires.
+8. **Créer l'onglet Sources** — À la fin de la leçon, je crée un onglet cliquable qui liste **tous** les liens avec titres et résumés.
+9. **Ajouter les métadonnées** — Je calcule une durée estimée de lecture (ex: 10 min) et liste les concepts clés couverts.
 
 ## Règles
 - **Français obligatoire** pour le texte explicatif; **anglais** pour le code et les noms de variables/fonctions.
