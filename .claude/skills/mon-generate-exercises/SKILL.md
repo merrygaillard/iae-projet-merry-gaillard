@@ -6,12 +6,14 @@ description: Générer 3 types d'exercices progressifs (QCM, texte à trou, text
 # Générer des exercices
 
 ## Ce que fait ce skill
-Crée un **ensemble d'exercices variés et progressifs** basés sur une leçon. Les exercices testent vraie compréhension (pas juste de la mémorisation), incluent des indices pour aider, et des solutions complètes expliquées.
+Crée un **ensemble de 20 exercices variés et progressifs** basés sur une leçon. Les exercices testent vraie compréhension (pas juste de la mémorisation), incluent des indices pour aider, et des solutions complètes expliquées.
 
 Vous recevez :
-- 5–7 **QCM** (une seule bonne réponse, distracteurs pensés)
-- 5–7 **Textes à trou** (remplir les mots manquants)
-- 5–7 **Textes libres** (écrire du code ou une explication)
+- 10 **QCM** (une seule bonne réponse, distracteurs pensés)
+- 5 **Textes à trou** (remplir les mots manquants)
+- 5 **Textes libres** (écrire du code ou une explication)
+
+**Total : 20 points** (1 point par question). **Seuil de réussite : 15/20** pour valider le package leçon + exercices.
 
 Chaque exercice a une **difficulté justifiée** et progresse dans la leçon.
 
@@ -22,18 +24,17 @@ Vous me donnez dans la conversation :
 - **Concept** : Le sujet (ex: « les boucles »)
 - **Langage** : JavaScript, Python ou SQL
 - **Niveau** : débutant, intermédiaire, avancé ou bonus
-- **Optionnel** : Nombre d'exercices (défaut: 5–7 par type)
 
-Exemple : « Génère des exercices sur les boucles en JavaScript niveau débutant. 3 de chaque type suffisent. »
+Exemple : « Génère 20 exercices sur les boucles en JavaScript niveau débutant. »
 
 ## Étapes
 1. **Relire la leçon** — Je comprends les concepts clés couverts dans la leçon.
-2. **Créer QCM** — 5–7 questions à choix multiples, une seule bonne réponse, distracteurs pertinents (pas évidents).
-3. **Créer textes à trou** — 5–7 énoncés où il faut compléter des mots/code. Progressif : facile → moyen → dur.
-4. **Créer textes libres** — 5–7 exercices où l'apprenant écrit du code ou une explication. Teste la vraie compréhension.
+2. **Créer 10 QCM** — Questions à choix multiples, une seule bonne réponse, distracteurs pertinents (pas évidents).
+3. **Créer 5 textes à trou** — Énoncés où il faut compléter des mots/code. Progressif : facile → moyen → dur.
+4. **Créer 5 textes libres** — Exercices où l'apprenant écrit du code ou une explication. Teste la vraie compréhension.
 5. **Ajouter indices** — Pour chaque exercice, 1–2 indices graduels (« Indice 1 : regarde... », « Indice 2 : essaie... »).
 6. **Écrire solutions** — Solutions complètes et expliquées ligne par ligne (surtout pour les codes).
-7. **Vérifier la progression** — S'assurer que d'abord facile, puis moyen, puis difficile.
+7. **Vérifier la progression** — S'assurer que d'abord facile, puis moyen, puis difficile. Total : 20 points (1 pt/question).
 
 ## Règles
 - **3 types obligatoires** — Toujours QCM + texte à trou + texte libre dans chaque set.
@@ -102,3 +103,10 @@ Un fichier JSON ou Markdown avec structure claire :
 ```
 
 Sauvegardé dans : `outputs/academie-informatique/exercises/<concept>_<langage>_<niveau>.json`
+
+**Scoring :**
+- Chaque question = 1 point
+- Total = 20 points
+- Seuil de réussite = 15/20 pour valider ce package leçon + exercices
+- L'apprenant peut continuer au prochain package même sans réussir (s'il reste dans le même niveau et langage)
+- Passage au niveau suivant = réussite du dernier package du niveau actuel
