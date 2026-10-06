@@ -1,13 +1,13 @@
-# Use case canvas — <Nom du workflow>
+# Use case canvas — Académie Informatique
 
-*Synthèse sur une page · <Prénom Nom> · <date>*
+*Synthèse sur une page · Merry Gaillard · 6 octobre 2026*
 
 | **PROBLÈME** | **UTILISATEURS** | **VALEUR** |
 |---|---|---|
-| … | … | … |
+| Apprentissage informatique fragmenté : sources disséminées (Reddit, forums, tutos gratuits peu fiables); progression floue entre niveaux; absence suivi; manque structure pédagogique. | Apprenants en management cherchant employabilité; formateurs pilotant l'IA; Merry (apprenant + formateur + validateur). | Portfolio de compétences professionnelles; meilleure employabilité; maîtrise langages informatiques; capacité piloter l'IA pour développer; travail plus rapide/efficace. |
 | **PROCESSUS ET ACTEURS** | **DONNÉES** | **IRRITANTS** |
-| … | … | … |
+| IA synthétise contenu open source (MDN, W3Schools, Codecademy, Reddit validé) → Merry valide sources (tableau Excel) → IA corrige/remplace → Merry teste chaque pôle-niveau → déploiement Vercel + Supabase → utilisateurs apprennent + feedback via "Un commentaire ?" → IA réagit aux sources mortes. | 3 langages (JavaScript, Python, SQL) × 4 niveaux (débutant, intermédiaire, avancé, bonus) = 12 pôles. Leçons + exercices progressifs (QCM, texte libre, texte à trou) + QCM finaux 50Q/niveau + sources URL (vérifiées) + barre progression par pôle + feedback utilisateur. | Progression confuse entre pôles si pas clair (supprimée : aucune passerelle JS→Python). Surcharge cognitive si contenu trop dense. UX non-responsive mobile → usabilité réduite. Sources Reddit non-validées → qualité faible. Timers discriminants → supprimés. |
 | **RÈGLES** | **RISQUES** | **INDICATEURS DE RÉUSSITE** |
-| … | … | … |
+| Progression **indépendante par pôle** (débutant obligatoire, ≥15/20 QCM = passer niveau suivant). Types exercices variés (QCM/texte libre/texte trou). 30-35h contenu (débutant+intermédiaire prioritaires, avancé moins, bonus hors comptage optionnel). Contenu français, code anglais. Responsive web + tablette + mobile. UX claire, sources citées, sécurité obligatoire (input validation, XSS/injection protection). | Sources mortes post-déploiement → qualité contenus baisse. Contenu bas qualité si IA ne synthétise pas bien. Utilisateur abandonne si progression peu claire. Bugs UX sur mobile. Risques sécurité si validation insuffisante. | Taux complétion par pôle (%) mesurable post-lancement. Heures apprentissage/semaine : baseline 0h, cible min 2h, objectif 4h. Tous AC validés (UX fluide, exercices progressifs, sources vérifiées, contenu sécurisé, feedback possible). Site déployé et prêt. |
 
 *Chaque case se retrouve, en détail, dans requirements.md.*
