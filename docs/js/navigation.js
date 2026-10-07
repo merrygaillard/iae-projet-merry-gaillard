@@ -103,6 +103,69 @@ console.log(prenom + " " + nom + " a " + age + " ans");
             type: 'Communauté Q&R'
           }
         ]
+      },
+      {
+        id: 'les-types-de-donnees',
+        title: 'Les types de données',
+        description: 'Comprendre les types : nombres, texte, booléens, tableaux, objets',
+        duration: 12,
+        concepts: 'Number, String, Boolean, Array, Object, Null, Undefined, typeof',
+        content: `<h1>Les types de données en JavaScript</h1><h2>Introduction</h2><p>Votre variable peut stocker différents types d'informations : un nombre, du texte, vrai ou faux, etc.</p><h2>Les 7 types de base</h2><p><strong>Number :</strong> 42, 3.14, -5</p><p><strong>String :</strong> "Bonjour", 'texte'</p><p><strong>Boolean :</strong> true, false</p><p><strong>Array :</strong> [1, 2, 3]</p><p><strong>Object :</strong> {nom: "Tom"}</p><p><strong>Null :</strong> null (aucune valeur)</p><p><strong>Undefined :</strong> undefined (pas défini)</p><h2>Vérifier le type</h2><pre><code>console.log(typeof 42);           // "number"
+console.log(typeof "Bonjour");    // "string"
+console.log(typeof true);         // "boolean"</code></pre>`,
+        sources: [
+          {
+            url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures',
+            title: 'MDN — JavaScript Data Types',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://www.w3schools.com/js/js_datatypes.asp',
+            title: 'W3Schools — JavaScript Data Types',
+            type: 'Tutoriel interactif'
+          },
+          {
+            url: 'https://javascript.info/types',
+            title: 'JavaScript.info — Data Types',
+            type: 'Tutoriel pédagogique'
+          }
+        ]
+      },
+      {
+        id: 'les-operateurs',
+        title: 'Les opérateurs',
+        description: 'Arithmétique, comparaison, logique, assignation, chaînes',
+        duration: 15,
+        concepts: 'Opérateurs arithmétiques, comparaison, logiques, assignation, ternaire',
+        content: `<h1>Les opérateurs en JavaScript</h1><h2>Introduction</h2><p>Les opérateurs permettent de faire des actions : ajouter deux nombres, comparer des valeurs, assigner une variable.</p><h2>Opérateurs arithmétiques</h2><pre><code>let a = 10;
+let b = 3;
+
+console.log(a + b);        // 13 (addition)
+console.log(a - b);        // 7 (soustraction)
+console.log(a * b);        // 30 (multiplication)
+console.log(a / b);        // 3.333... (division)
+console.log(a % b);        // 1 (reste)</code></pre><h2>Comparaison</h2><pre><code>console.log(5 > 3);        // true
+console.log(5 === 5);      // true
+console.log(5 !== 3);      // true</code></pre><h2>Logique</h2><pre><code>console.log(true && false);  // false (ET)
+console.log(true || false);  // true (OU)
+console.log(!true);          // false (NON)</code></pre>`,
+        sources: [
+          {
+            url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators',
+            title: 'MDN — Expressions and Operators',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://www.w3schools.com/js/js_operators.asp',
+            title: 'W3Schools — JavaScript Operators',
+            type: 'Tutoriel interactif'
+          },
+          {
+            url: 'https://javascript.info/operators',
+            title: 'JavaScript.info — Operators',
+            type: 'Tutoriel pédagogique'
+          }
+        ]
       }
     ],
     intermediaire: [
