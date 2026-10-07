@@ -109,12 +109,250 @@ console.log(prenom + " " + nom + " a " + age + " ans");
     avance: []
   },
   python: {
-    debutant: [],
+    debutant: [
+      {
+        id: 'variables',
+        title: 'Les variables',
+        description: 'Déclarer, assigner et utiliser les variables en Python',
+        duration: 15,
+        concepts: 'Déclaration, types (int, float, str, bool), snake_case, conversion',
+        content: `
+          <h1>Les variables en Python</h1>
+          <h2>Le problème</h2>
+          <p>Imaginez que vous voulez stocker le prénom d'une personne pour l'utiliser plusieurs fois dans votre programme. En Python, vous avez besoin d'un <strong>conteneur</strong> pour garder cette information. Ce conteneur s'appelle une <strong>variable</strong>.</p>
+          <p>Une variable est simplement une <strong>boîte nommée</strong> qui contient une valeur.</p>
+
+          <h2>Qu'est-ce qu'une variable ?</h2>
+          <p>Une variable est une <strong>zone de mémoire</strong> qui stocke une valeur et qui est <strong>identifiée par un nom</strong>.</p>
+          <p><strong>Pourquoi c'est utile ?</strong></p>
+          <ul>
+            <li>Stocker des données pour les réutiliser</li>
+            <li>Éviter de répéter la même valeur plusieurs fois</li>
+            <li>Modifier une valeur en un seul endroit et que tout le code soit mis à jour</li>
+            <li>Rendre le code plus lisible et maintenable</li>
+          </ul>
+
+          <h2>Comment créer une variable</h2>
+          <h3>Étape 1 : Déclarer et assigner en même temps</h3>
+          <p>En Python, c'est très simple. Vous écrivez le nom de la variable, puis le signe égal (=), puis la valeur :</p>
+          <pre><code>prenom = "Marie"</code></pre>
+          <p>Voilà ! La variable <code>prenom</code> contient maintenant la valeur "Marie".</p>
+
+          <h3>Étape 2 : Utiliser la variable</h3>
+          <pre><code>prenom = "Marie"
+print(prenom)  # Affiche : Marie</code></pre>
+
+          <h2>Les types de données</h2>
+          <p>En Python, une variable peut contenir différents types de données. Python détecte automatiquement le type en fonction de la valeur assignée :</p>
+
+          <h3>Nombres entiers (int)</h3>
+          <pre><code>age = 25
+nombre_de_cours = 5</code></pre>
+
+          <h3>Nombres décimaux (float)</h3>
+          <pre><code>prix = 19.99
+hauteur = 1.75</code></pre>
+
+          <h3>Texte (str)</h3>
+          <pre><code>nom = "Dubois"
+ville = "Paris"</code></pre>
+
+          <h3>Booléen (bool)</h3>
+          <pre><code>est_etudiant = True
+a_passe_examen = False</code></pre>
+
+          <h2>Convention de nommage : snake_case</h2>
+          <p>Python utilise la convention <strong>snake_case</strong> pour les noms de variables. Cela signifie :</p>
+          <ul>
+            <li>Utiliser des lettres minuscules</li>
+            <li>Séparer les mots avec un tiret bas (_)</li>
+            <li>Pas d'espaces ni de caractères spéciaux</li>
+          </ul>
+
+          <p><strong>Exemples corrects :</strong></p>
+          <pre><code>prenom_utilisateur = "Tom"
+nombre_total_points = 150
+est_valide = True</code></pre>
+
+          <h2>Exemples progressifs</h2>
+          <h3>Exemple 1 : Stocker un prénom</h3>
+          <pre><code>prenom = "Jean"
+print(prenom)  # Affiche : Jean</code></pre>
+
+          <h3>Exemple 2 : Stocker un nombre et le modifier</h3>
+          <pre><code>age = 25
+print(age)     # Affiche : 25
+
+age = 26       # On change la valeur
+print(age)     # Affiche : 26</code></pre>
+
+          <h3>Exemple 3 : Utiliser plusieurs variables</h3>
+          <pre><code>prenom = "Sophie"
+nom = "Dubois"
+age = 30
+
+message = prenom + " " + nom + " a " + str(age) + " ans"
+print(message)
+# Affiche : Sophie Dubois a 30 ans</code></pre>
+
+          <h2>Résumé : Les types principaux</h2>
+          <table>
+            <tr><th>Type</th><th>Exemple</th><th>Description</th></tr>
+            <tr><td><strong>int</strong></td><td>25</td><td>Nombre entier (sans décimales)</td></tr>
+            <tr><td><strong>float</strong></td><td>19.99</td><td>Nombre avec décimales</td></tr>
+            <tr><td><strong>str</strong></td><td>"Bonjour"</td><td>Texte (chaîne de caractères)</td></tr>
+            <tr><td><strong>bool</strong></td><td>True / False</td><td>Vrai ou Faux</td></tr>
+          </table>
+
+          <h2>Piège courant : Convertir les types</h2>
+          <p>Attention ! Si vous mélangez types différents, Python peut se plaindre :</p>
+          <pre><code>age = 25
+message = "J'ai " + age + " ans"  # ❌ Erreur !</code></pre>
+          <p>Vous devez convertir <code>age</code> en texte :</p>
+          <pre><code>age = 25
+message = "J'ai " + str(age) + " ans"  # ✅ Correct
+print(message)  # Affiche : J'ai 25 ans</code></pre>
+        `,
+        sources: [
+          {
+            url: 'https://docs.python.org/3/tutorial/introduction.html',
+            title: 'Python.org - Introduction to Python',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://www.w3schools.com/python/python_variables.asp',
+            title: 'W3Schools - Python Variables',
+            type: 'Tutoriel interactif'
+          },
+          {
+            url: 'https://realpython.com/python-variables/',
+            title: 'Real Python - Variables and Data Types',
+            type: 'Tutoriel pédagogique'
+          },
+          {
+            url: 'https://www.codecademy.com/learn/learn-python-3',
+            title: 'Codecademy - Learn Python 3',
+            type: 'Plateforme interactive'
+          }
+        ]
+      }
+    ],
     intermediaire: [],
     avance: []
   },
   sql: {
-    debutant: [],
+    debutant: [
+      {
+        id: 'select',
+        title: 'Le SELECT',
+        description: 'Récupérer des données d\'une base de données avec SELECT',
+        duration: 12,
+        concepts: 'SELECT, FROM, colonnes, *, syntaxe de base',
+        content: `
+          <h1>Le SELECT en SQL</h1>
+          <h2>Le problème</h2>
+          <p>Vous avez une base de données remplie d'informations : des noms, des adresses, des commandes. Comment récupérer ces données ? Comment poser une question à la base de données et obtenir une réponse ?</p>
+          <p>La réponse est l'instruction <strong>SELECT</strong>. C'est la façon la plus courante de lire les données d'une base de données.</p>
+
+          <h2>Qu'est-ce que SELECT ?</h2>
+          <p><strong>SELECT</strong> est une instruction SQL qui vous permet de :</p>
+          <ul>
+            <li>Récupérer des colonnes spécifiques d'une table</li>
+            <li>Afficher tous les enregistrements ou certains seulement</li>
+            <li>Lire les données sans les modifier</li>
+          </ul>
+
+          <h2>Syntaxe de base</h2>
+          <p>La syntaxe la plus simple est :</p>
+          <pre><code>SELECT colonne1, colonne2 FROM nom_table;</code></pre>
+          <p>Ou pour sélectionner TOUTES les colonnes :</p>
+          <pre><code>SELECT * FROM nom_table;</code></pre>
+
+          <p><strong>Explication :</strong></p>
+          <ul>
+            <li><code>SELECT</code> : le mot-clé pour dire « je veux récupérer »</li>
+            <li><code>colonne1, colonne2</code> : les colonnes que vous voulez (séparées par des virgules)</li>
+            <li><code>*</code> : signifie « TOUTES les colonnes »</li>
+            <li><code>FROM</code> : le mot-clé pour dire « d'où viennent les données »</li>
+            <li><code>nom_table</code> : le nom de la table</li>
+            <li><code>;</code> : point-virgule pour terminer l'instruction</li>
+          </ul>
+
+          <h2>Exemples progressifs</h2>
+          <h3>Exemple 1 : Récupérer tous les enregistrements, toutes les colonnes</h3>
+          <pre><code>SELECT * FROM clients;</code></pre>
+          <p>Cela affiche <strong>tous les enregistrements</strong> et <strong>toutes les colonnes</strong> de la table <code>clients</code>.</p>
+
+          <h3>Exemple 2 : Récupérer seulement certaines colonnes</h3>
+          <p>Supposons que la table <code>clients</code> a les colonnes : id, nom, email, ville.</p>
+          <pre><code>SELECT nom, email FROM clients;</code></pre>
+          <p>Cela affiche seulement les colonnes <code>nom</code> et <code>email</code> de tous les enregistrements.</p>
+
+          <h3>Exemple 3 : Table de produits</h3>
+          <p>Supposons une table <code>produits</code> avec : id, nom, prix, stock.</p>
+          <pre><code>SELECT nom, prix FROM produits;</code></pre>
+          <p>Cela affiche le nom et le prix de tous les produits.</p>
+
+          <h2>Règles importantes</h2>
+          <h3>1. Ordre des colonnes</h3>
+          <p>Les colonnes s'affichent dans l'ordre où vous les écrivez :</p>
+          <pre><code>SELECT nom, email FROM clients;
+-- Affiche : nom | email
+
+SELECT email, nom FROM clients;
+-- Affiche : email | nom (ordre inversé)</code></pre>
+
+          <h3>2. Noms des colonnes</h3>
+          <p>Les noms des colonnes doivent exactement correspondre aux colonnes de la table. Si la table a une colonne <code>nom_client</code>, vous devez écrire <code>nom_client</code>, pas <code>nom</code>.</p>
+
+          <h3>3. Point-virgule</h3>
+          <p>L'instruction SQL doit se terminer par un <strong>point-virgule (;)</strong>. C'est une bonne pratique.</p>
+
+          <h2>Résumé : Syntaxe SELECT</h2>
+          <table>
+            <tr><th>Instruction</th><th>Exemple</th><th>Résultat</th></tr>
+            <tr><td><code>SELECT *</code></td><td>SELECT * FROM clients;</td><td>Toutes les colonnes, tous les enregistrements</td></tr>
+            <tr><td><code>SELECT col1</code></td><td>SELECT nom FROM clients;</td><td>Colonne spécifique, tous les enregistrements</td></tr>
+            <tr><td><code>SELECT col1, col2</code></td><td>SELECT nom, email FROM clients;</td><td>Plusieurs colonnes spécifiques</td></tr>
+          </table>
+
+          <h2>Piège courant : Oublier FROM</h2>
+          <pre><code>SELECT nom, email;  # ❌ Erreur ! D'où vient les données ?</code></pre>
+          <p>Vous DEVEZ toujours spécifier la table avec <code>FROM</code> :</p>
+          <pre><code>SELECT nom, email FROM clients;  # ✅ Correct</code></pre>
+
+          <h2>Ce qui vient après</h2>
+          <p>SELECT est la base. Une fois que vous maîtrisez SELECT, vous pouvez ajouter :</p>
+          <ul>
+            <li><code>WHERE</code> : pour filtrer (« affiche seulement les clients de Paris »)</li>
+            <li><code>ORDER BY</code> : pour trier (« affiche par ordre alphabétique »)</li>
+            <li><code>LIMIT</code> : pour limiter (« affiche seulement les 10 premiers »)</li>
+          </ul>
+        `,
+        sources: [
+          {
+            url: 'https://www.w3schools.com/sql/sql_select.asp',
+            title: 'W3Schools - SQL SELECT',
+            type: 'Tutoriel interactif'
+          },
+          {
+            url: 'https://www.tutorialspoint.com/sql/sql-select-statement.htm',
+            title: 'TutorialsPoint - SQL SELECT Statement',
+            type: 'Tutoriel pédagogique'
+          },
+          {
+            url: 'https://www.postgresql.org/docs/current/sql-select.html',
+            title: 'PostgreSQL Documentation - SELECT',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://mode.com/sql-tutorial/introduction-to-sql/',
+            title: 'Mode Analytics SQL Tutorial',
+            type: 'Tutoriel interactif'
+          }
+        ]
+      }
+    ],
     intermediaire: [],
     avance: []
   }
