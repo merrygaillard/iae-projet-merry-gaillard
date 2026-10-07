@@ -105,7 +105,86 @@ console.log(prenom + " " + nom + " a " + age + " ans");
         ]
       }
     ],
-    intermediaire: [],
+    intermediaire: [
+      {
+        id: 'les-boucles-avancees',
+        title: 'Les boucles avancées',
+        description: 'Maîtrisez for...in, for...of, et les méthodes de tableau (map, filter, reduce)',
+        duration: 18,
+        concepts: 'for...in, for...of, forEach, map, filter, reduce, chaînage de méthodes',
+        content: `
+          <h1>Les boucles avancées en JavaScript</h1>
+          <h2>Introduction</h2>
+          <p>Découvrez les boucles modernes et les méthodes de tableau qui rendent le code plus lisible et expressif.</p>
+
+          <h2>1. for...in : itérer sur les propriétés d'un objet</h2>
+          <p><code>for...in</code> parcourt toutes les propriétés énumérables d'un objet.</p>
+          <pre><code>const obj = { nom: 'Alice', âge: 28 };
+for (let clé in obj) {
+  console.log(clé + ': ' + obj[clé]);
+}</code></pre>
+
+          <h2>2. for...of : itérer sur les valeurs</h2>
+          <p><code>for...of</code> itère sur les <strong>valeurs</strong> d'un tableau ou chaîne.</p>
+          <pre><code>const couleurs = ['rouge', 'vert', 'bleu'];
+for (let couleur of couleurs) {
+  console.log(couleur);
+}</code></pre>
+
+          <h2>3. forEach() : exécuter une fonction</h2>
+          <p><code>forEach()</code> applique une fonction à chaque élément.</p>
+          <pre><code>const fruits = ['pomme', 'banane'];
+fruits.forEach((fruit, index) => {
+  console.log(index + ': ' + fruit);
+});</code></pre>
+
+          <h2>4. map() : transformer les éléments</h2>
+          <p><code>map()</code> crée un nouveau tableau transformé.</p>
+          <pre><code>const nombres = [1, 2, 3];
+const doublés = nombres.map(n => n * 2);
+// [2, 4, 6]</code></pre>
+
+          <h2>5. filter() : sélectionner les éléments</h2>
+          <p><code>filter()</code> crée un nouveau tableau filtré.</p>
+          <pre><code>const nombres = [1, 2, 3, 4, 5];
+const pairs = nombres.filter(n => n % 2 === 0);
+// [2, 4]</code></pre>
+
+          <h2>6. reduce() : accumuler une valeur</h2>
+          <p><code>reduce()</code> combine tous les éléments en une seule valeur.</p>
+          <pre><code>const nombres = [1, 2, 3, 4];
+const somme = nombres.reduce((acc, n) => acc + n, 0);
+// 10</code></pre>
+        `,
+        sources: [
+          {
+            url: 'https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/for...in',
+            title: 'MDN — for...in',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/for...of',
+            title: 'MDN — for...of',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map',
+            title: 'MDN — Array.map()',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter',
+            title: 'MDN — Array.filter()',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce',
+            title: 'MDN — Array.reduce()',
+            type: 'Documentation officielle'
+          }
+        ]
+      }
+    ],
     avance: []
   },
   python: {
@@ -625,6 +704,30 @@ const exercisesData_SQL_Debutant = [
   {id:"sql_sel_libre_5",type:"free_text",numero:20,difficulte:"difficile",enonce:"Appliquez les bonnes pratiques : écrivez une requête SELECT avec colonnes spécifiques, point-virgule, et noms exacts",solution:"SELECT id, nom, prix, stock FROM produits;",explication:"Colonnes nommées explicitement, pas *, point-virgule, noms de colonnes corrects.",indices:["Indice 1 : Pas de * ; noms explicites.","Indice 2 : Point-virgule obligatoire."]}
 ];
 
+// Exercices pour JavaScript Intermédiaire
+const exercisesData_JS_Intermediaire = [
+  {id:"loop_adv_qcm_1",type:"mcq",numero:1,difficulte:"facile",enonce:"Quelle boucle utiliser pour parcourir les propriétés d'un objet ?",options:["A) for...in","B) for...of","C) forEach","D) map"],bonne_reponse_index:0,explication:"for...in itère sur les propriétés d'un objet.",indices:["Indice 1 : 'in' signifie 'à l'intérieur'","Indice 2 : Pensez aux objets"]},
+  {id:"loop_adv_qcm_2",type:"mcq",numero:2,difficulte:"facile",enonce:"Que retourne [1, 2, 3].map(x => x * 2) ?",options:["A) [2, 4, 6]","B) [1, 2, 3]","C) 6","D) undefined"],bonne_reponse_index:0,explication:"map transforme chaque élément : [1*2, 2*2, 3*2] = [2, 4, 6].",indices:["Indice 1 : map = transformation","Indice 2 : Multipliez chaque élément par 2"]},
+  {id:"loop_adv_qcm_3",type:"mcq",numero:3,difficulte:"facile",enonce:"Que retourne [1, 2, 3, 4, 5].filter(x => x > 2) ?",options:["A) [3, 4, 5]","B) [1, 2]","C) true","D) [1, 2, 3, 4, 5]"],bonne_reponse_index:0,explication:"filter sélectionne les éléments > 2, soit 3, 4, et 5.",indices:["Indice 1 : filter = sélection","Indice 2 : Quels nombres sont > 2 ?"]},
+  {id:"loop_adv_qcm_4",type:"mcq",numero:4,difficulte:"moyen",enonce:"Que retourne [1, 2, 3, 4].reduce((acc, x) => acc + x, 0) ?",options:["A) 10","B) 4","C) [1, 2, 3, 4]","D) undefined"],bonne_reponse_index:0,explication:"reduce accumule : 0+1+2+3+4 = 10.",indices:["Indice 1 : reduce = accumulation","Indice 2 : Sommez tous les éléments"]},
+  {id:"loop_adv_qcm_5",type:"mcq",numero:5,difficulte:"moyen",enonce:"Quel est le résultat de [1, 2, 3].map(x => x * 2).filter(x => x > 3) ?",options:["A) [4, 6]","B) [2, 4, 6]","C) [3]","D) undefined"],bonne_reponse_index:0,explication:"D'abord map : [2, 4, 6]. Puis filter > 3 : [4, 6].",indices:["Indice 1 : Appliquez map puis filter","Indice 2 : Quels éléments > 3 ?"]},
+  {id:"loop_adv_qcm_6",type:"mcq",numero:6,difficulte:"moyen",enonce:"Quel est le retour de forEach() ?",options:["A) undefined","B) Le tableau original","C) Un nouveau tableau","D) Un nombre"],bonne_reponse_index:0,explication:"forEach n'a pas de valeur de retour. Elle effectue juste une action.",indices:["Indice 1 : forEach pour les effets secondaires","Indice 2 : Pas de tableau retourné"]},
+  {id:"loop_adv_qcm_7",type:"mcq",numero:7,difficulte:"moyen",enonce:"Quelle boucle accepte break et continue ?",options:["A) for...of","B) forEach","C) map","D) filter"],bonne_reponse_index:0,explication:"for...of accepte break et continue. Les autres méthodes ne les acceptent pas.",indices:["Indice 1 : C'est une vraie boucle","Indice 2 : Laquelle a le contrôle du flux ?"]},
+  {id:"loop_adv_qcm_8",type:"mcq",numero:8,difficulte:"difficile",enonce:"Quel est le résultat de ['a', 'b', 'c'].reduce((acc, letter) => acc + letter, '') ?",options:["A) 'abc'","B) ['a', 'b', 'c']","C) 3","D) undefined"],bonne_reponse_index:0,explication:"reduce accumule les lettres : ''+a+'b'+'c' = 'abc'.",indices:["Indice 1 : reduce avec une chaîne vide","Indice 2 : On concatène les lettres"]},
+  {id:"loop_adv_qcm_9",type:"mcq",numero:9,difficulte:"difficile",enonce:"Comment parcourir les caractères d'une chaîne ?",options:["A) for (let char of 'hello') { }","B) for (let char in 'hello') { }","C) 'hello'.forEach(char => { })","D) Impossible"],bonne_reponse_index:0,explication:"for...of parcourt les caractères d'une chaîne.",indices:["Indice 1 : Les chaînes sont itérables","Indice 2 : for...of = valeurs"]},
+  {id:"loop_adv_qcm_10",type:"mcq",numero:10,difficulte:"difficile",enonce:"Que retourne [1, 2, 3].reduce((acc, x) => acc * x, 1) ?",options:["A) 6","B) 123","C) 1","D) undefined"],bonne_reponse_index:0,explication:"reduce multiplie : 1*1*2*3 = 6.",indices:["Indice 1 : reduce avec multiplication","Indice 2 : Multipliez tous les éléments"]},
+  {id:"loop_adv_trou_1",type:"fill_blank",numero:11,difficulte:"facile",enonce:"Complétez : for (let key _____ objet) { }",reponse_attendue:"in",reponses_acceptees:["in"],explication:"for...in itère sur les propriétés.",indices:["Indice 1 : 'in' = à l'intérieur de","Indice 2 : for...__ objet"]},
+  {id:"loop_adv_trou_2",type:"fill_blank",numero:12,difficulte:"facile",enonce:"Complétez : for (let val _____ [1, 2, 3]) { }",reponse_attendue:"of",reponses_acceptees:["of"],explication:"for...of itère sur les valeurs.",indices:["Indice 1 : 'of' = des valeurs de","Indice 2 : for...___ tableau"]},
+  {id:"loop_adv_trou_3",type:"fill_blank",numero:13,difficulte:"moyen",enonce:"Complétez : [1, 2, 3]._____((x) => x * 2) retourne [2, 4, 6]",reponse_attendue:"map",reponses_acceptees:["map"],explication:"map transforme chaque élément.",indices:["Indice 1 : Transformation","Indice 2 : m___ crée un nouveau tableau"]},
+  {id:"loop_adv_trou_4",type:"fill_blank",numero:14,difficulte:"moyen",enonce:"Complétez : [1, 2, 3, 4, 5]._____((x) => x > 2) retourne [3, 4, 5]",reponse_attendue:"filter",reponses_acceptees:["filter"],explication:"filter sélectionne les éléments.",indices:["Indice 1 : Sélection","Indice 2 : f______ garde les éléments"]},
+  {id:"loop_adv_trou_5",type:"fill_blank",numero:15,difficulte:"difficile",enonce:"Complétez : [1, 2, 3, 4]._____((acc, x) => acc + x, 0) retourne 10",reponse_attendue:"reduce",reponses_acceptees:["reduce"],explication:"reduce accumule une seule valeur.",indices:["Indice 1 : Accumulation","Indice 2 : red_____ accumule"]},
+  {id:"loop_adv_libre_1",type:"free_text",numero:16,difficulte:"moyen",enonce:"Écrivez une fonction qui retourne la somme de tous les nombres avec reduce().",solution:"function sum(arr) {\\n  return arr.reduce((acc, num) => acc + num, 0);\\n}",explication:"reduce accumule en commençant par 0.",indices:["Indice 1 : Utilisez reduce","Indice 2 : Valeur initiale = 0"]},
+  {id:"loop_adv_libre_2",type:"free_text",numero:17,difficulte:"moyen",enonce:"Écrivez une fonction qui filtre les nombres pairs et les double.",solution:"function doubleEven(arr) {\\n  return arr.filter(n => n % 2 === 0).map(n => n * 2);\\n}",explication:"Chaînez filter et map.",indices:["Indice 1 : filter d'abord","Indice 2 : Puis map pour doubler"]},
+  {id:"loop_adv_libre_3",type:"free_text",numero:18,difficulte:"difficile",enonce:"Écrivez une fonction qui compte les occurrences de chaque valeur dans un tableau.",solution:"function countOccurrences(arr) {\\n  return arr.reduce((acc, val) => {\\n    acc[val] = (acc[val] || 0) + 1;\\n    return acc;\\n  }, {});\\n}",explication:"reduce accumule dans un objet avec compteurs.",indices:["Indice 1 : reduce avec un objet","Indice 2 : acc[val] || 0 initialise à 0"]},
+  {id:"loop_adv_libre_4",type:"free_text",numero:19,difficulte:"difficile",enonce:"Écrivez une fonction qui retourne les utilisateurs avec score > 80, triés.",solution:"function topScores(users) {\\n  return users.filter(u => u.score > 80).sort((a, b) => b.score - a.score);\\n}",explication:"Chaînez filter et sort en ordre descendant.",indices:["Indice 1 : filter pour score > 80","Indice 2 : sort avec b - a pour descendant"]},
+  {id:"loop_adv_libre_5",type:"free_text",numero:20,difficulte:"difficile",enonce:"Écrivez une fonction qui parcourt les propriétés d'un objet et retourne un tableau [clé, valeur].",solution:"function entries(obj) {\\n  const result = [];\\n  for (let key in obj) {\\n    result.push([key, obj[key]]);\\n  }\\n  return result;\\n}",explication:"Utilisez for...in pour parcourir les propriétés.",indices:["Indice 1 : for...in pour les propriétés","Indice 2 : Poussez [key, obj[key]]"]}
+];
+
 function selectLanguage(lang) {
   currentLanguage = lang;
   currentLevel = 'debutant';
@@ -800,6 +903,9 @@ function openExercises(lessonId) {
 function getExercisesForLesson(lang, level, lessonId) {
   if (lang === 'javascript' && level === 'debutant' && lessonId === 'variables') {
     return exercisesData_JS_Debutant;
+  }
+  if (lang === 'javascript' && level === 'intermediaire' && lessonId === 'les-boucles-avancees') {
+    return exercisesData_JS_Intermediaire;
   }
   if (lang === 'python' && level === 'debutant' && lessonId === 'variables') {
     return exercisesData_Python_Debutant;
