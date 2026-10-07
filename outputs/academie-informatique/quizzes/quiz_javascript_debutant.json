@@ -1,0 +1,796 @@
+{
+  "quiz_metadata": {
+    "langage": "JavaScript",
+    "niveau": "débutant",
+    "nombre_questions": 50,
+    "points_par_question": 2,
+    "total_points": 100,
+    "seuil_reussite": 75,
+    "seuil_note_sur_20": 15,
+    "formule_scoring": "note /20 = (points_obtenus / 100) * 20",
+    "temps_recommande_minutes": 45,
+    "description": "Quiz final pour valider la maîtrise de JavaScript au niveau débutant. Couvre variables, types, opérateurs, conditions, boucles, fonctions, tableaux et objets."
+  },
+  "concepts_couverts": [
+    "Variables (let, var, const)",
+    "Types de données (string, number, boolean, null, undefined)",
+    "Portée et hoisting",
+    "Opérateurs arithmétiques",
+    "Opérateurs de comparaison",
+    "Opérateurs logiques",
+    "Conditions (if, else, switch)",
+    "Boucles (for, while, do-while)",
+    "Fonctions et paramètres",
+    "Retour de fonction",
+    "Tableaux (arrays)",
+    "Méthodes de tableau",
+    "Objets (objects)",
+    "Accès aux propriétés",
+    "Bonnes pratiques"
+  ],
+  "questions": [
+    {
+      "id": "js_deb_001",
+      "numero": 1,
+      "concept": "Variables (let, var, const)",
+      "difficulte": "facile",
+      "enonce": "Quelle est la principale différence entre 'let' et 'var' en JavaScript ?",
+      "options": [
+        "let a une portée de bloc, var a une portée de fonction",
+        "var est plus moderne que let",
+        "Aucune différence significative",
+        "let ne peut être utilisé que dans les classes"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "let a une portée de bloc ({}), tandis que var a une portée de fonction. C'est la principale différence entre les deux."
+    },
+    {
+      "id": "js_deb_002",
+      "numero": 2,
+      "concept": "Variables (let, var, const)",
+      "difficulte": "facile",
+      "enonce": "Qu'affichera ce code ? const PI = 3.14; PI = 3.14159; console.log(PI);",
+      "options": [
+        "Erreur (AssignmentError)",
+        "3.14",
+        "3.14159",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Les variables const ne peuvent pas être réassignées. Tenter de le faire produit une erreur."
+    },
+    {
+      "id": "js_deb_003",
+      "numero": 3,
+      "concept": "Types de données",
+      "difficulte": "facile",
+      "enonce": "Quel est le type de '42' (le nombre quarante-deux entre guillemets) en JavaScript ?",
+      "options": [
+        "string",
+        "number",
+        "int",
+        "float"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Les guillemets font de '42' une chaîne de caractères (string), pas un nombre (number)."
+    },
+    {
+      "id": "js_deb_004",
+      "numero": 4,
+      "concept": "Types de données",
+      "difficulte": "facile",
+      "enonce": "Quel sera le résultat de 'hello' + 5 en JavaScript ?",
+      "options": [
+        "'hello5' (concaténation)",
+        "10",
+        "NaN (Not a Number)",
+        "Erreur de type"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "L'opérateur + entre une chaîne et un nombre concatène les deux, résultant en 'hello5'."
+    },
+    {
+      "id": "js_deb_005",
+      "numero": 5,
+      "concept": "Variables (let, var, const)",
+      "difficulte": "facile",
+      "enonce": "Quel mot-clé devrais-tu utiliser pour déclarer une variable qui ne changera jamais ?",
+      "options": [
+        "const",
+        "let",
+        "var",
+        "static"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "const est utilisé pour les valeurs qui ne changent pas après leur déclaration."
+    },
+    {
+      "id": "js_deb_006",
+      "numero": 6,
+      "concept": "Portée et hoisting",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code ? let x = 5; if (true) { let x = 10; console.log(x); } console.log(x);",
+      "options": [
+        "10 puis 5",
+        "5 puis 10",
+        "10 puis 10",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Le x déclaré dans le bloc if a une portée locale. Le premier console.log affiche 10, le deuxième affiche le x global qui est 5."
+    },
+    {
+      "id": "js_deb_007",
+      "numero": 7,
+      "concept": "Types de données",
+      "difficulte": "facile",
+      "enonce": "Quel est le type de 'undefined' en JavaScript ?",
+      "options": [
+        "undefined",
+        "null",
+        "object",
+        "void"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "undefined est son propre type, représentant l'absence de valeur. C'est souvent la valeur par défaut d'une variable non initialisée."
+    },
+    {
+      "id": "js_deb_008",
+      "numero": 8,
+      "concept": "Variables (let, var, const)",
+      "difficulte": "moyen",
+      "enonce": "Combien de fois pouvez-vous redéclarer une variable avec 'let' ?",
+      "options": [
+        "Aucune, let empêche la redéclaration",
+        "Une fois",
+        "Autant de fois que vous le souhaitez",
+        "Deux fois"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "let empêche la redéclaration dans le même bloc. Essayer de redéclarer produit une erreur."
+    },
+    {
+      "id": "js_deb_009",
+      "numero": 9,
+      "concept": "Types de données",
+      "difficulte": "moyen",
+      "enonce": "Quel sera le résultat de typeof null en JavaScript ?",
+      "options": [
+        "'object'",
+        "'null'",
+        "'undefined'",
+        "NaN"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "C'est une particularité de JavaScript : typeof null retourne 'object', même si null est techniquement un type primitif différent."
+    },
+    {
+      "id": "js_deb_010",
+      "numero": 10,
+      "concept": "Variables (let, var, const)",
+      "difficulte": "difficile",
+      "enonce": "Qu'affichera ce code ? console.log(x); var x = 5;",
+      "options": [
+        "undefined (hoisting)",
+        "5",
+        "ReferenceError",
+        "null"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Le hoisting remonte la déclaration de var au début, mais pas l'assignation. Donc x est undefined au lieu de causer une erreur."
+    },
+    {
+      "id": "js_deb_011",
+      "numero": 11,
+      "concept": "Opérateurs arithmétiques",
+      "difficulte": "facile",
+      "enonce": "Quel est le résultat de 10 % 3 en JavaScript ?",
+      "options": [
+        "1 (modulo)",
+        "3",
+        "0",
+        "10"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "L'opérateur % (modulo) retourne le reste de la division. 10 divisé par 3 = 3 avec un reste de 1."
+    },
+    {
+      "id": "js_deb_012",
+      "numero": 12,
+      "concept": "Opérateurs arithmétiques",
+      "difficulte": "facile",
+      "enonce": "Quel est le résultat de 2 ** 3 en JavaScript ?",
+      "options": [
+        "8 (exponentiation)",
+        "6",
+        "5",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "L'opérateur ** est l'exponentiation. 2 ** 3 = 2 × 2 × 2 = 8."
+    },
+    {
+      "id": "js_deb_013",
+      "numero": 13,
+      "concept": "Opérateurs de comparaison",
+      "difficulte": "facile",
+      "enonce": "Quel est le résultat de '5' == 5 en JavaScript ?",
+      "options": [
+        "true (comparaison faible)",
+        "false",
+        "ReferenceError",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "L'opérateur == compare les valeurs après conversion de type. '5' (string) et 5 (number) sont égaux avec ==."
+    },
+    {
+      "id": "js_deb_014",
+      "numero": 14,
+      "concept": "Opérateurs de comparaison",
+      "difficulte": "moyen",
+      "enonce": "Quel est le résultat de '5' === 5 en JavaScript ?",
+      "options": [
+        "false (comparaison stricte)",
+        "true",
+        "undefined",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "L'opérateur === compare la valeur ET le type. '5' (string) et 5 (number) ne sont pas strictement égaux."
+    },
+    {
+      "id": "js_deb_015",
+      "numero": 15,
+      "concept": "Opérateurs logiques",
+      "difficulte": "facile",
+      "enonce": "Quel est le résultat de true && false en JavaScript ?",
+      "options": [
+        "false",
+        "true",
+        "null",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "L'opérateur && (AND) retourne true seulement si TOUS les opérandes sont true. Ici, c'est false."
+    },
+    {
+      "id": "js_deb_016",
+      "numero": 16,
+      "concept": "Opérateurs logiques",
+      "difficulte": "facile",
+      "enonce": "Quel est le résultat de true || false en JavaScript ?",
+      "options": [
+        "true",
+        "false",
+        "null",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "L'opérateur || (OR) retourne true si AU MOINS UN opérande est true. Ici, true est true."
+    },
+    {
+      "id": "js_deb_017",
+      "numero": 17,
+      "concept": "Opérateurs logiques",
+      "difficulte": "moyen",
+      "enonce": "Quel est le résultat de !true en JavaScript ?",
+      "options": [
+        "false",
+        "true",
+        "!true",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "L'opérateur ! (NOT) inverse une valeur booléenne. !true = false."
+    },
+    {
+      "id": "js_deb_018",
+      "numero": 18,
+      "concept": "Opérateurs arithmétiques",
+      "difficulte": "moyen",
+      "enonce": "Quel est le résultat de 5 + 3 * 2 en JavaScript (ordres d'opération) ?",
+      "options": [
+        "11",
+        "16",
+        "10",
+        "6"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "La multiplication a une priorité plus élevée que l'addition. Donc 3 * 2 = 6, puis 5 + 6 = 11."
+    },
+    {
+      "id": "js_deb_019",
+      "numero": 19,
+      "concept": "Conditions (if, else, switch)",
+      "difficulte": "facile",
+      "enonce": "Qu'affichera ce code ? if (5 > 3) { console.log('oui'); } else { console.log('non'); }",
+      "options": [
+        "'oui'",
+        "'non'",
+        "5",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "5 > 3 est true, donc le bloc if s'exécute et affiche 'oui'."
+    },
+    {
+      "id": "js_deb_020",
+      "numero": 20,
+      "concept": "Conditions (if, else, switch)",
+      "difficulte": "facile",
+      "enonce": "Quel est le résultat de cette expression ternaire ? 5 > 3 ? 'oui' : 'non'",
+      "options": [
+        "'oui'",
+        "'non'",
+        "true",
+        "false"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "L'opérateur ternaire condition ? valeur_si_true : valeur_si_false retourne 'oui' car 5 > 3 est true."
+    },
+    {
+      "id": "js_deb_021",
+      "numero": 21,
+      "concept": "Conditions (if, else, switch)",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code ? let x = 2; switch (x) { case 1: console.log('un'); break; case 2: console.log('deux'); break; default: console.log('autre'); }",
+      "options": [
+        "'deux'",
+        "'un'",
+        "'autre'",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "x est 2, donc le case 2 s'exécute et affiche 'deux'. Le break empêche l'exécution des cas suivants."
+    },
+    {
+      "id": "js_deb_022",
+      "numero": 22,
+      "concept": "Conditions (if, else, switch)",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code si le break est manquant ? let x = 1; switch (x) { case 1: console.log('un'); case 2: console.log('deux'); }",
+      "options": [
+        "'un' puis 'deux' (pas de break)",
+        "'un' seulement",
+        "'deux' seulement",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Sans break, l'exécution continue au cas suivant (fall-through). C'est un piège courant en JavaScript."
+    },
+    {
+      "id": "js_deb_023",
+      "numero": 23,
+      "concept": "Conditions (if, else, switch)",
+      "difficulte": "difficile",
+      "enonce": "Qu'affichera ce code ? if (0) { console.log('truthy'); } else { console.log('falsy'); }",
+      "options": [
+        "'falsy' (0 est falsy)",
+        "'truthy'",
+        "0",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "En JavaScript, 0 est une valeur falsy. Les autres valeurs falsy incluent false, null, undefined, '', NaN."
+    },
+    {
+      "id": "js_deb_024",
+      "numero": 24,
+      "concept": "Conditions (if, else, switch)",
+      "difficulte": "difficile",
+      "enonce": "Qu'affichera ce code ? if ('') { console.log('truthy'); } else { console.log('falsy'); }",
+      "options": [
+        "'falsy' ('' est falsy)",
+        "'truthy'",
+        "''",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Une chaîne vide '' est une valeur falsy, même si techniquement c'est une chaîne."
+    },
+    {
+      "id": "js_deb_025",
+      "numero": 25,
+      "concept": "Conditions (if, else, switch)",
+      "difficulte": "moyen",
+      "enonce": "Quel est le résultat de !!'hello' en JavaScript ?",
+      "options": [
+        "true (conversão de 'hello' en booléen)",
+        "false",
+        "'hello'",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "!! convertit une valeur en booléen. 'hello' est truthy, donc !!'hello' = true."
+    },
+    {
+      "id": "js_deb_026",
+      "numero": 26,
+      "concept": "Conditions (if, else, switch)",
+      "difficulte": "difficile",
+      "enonce": "Qu'affichera ce code ? if (null) { console.log('yes'); } else { console.log('no'); }",
+      "options": [
+        "'no' (null est falsy)",
+        "'yes'",
+        "null",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "null est une valeur falsy, donc le bloc else s'exécute."
+    },
+    {
+      "id": "js_deb_027",
+      "numero": 27,
+      "concept": "Boucles (for, while, do-while)",
+      "difficulte": "facile",
+      "enonce": "Qu'affichera cette boucle ? for (let i = 0; i < 3; i++) { console.log(i); }",
+      "options": [
+        "0 1 2",
+        "1 2 3",
+        "0 1 2 3",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "La boucle commence à 0, s'incrémente et s'arrête avant 3 (i < 3), donc affiche 0, 1, 2."
+    },
+    {
+      "id": "js_deb_028",
+      "numero": 28,
+      "concept": "Boucles (for, while, do-while)",
+      "difficulte": "facile",
+      "enonce": "Combien de fois cette boucle while s'exécute-t-elle ? let i = 0; while (i < 3) { console.log(i); i++; }",
+      "options": [
+        "3 fois (i = 0, 1, 2)",
+        "2 fois",
+        "4 fois",
+        "Infini (boucle infinie)"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "La boucle s'exécute tant que i < 3. Donc pour i = 0, 1, 2 (3 fois au total)."
+    },
+    {
+      "id": "js_deb_029",
+      "numero": 29,
+      "concept": "Boucles (for, while, do-while)",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code ? let i = 0; do { console.log(i); i++; } while (i < 0);",
+      "options": [
+        "0 (do-while s'exécute au moins une fois)",
+        "Rien (pas d'affichage)",
+        "Erreur",
+        "Boucle infinie"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "do-while s'exécute au moins une fois avant de tester la condition. Donc i (0) est affiché une fois."
+    },
+    {
+      "id": "js_deb_030",
+      "numero": 30,
+      "concept": "Boucles (for, while, do-while)",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code ? for (let i = 0; i < 5; i++) { if (i === 2) break; console.log(i); }",
+      "options": [
+        "0 1 (break sort de la boucle)",
+        "0 1 2 3 4",
+        "2 3 4",
+        "0"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Le break sort de la boucle quand i === 2. Donc seuls 0 et 1 sont affichés."
+    },
+    {
+      "id": "js_deb_031",
+      "numero": 31,
+      "concept": "Boucles (for, while, do-while)",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code ? for (let i = 0; i < 5; i++) { if (i === 2) continue; console.log(i); }",
+      "options": [
+        "0 1 3 4 (continue saute i=2)",
+        "0 1 2 3 4",
+        "2 3 4",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "continue saute l'itération actuelle et passe à la suivante. Donc i = 2 est ignoré."
+    },
+    {
+      "id": "js_deb_032",
+      "numero": 32,
+      "concept": "Boucles (for, while, do-while)",
+      "difficulte": "difficile",
+      "enonce": "Qu'affichera ce code ? for (let i = 0; i < 3; i++) { for (let j = 0; j < 2; j++) { console.log(i, j); } }",
+      "options": [
+        "0 0 | 0 1 | 1 0 | 1 1 | 2 0 | 2 1",
+        "0 0 | 1 1 | 2 2",
+        "0 | 1 | 2",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Les boucles imbriquées créent 3 × 2 = 6 itérations. i varie de 0 à 2, j varie de 0 à 1 pour chaque i."
+    },
+    {
+      "id": "js_deb_033",
+      "numero": 33,
+      "concept": "Boucles (for, while, do-while)",
+      "difficulte": "difficile",
+      "enonce": "Qu'affichera ce code ? let x = 5; while (x > 0) { console.log(x); x--; }",
+      "options": [
+        "5 4 3 2 1",
+        "5 4 3 2 1 0",
+        "1 2 3 4 5",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "La boucle affiche x et le décrémente jusqu'à 0 (exclusif). Donc 5, 4, 3, 2, 1."
+    },
+    {
+      "id": "js_deb_034",
+      "numero": 34,
+      "concept": "Boucles (for, while, do-while)",
+      "difficulte": "moyen",
+      "enonce": "Quel est le résultat de cette boucle ? let somme = 0; for (let i = 1; i <= 4; i++) { somme += i; }",
+      "options": [
+        "10 (1+2+3+4)",
+        "6",
+        "4",
+        "12"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "La boucle additionne 1 + 2 + 3 + 4 = 10."
+    },
+    {
+      "id": "js_deb_035",
+      "numero": 35,
+      "concept": "Fonctions et paramètres",
+      "difficulte": "facile",
+      "enonce": "Qu'affichera ce code ? function greet(name) { console.log('Hello ' + name); } greet('Alice');",
+      "options": [
+        "'Hello Alice'",
+        "'Hello'",
+        "'Alice'",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "La fonction greet concatène 'Hello ' avec le paramètre name, qui est 'Alice'."
+    },
+    {
+      "id": "js_deb_036",
+      "numero": 36,
+      "concept": "Retour de fonction",
+      "difficulte": "facile",
+      "enonce": "Qu'affichera ce code ? function add(a, b) { return a + b; } console.log(add(3, 5));",
+      "options": [
+        "8",
+        "3",
+        "5",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "La fonction add retourne la somme de a et b. Donc add(3, 5) = 8."
+    },
+    {
+      "id": "js_deb_037",
+      "numero": 37,
+      "concept": "Fonctions et paramètres",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code ? function test(x = 5) { return x * 2; } console.log(test());",
+      "options": [
+        "10 (paramètre par défaut)",
+        "NaN",
+        "5",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Si aucun argument n'est passé, la valeur par défaut (5) est utilisée. Donc x = 5 et x * 2 = 10."
+    },
+    {
+      "id": "js_deb_038",
+      "numero": 38,
+      "concept": "Fonctions et paramètres",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code ? function add(a, b, c) { return a + b + c; } console.log(add(1, 2));",
+      "options": [
+        "NaN (c est undefined)",
+        "3",
+        "1",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "c est undefined car aucun troisième argument n'est passé. undefined + 1 + 2 = NaN."
+    },
+    {
+      "id": "js_deb_039",
+      "numero": 39,
+      "concept": "Retour de fonction",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code ? function test() { return; } console.log(test());",
+      "options": [
+        "undefined",
+        "null",
+        "false",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Un return sans valeur retourne undefined."
+    },
+    {
+      "id": "js_deb_040",
+      "numero": 40,
+      "concept": "Fonctions et paramètres",
+      "difficulte": "difficile",
+      "enonce": "Qu'affichera ce code ? let x = 5; function change() { x = 10; } change(); console.log(x);",
+      "options": [
+        "10 (la fonction modifie la variable globale)",
+        "5",
+        "undefined",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "La fonction change accède et modifie la variable globale x. Après l'appel, x est 10."
+    },
+    {
+      "id": "js_deb_041",
+      "numero": 41,
+      "concept": "Fonctions et paramètres",
+      "difficulte": "difficile",
+      "enonce": "Quel est le résultat de cette fonction ? function factorial(n) { if (n === 0) return 1; return n * factorial(n - 1); } factorial(3);",
+      "options": [
+        "6 (3 × 2 × 1)",
+        "3",
+        "9",
+        "Erreur (récursion infinie)"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "C'est une fonction récursive. factorial(3) = 3 × factorial(2) = 3 × 2 × factorial(1) = 3 × 2 × 1 = 6."
+    },
+    {
+      "id": "js_deb_042",
+      "numero": 42,
+      "concept": "Retour de fonction",
+      "difficulte": "difficile",
+      "enonce": "Qu'affichera ce code ? function test() { let x = 5; return function() { return x; }; } let fn = test(); console.log(fn());",
+      "options": [
+        "5 (closure)",
+        "undefined",
+        "function",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "C'est une closure. La fonction interne retourne accède à x du scope de test(), même après que test() ait terminé."
+    },
+    {
+      "id": "js_deb_043",
+      "numero": 43,
+      "concept": "Tableaux (arrays)",
+      "difficulte": "facile",
+      "enonce": "Qu'affichera ce code ? let arr = [1, 2, 3]; console.log(arr[1]);",
+      "options": [
+        "2",
+        "1",
+        "3",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Les tableaux sont indexés à partir de 0. arr[1] est le deuxième élément, qui est 2."
+    },
+    {
+      "id": "js_deb_044",
+      "numero": 44,
+      "concept": "Tableaux (arrays)",
+      "difficulte": "facile",
+      "enonce": "Qu'affichera ce code ? let arr = [1, 2, 3]; arr.push(4); console.log(arr.length);",
+      "options": [
+        "4",
+        "3",
+        "1",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "push ajoute un élément au tableau. Après push(4), la longueur est 4."
+    },
+    {
+      "id": "js_deb_045",
+      "numero": 45,
+      "concept": "Tableaux (arrays)",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code ? let arr = [1, 2, 3]; arr.pop(); console.log(arr);",
+      "options": [
+        "[1, 2]",
+        "[1, 2, 3]",
+        "3",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "pop retire le dernier élément du tableau. Donc [1, 2, 3] devient [1, 2]."
+    },
+    {
+      "id": "js_deb_046",
+      "numero": 46,
+      "concept": "Tableaux (arrays)",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code ? let arr = [1, 2, 3]; console.log(arr.includes(2));",
+      "options": [
+        "true",
+        "false",
+        "2",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "includes retourne true si l'élément 2 se trouve dans le tableau, false sinon."
+    },
+    {
+      "id": "js_deb_047",
+      "numero": 47,
+      "concept": "Tableaux (arrays)",
+      "difficulte": "difficile",
+      "enonce": "Qu'affichera ce code ? let arr = [1, 2, 3]; let result = arr.map(x => x * 2); console.log(result);",
+      "options": [
+        "[2, 4, 6]",
+        "[1, 2, 3]",
+        "6",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "map applique une fonction à chaque élément. x => x * 2 double chaque élément."
+    },
+    {
+      "id": "js_deb_048",
+      "numero": 48,
+      "concept": "Objets (objects)",
+      "difficulte": "facile",
+      "enonce": "Qu'affichera ce code ? let obj = {name: 'Alice', age: 30}; console.log(obj.name);",
+      "options": [
+        "'Alice'",
+        "'name'",
+        "30",
+        "undefined"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "obj.name accède à la propriété name de l'objet, qui est 'Alice'."
+    },
+    {
+      "id": "js_deb_049",
+      "numero": 49,
+      "concept": "Objets (objects)",
+      "difficulte": "moyen",
+      "enonce": "Qu'affichera ce code ? let obj = {name: 'Bob'}; console.log(obj['name']);",
+      "options": [
+        "'Bob'",
+        "'name'",
+        "undefined",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "obj['name'] est équivalent à obj.name. Les deux accèdent à la propriété name."
+    },
+    {
+      "id": "js_deb_050",
+      "numero": 50,
+      "concept": "Bonnes pratiques",
+      "difficulte": "difficile",
+      "enonce": "Quel ensemble de bonnes pratiques est correct pour JavaScript ?",
+      "options": [
+        "Utiliser const par défaut, let si la variable change, éviter var",
+        "Utiliser var pour tout",
+        "Utiliser let pour les constantes",
+        "Aucune règle pour le choix de const/let/var"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Les bonnes pratiques modernes en JavaScript sont : const par défaut (valeurs fixes), let si la variable doit changer, et éviter var (c'est du style ancien)."
+    }
+  ],
+  "logique_passage": {
+    "points_requis": 75,
+    "note_sur_20_requise": 15,
+    "message_reussi": "Félicitations ! Vous avez réussi le quiz niveau débutant et pouvez passer au niveau intermédiaire.",
+    "message_echec": "Vous n'avez pas atteint le seuil requis (75/100). Revisez les concepts et réessayez.",
+    "pistes_de_revision": [
+      "Relire la leçon sur les variables",
+      "Pratiquer avec les exercices",
+      "Réviser les opérateurs et conditions",
+      "Consolider la compréhension des boucles",
+      "Maîtriser les fonctions et closures"
+    ]
+  }
+}
