@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les boucles avancées en JavaScript</title>
+</head>
+<body>
+    <div class="lesson-content">
+        <h1>Les boucles avancées en JavaScript</h1>
+
+        <p><strong>Durée estimée :</strong> 18 minutes | <strong>Niveau :</strong> Intermédiaire</p>
+
+        <h2>Introduction</h2>
+        <p>Vous connaissez déjà <code>for</code>, <code>while</code> et <code>do...while</code>. Maintenant, découvrez les boucles modernes et les méthodes de tableau qui rendent le code plus lisible et expressif. Ces outils vous permettront d'écrire du JavaScript plus propre et fonctionnel.</p>
+
+        <h2>1. for...in : itérer sur les propriétés d'un objet</h2>
+        <p><code>for...in</code> parcourt toutes les propriétés énumérables d'un objet. C'est idéal pour les objets, mais à éviter pour les tableaux (utilisez <code>for...of</code> à la place).</p>
+
+        <h3>Syntaxe</h3>
+        <pre><code class="language-javascript">for (let clé in objet) {
+  console.log(clé);        // nom de la propriété
+  console.log(objet[clé]); // valeur de la propriété
+}</code></pre>
+
+        <h3>Exemple 1 : Afficher les propriétés d'un objet</h3>
+        <pre><code class="language-javascript">const utilisateur = {
+  nom: 'Alice',
+  âge: 28,
+  ville: 'Paris'
+};
+
+for (let clé in utilisateur) {
+  console.log(`${clé}: ${utilisateur[clé]}`);
+}
+
+// Résultat :
+// nom: Alice
+// âge: 28
+// ville: Paris</code></pre>
+
+        <h3>Exemple 2 : Calculer la somme des propriétés numériques</h3>
+        <pre><code class="language-javascript">const scores = {
+  math: 95,
+  français: 88,
+  histoire: 92
+};
+
+let total = 0;
+for (let matière in scores) {
+  total += scores[matière];
+}
+
+console.log(`Total : ${total}`);       // Total : 275
+console.log(`Moyenne : ${total / 3}`); // Moyenne : 91.67</code></pre>
+
+        <p><strong>⚠️ Attention :</strong> <code>for...in</code> n'est pas recommandé pour les tableaux. Il parcourt toutes les propriétés, pas seulement les indices. Utilisez plutôt <code>for...of</code> (voir section 2).</p>
+
+        <h2>2. for...of : itérer sur les valeurs d'un itérable</h2>
+        <p><code>for...of</code> est le choix moderne pour parcourir des tableaux, chaînes de caractères, et autres itérables. Contrairement à <code>for...in</code>, il itère sur les <strong>valeurs</strong>, pas les clés.</p>
+
+        <h3>Syntaxe</h3>
+        <pre><code class="language-javascript">for (let valeur of itérable) {
+  // faire quelque chose avec valeur
+}</code></pre>
+
+        <h3>Exemple 1 : Parcourir un tableau</h3>
+        <pre><code class="language-javascript">const couleurs = ['rouge', 'vert', 'bleu'];
+
+for (let couleur of couleurs) {
+  console.log(couleur);
+}
+
+// Résultat :
+// rouge
+// vert
+// bleu</code></pre>
+
+        <h3>Exemple 2 : Parcourir une chaîne</h3>
+        <pre><code class="language-javascript">const mot = 'JavaScript';
+
+for (let lettre of mot) {
+  console.log(lettre);
+}
+
+// Résultat : J, a, v, a, S, c, r, i, p, t (chacun sur une ligne)</code></pre>
+
+        <h3>Exemple 3 : Accumulation avec for...of</h3>
+        <pre><code class="language-javascript">const nombres = [10, 20, 30, 40];
+let somme = 0;
+
+for (let nombre of nombres) {
+  somme += nombre;
+}
+
+console.log(`Somme : ${somme}`); // Somme : 100</code></pre>
+
+        <h2>3. forEach() : exécuter une fonction pour chaque élément</h2>
+        <p><code>forEach()</code> est une méthode de tableau qui applique une fonction à chaque élément. Elle est plus courte que les boucles traditionnelles et très lisible.</p>
+
+        <h3>Syntaxe</h3>
+        <pre><code class="language-javascript">tableau.forEach((element, index) => {
+  // element : la valeur actuelle
+  // index : l'indice de l'élément (optionnel)
+});</code></pre>
+
+        <h3>Exemple 1 : Afficher chaque élément</h3>
+        <pre><code class="language-javascript">const fruits = ['pomme', 'banane', 'orange'];
+
+fruits.forEach((fruit) => {
+  console.log(fruit);
+});
+
+// Résultat :
+// pomme
+// banane
+// orange</code></pre>
+
+        <h3>Exemple 2 : Utiliser l'index</h3>
+        <pre><code class="language-javascript">const tâches = ['faire courses', 'nettoyer', 'cuisiner'];
+
+tâches.forEach((tâche, index) => {
+  console.log(`${index + 1}. ${tâche}`);
+});
+
+// Résultat :
+// 1. faire courses
+// 2. nettoyer
+// 3. cuisiner</code></pre>
+
+        <p><strong>Différence clé :</strong> Contrairement à <code>for</code> et <code>while</code>, <code>forEach()</code> <strong>ne peut pas être arrêtée</strong> avec <code>break</code> ou <code>continue</code>. Si vous avez besoin de ces contrôles, utilisez une boucle traditionnelle ou <code>for...of</code>.</p>
+
+        <h2>4. map() : transformer chaque élément</h2>
+        <p><code>map()</code> crée un <strong>nouveau tableau</strong> en appliquant une fonction à chaque élément. L'original n'est pas modifié.</p>
+
+        <h3>Syntaxe</h3>
+        <pre><code class="language-javascript">const nouveauTableau = tableau.map((element) => {
+  return transformationDe(element);
+});</code></pre>
+
+        <h3>Exemple 1 : Doubler chaque nombre</h3>
+        <pre><code class="language-javascript">const nombres = [1, 2, 3, 4, 5];
+
+const doublés = nombres.map((n) => n * 2);
+
+console.log(doublés); // [2, 4, 6, 8, 10]
+console.log(nombres); // [1, 2, 3, 4, 5] (inchangé)</code></pre>
+
+        <h3>Exemple 2 : Transformer des objets</h3>
+        <pre><code class="language-javascript">const utilisateurs = [
+  { nom: 'Alice', âge: 28 },
+  { nom: 'Bob', âge: 35 },
+  { nom: 'Charlie', âge: 22 }
+];
+
+const noms = utilisateurs.map((user) => user.nom);
+
+console.log(noms); // ['Alice', 'Bob', 'Charlie']</code></pre>
+
+        <h3>Exemple 3 : Convertir les types</h3>
+        <pre><code class="language-javascript">const prix = ['10.50', '25.00', '5.99'];
+
+const prixNombres = prix.map((p) => parseFloat(p));
+
+console.log(prixNombres); // [10.5, 25, 5.99]</code></pre>
+
+        <h2>5. filter() : sélectionner les éléments qui correspondent</h2>
+        <p><code>filter()</code> crée un nouveau tableau contenant seulement les éléments qui satisfont une condition.</p>
+
+        <h3>Syntaxe</h3>
+        <pre><code class="language-javascript">const nouveau = tableau.filter((element) => {
+  return condition(element);
+});</code></pre>
+
+        <h3>Exemple 1 : Sélectionner les nombres pairs</h3>
+        <pre><code class="language-javascript">const nombres = [1, 2, 3, 4, 5, 6, 7, 8];
+
+const pairs = nombres.filter((n) => n % 2 === 0);
+
+console.log(pairs); // [2, 4, 6, 8]</code></pre>
+
+        <h3>Exemple 2 : Sélectionner les objets selon un critère</h3>
+        <pre><code class="language-javascript">const produits = [
+  { nom: 'Laptop', prix: 1200 },
+  { nom: 'Souris', prix: 25 },
+  { nom: 'Clavier', prix: 80 },
+  { nom: 'Écran', prix: 300 }
+];
+
+const produitsCher = produits.filter((p) => p.prix > 100);
+
+console.log(produitsCher);
+// [{nom: 'Laptop', prix: 1200}, {nom: 'Écran', prix: 300}]</code></pre>
+
+        <h3>Exemple 3 : Combiner map et filter</h3>
+        <pre><code class="language-javascript">const notes = [45, 88, 92, 62, 78, 55, 95];
+
+// D'abord filtrer les notes ≥ 70, puis les doubler
+const bonnesNotes = notes
+  .filter((note) => note >= 70)
+  .map((note) => note * 2);
+
+console.log(bonnesNotes); // [176, 184, 156, 190]</code></pre>
+
+        <h2>6. reduce() : accumuler une seule valeur</h2>
+        <p><code>reduce()</code> combine tous les éléments d'un tableau en une seule valeur. Utile pour calculer des sommes, produits, ou d'autres agrégations.</p>
+
+        <h3>Syntaxe</h3>
+        <pre><code class="language-javascript">const résultat = tableau.reduce((accumulateur, element) => {
+  return nouvelAccumulateur;
+}, valeurInitiale);</code></pre>
+
+        <h3>Exemple 1 : Somme des éléments</h3>
+        <pre><code class="language-javascript">const nombres = [10, 20, 30, 40];
+
+const somme = nombres.reduce((acc, n) => acc + n, 0);
+
+console.log(somme); // 100</code></pre>
+
+        <p><strong>Comment ça marche :</strong></p>
+        <ul>
+            <li>Itération 1 : acc = 0, n = 10 → acc + n = 10</li>
+            <li>Itération 2 : acc = 10, n = 20 → acc + n = 30</li>
+            <li>Itération 3 : acc = 30, n = 30 → acc + n = 60</li>
+            <li>Itération 4 : acc = 60, n = 40 → acc + n = 100</li>
+        </ul>
+
+        <h3>Exemple 2 : Produit des éléments</h3>
+        <pre><code class="language-javascript">const facteurs = [2, 3, 4, 5];
+
+const produit = facteurs.reduce((acc, f) => acc * f, 1);
+
+console.log(produit); // 120</code></pre>
+
+        <h3>Exemple 3 : Grouper des données</h3>
+        <pre><code class="language-javascript">const ventes = [
+  { produit: 'Laptop', montant: 1200 },
+  { produit: 'Souris', montant: 25 },
+  { produit: 'Laptop', montant: 1200 },
+  { produit: 'Clavier', montant: 80 }
+];
+
+const total = ventes.reduce((acc, vente) => {
+  acc[vente.produit] = (acc[vente.produit] || 0) + vente.montant;
+  return acc;
+}, {});
+
+console.log(total);
+// { Laptop: 2400, Souris: 25, Clavier: 80 }</code></pre>
+
+        <h2>Tableau comparatif : Quand utiliser quoi ?</h2>
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <th>Méthode</th>
+                <th>Cas d'usage</th>
+                <th>Retour</th>
+            </tr>
+            <tr>
+                <td><code>for...in</code></td>
+                <td>Parcourir les propriétés d'un objet</td>
+                <td>Pas de retour (parcours)</td>
+            </tr>
+            <tr>
+                <td><code>for...of</code></td>
+                <td>Parcourir les valeurs d'un tableau ou chaîne</td>
+                <td>Pas de retour (parcours)</td>
+            </tr>
+            <tr>
+                <td><code>forEach()</code></td>
+                <td>Effectuer une action sur chaque élément (sans break/continue)</td>
+                <td>undefined</td>
+            </tr>
+            <tr>
+                <td><code>map()</code></td>
+                <td>Transformer chaque élément</td>
+                <td>Nouveau tableau transformé</td>
+            </tr>
+            <tr>
+                <td><code>filter()</code></td>
+                <td>Sélectionner les éléments qui correspondent à une condition</td>
+                <td>Nouveau tableau filtré</td>
+            </tr>
+            <tr>
+                <td><code>reduce()</code></td>
+                <td>Accumuler une seule valeur à partir de tous les éléments</td>
+                <td>Valeur unique (nombre, objet, chaîne, etc.)</td>
+            </tr>
+        </table>
+
+        <h2>Cas d'usage concrets</h2>
+
+        <h3>Cas 1 : Traiter une liste de commandes</h3>
+        <pre><code class="language-javascript">const commandes = [
+  { id: 1, montant: 50, payée: true },
+  { id: 2, montant: 120, payée: false },
+  { id: 3, montant: 30, payée: true },
+  { id: 4, montant: 200, payée: false }
+];
+
+// Montant total des commandes payées
+const totalPayé = commandes
+  .filter((cmd) => cmd.payée)
+  .reduce((acc, cmd) => acc + cmd.montant, 0);
+
+console.log(`Total payé : ${totalPayé}€`); // Total payé : 80€
+
+// Montant moyen des commandes
+const montantMoyen = commandes.reduce((acc, cmd) => acc + cmd.montant, 0) / commandes.length;
+
+console.log(`Montant moyen : ${montantMoyen.toFixed(2)}€`); // Montant moyen : 100.00€</code></pre>
+
+        <h3>Cas 2 : Formater et filtrer une liste d'utilisateurs</h3>
+        <pre><code class="language-javascript">const utilisateurs = [
+  { nom: 'alice', email: 'alice@example.com', premium: true },
+  { nom: 'bob', email: 'bob@example.com', premium: false },
+  { nom: 'charlie', email: 'charlie@example.com', premium: true }
+];
+
+// Formater les noms des utilisateurs premium
+const utilisateursPremium = utilisateurs
+  .filter((u) => u.premium)
+  .map((u) => ({ nom: u.nom.toUpperCase(), email: u.email }));
+
+console.log(utilisateursPremium);
+// [{nom: 'ALICE', email: 'alice@example.com'}, {nom: 'CHARLIE', email: 'charlie@example.com'}]</code></pre>
+
+        <h2>Points clés à retenir</h2>
+        <ul>
+            <li><code>for...in</code> : Propriétés d'un objet (pas pour les tableaux)</li>
+            <li><code>for...of</code> : Valeurs d'un tableau (moderne et lisible)</li>
+            <li><code>forEach()</code>, <code>map()</code>, <code>filter()</code>, <code>reduce()</code> : Méthodes fonctionnelles pour les tableaux</li>
+            <li><code>map()</code> crée un nouveau tableau (même taille)</li>
+            <li><code>filter()</code> crée un nouveau tableau (potentiellement plus petit)</li>
+            <li><code>reduce()</code> retourne une seule valeur (pas un tableau)</li>
+            <li>Vous pouvez chaîner ces méthodes : <code>tableau.filter(...).map(...).reduce(...)</code></li>
+        </ul>
+
+        <h2>Sources</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/for...in" target="_blank">MDN — for...in</a></li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/for...of" target="_blank">MDN — for...of</a></li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank">MDN — Array.forEach()</a></li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank">MDN — Array.map()</a></li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank">MDN — Array.filter()</a></li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce" target="_blank">MDN — Array.reduce()</a></li>
+            <li><a href="https://www.w3schools.com/js/js_loop_for.asp" target="_blank">W3Schools — JavaScript for Loop</a></li>
+            <li><a href="https://www.w3schools.com/js/js_array_methods.asp" target="_blank">W3Schools — Array Methods</a></li>
+        </ul>
+    </div>
+</body>
+</html>
