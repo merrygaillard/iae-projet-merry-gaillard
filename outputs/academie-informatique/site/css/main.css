@@ -1,0 +1,661 @@
+/* ====================================
+   PALETTE DE COULEURS (MODIFIABLE)
+   ==================================== */
+:root {
+  /* Couleurs sobres - À MODIFIER ICI si nécessaire */
+  --color-primary: #1a3a52;        /* Bleu foncé (majorité) */
+  --color-secondary: #c4a574;      /* Camel (accents) */
+  --color-accent: #f5e6d3;         /* Beige (fond léger) */
+  --color-bg: #ffffff;             /* Blanc (arrière-plan principal) */
+  --color-success: #27ae60;         /* Vert (succès) */
+  --color-error: #e74c3c;          /* Rouge (échec) */
+  --color-text: #2c3e50;           /* Gris foncé (texte) */
+  --color-border: #bdc3c7;         /* Gris clair (bordures) */
+  --color-light-bg: #f8f9fa;       /* Gris très léger */
+
+  /* Espacement */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Typographie */
+  --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-code: 'Monaco', 'Courier New', monospace;
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+
+  /* Ombres */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ====================================
+   STYLES GÉNÉRAUX
+   ==================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* ====================================
+   HEADER
+   ==================================== */
+.main-header {
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-lg) 0;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: var(--font-size-2xl);
+  font-weight: bold;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+/* ====================================
+   CONTAINER PRINCIPAL
+   ==================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
+  min-height: calc(100vh - 200px);
+}
+
+/* ====================================
+   BOUTONS
+   ==================================== */
+.btn {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  border-radius: 6px;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0f2235;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: #b39464;
+  transform: translateY(-2px);
+}
+
+.btn-success {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.btn-error {
+  background-color: var(--color-error);
+  color: white;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.btn-back:hover {
+  color: var(--color-secondary);
+}
+
+/* ====================================
+   PAGE D'ACCUEIL
+   ==================================== */
+.hero {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #2a5a7a 100%);
+  color: white;
+  border-radius: 12px;
+}
+
+.hero h1 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero p {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.95;
+}
+
+/* ====================================
+   GRILLE DE LANGAGES
+   ==================================== */
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.language-card {
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.language-card:hover {
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.language-card h3 {
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.lang-description {
+  color: #666;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.5;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-light-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: var(--spacing-md) 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--color-secondary);
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: var(--font-size-sm);
+  color: #999;
+  margin-bottom: var(--spacing-md);
+}
+
+/* ====================================
+   LEÇONS
+   ==================================== */
+.lessons-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.lessons-header h2 {
+  color: var(--color-primary);
+  font-size: var(--font-size-2xl);
+}
+
+.lessons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.lesson-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.lesson-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--color-secondary);
+}
+
+.lesson-card h3 {
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.lesson-meta {
+  display: flex;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  font-size: var(--font-size-sm);
+  color: #999;
+}
+
+.lesson-badge {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.lesson-badge.completed {
+  background-color: var(--color-success);
+  color: white;
+}
+
+/* ====================================
+   BARRE DE PROGRESSION
+   ==================================== */
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.progress-item {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.progress-item h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.progress-item .level {
+  font-size: var(--font-size-lg);
+  color: var(--color-secondary);
+  font-weight: bold;
+  margin: var(--spacing-md) 0;
+}
+
+.progress-item .completed {
+  color: var(--color-success);
+}
+
+.progress-item .locked {
+  color: #999;
+  opacity: 0.6;
+}
+
+/* ====================================
+   CONTENU DE LEÇON
+   ==================================== */
+.lesson-content {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.lesson-content h1 {
+  color: var(--color-primary);
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 3px solid var(--color-secondary);
+  padding-bottom: var(--spacing-md);
+}
+
+.lesson-content h2 {
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.lesson-content p {
+  margin-bottom: var(--spacing-md);
+  line-height: 1.8;
+}
+
+.lesson-content code {
+  background-color: var(--color-light-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: var(--font-code);
+  color: var(--color-error);
+}
+
+.lesson-content pre {
+  background-color: #2d2d2d;
+  color: #f8f8f2;
+  padding: var(--spacing-lg);
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: var(--spacing-lg) 0;
+  font-family: var(--font-code);
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+}
+
+.lesson-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-lg) 0;
+}
+
+.lesson-content th,
+.lesson-content td {
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-md);
+  text-align: left;
+}
+
+.lesson-content th {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: bold;
+}
+
+.lesson-content tr:nth-child(even) {
+  background-color: var(--color-light-bg);
+}
+
+/* ====================================
+   ONGLETS (Leçon + Sources)
+   ==================================== */
+.tabs {
+  margin-top: var(--spacing-xl);
+  border-top: 2px solid var(--color-border);
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.tab-button:hover {
+  color: var(--color-primary);
+}
+
+.tab-button.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-secondary);
+}
+
+.tab-content {
+  display: none;
+  padding-top: var(--spacing-lg);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.sources-list {
+  list-style: none;
+}
+
+.sources-list li {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background-color: var(--color-light-bg);
+  border-left: 4px solid var(--color-secondary);
+  border-radius: 4px;
+}
+
+.sources-list a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.sources-list a:hover {
+  text-decoration: underline;
+}
+
+.source-type {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 3px;
+  font-size: var(--font-size-sm);
+  margin-left: var(--spacing-md);
+}
+
+/* ====================================
+   EXERCICES ET QUIZ
+   ==================================== */
+.exercise-card,
+.quiz-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.exercise-number,
+.quiz-number {
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary);
+  font-weight: bold;
+  margin-bottom: var(--spacing-sm);
+}
+
+.exercise-type,
+.quiz-difficulty {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  margin-right: var(--spacing-md);
+}
+
+.exercise-enonce,
+.quiz-enonce {
+  font-size: var(--font-size-base);
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-lg);
+  background-color: var(--color-light-bg);
+  border-radius: 6px;
+}
+
+.option,
+.quiz-option {
+  background-color: #f9f9f9;
+  padding: var(--spacing-md);
+  margin: var(--spacing-sm) 0;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.option:hover,
+.quiz-option:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-secondary);
+}
+
+.option.selected,
+.quiz-option.selected {
+  border-color: var(--color-primary);
+  background-color: var(--color-accent);
+}
+
+.option.correct {
+  background-color: #d4edda;
+  border-color: var(--color-success);
+  color: #155724;
+}
+
+.option.incorrect {
+  background-color: #f8d7da;
+  border-color: var(--color-error);
+  color: #721c24;
+}
+
+.feedback {
+  padding: var(--spacing-lg);
+  border-radius: 6px;
+  margin: var(--spacing-lg) 0;
+  font-weight: 500;
+}
+
+.feedback.success {
+  background-color: #d4edda;
+  border: 1px solid var(--color-success);
+  color: #155724;
+}
+
+.feedback.error {
+  background-color: #f8d7da;
+  border: 1px solid var(--color-error);
+  color: #721c24;
+}
+
+.scoring {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  text-align: center;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 6px;
+  background-color: var(--color-light-bg);
+}
+
+.scoring.passed {
+  color: var(--color-success);
+  border: 2px solid var(--color-success);
+}
+
+.scoring.failed {
+  color: var(--color-error);
+  border: 2px solid var(--color-error);
+}
+
+/* ====================================
+   FOOTER
+   ==================================== */
+.main-footer {
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.main-footer p {
+  margin: 0;
+}
+
+/* ====================================
+   UTILITAIRES
+   ==================================== */
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
+.text-error {
+  color: var(--color-error);
+}

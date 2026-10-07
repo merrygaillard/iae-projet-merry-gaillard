@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Académie Informatique - Apprendre JavaScript, Python, SQL</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="logo">🎓 Académie Informatique</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="nav-home active">Accueil</a></li>
+                    <li><a href="#" class="nav-lessons">Leçons</a></li>
+                    <li><a href="#" class="nav-progress">Progression</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Page d'accueil -->
+        <section id="home-section" class="section-home">
+            <div class="hero">
+                <h1>Bienvenue à l'Académie Informatique</h1>
+                <p>Apprenez à coder en JavaScript, Python et SQL avec des leçons interactives, des exercices et des quiz.</p>
+                <button class="btn btn-primary" onclick="goToLessons()">Commencer l'apprentissage</button>
+            </div>
+
+            <div class="languages-grid">
+                <div class="language-card" data-lang="javascript">
+                    <h3>JavaScript</h3>
+                    <p class="lang-description">Le langage du web. Maîtrisez JavaScript pour créer des applications interactives.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <p class="progress-text">0/3 niveaux complétés</p>
+                    <button class="btn btn-secondary" onclick="selectLanguage('javascript')">Commencer</button>
+                </div>
+
+                <div class="language-card" data-lang="python">
+                    <h3>Python</h3>
+                    <p class="lang-description">Langage polyvalent. Parfait pour l'apprentissage et l'automatisation.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <p class="progress-text">0/3 niveaux complétés</p>
+                    <button class="btn btn-secondary" onclick="selectLanguage('python')">Commencer</button>
+                </div>
+
+                <div class="language-card" data-lang="sql">
+                    <h3>SQL</h3>
+                    <p class="lang-description">Les bases de données. Maîtrisez SQL pour gérer les données.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <p class="progress-text">0/3 niveaux complétés</p>
+                    <button class="btn btn-secondary" onclick="selectLanguage('sql')">Commencer</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Leçons -->
+        <section id="lessons-section" class="section-lessons" style="display: none;">
+            <div class="lessons-header">
+                <button class="btn-back" onclick="backToHome()">← Retour</button>
+                <h2 id="lessons-title">JavaScript - Débutant</h2>
+            </div>
+
+            <div class="lessons-container">
+                <!-- Les leçons seront chargées ici par JavaScript -->
+            </div>
+        </section>
+
+        <!-- Section Progression -->
+        <section id="progress-section" class="section-progress" style="display: none;">
+            <div class="progress-header">
+                <button class="btn-back" onclick="backToHome()">← Retour</button>
+                <h2>Votre Progression</h2>
+            </div>
+
+            <div class="progress-grid">
+                <!-- Sera rempli par JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Académie Informatique. Tous droits réservés.</p>
+    </footer>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/exercises.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
