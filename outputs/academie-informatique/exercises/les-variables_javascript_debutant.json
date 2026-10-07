@@ -1,0 +1,351 @@
+{
+  "concept": "Les variables",
+  "langage": "JavaScript",
+  "niveau": "débutant",
+  "total_exercices": 20,
+  "seuil_reussite": 15,
+  "points_par_exercice": 1,
+  "exercices": [
+    {
+      "id": "var_qcm_1",
+      "type": "mcq",
+      "numero": 1,
+      "difficulte": "facile",
+      "enonce": "Qu'est-ce qu'une variable en JavaScript ?",
+      "options": [
+        "A) Un conteneur qui stocke une valeur",
+        "B) Une fonction qui affiche du texte",
+        "C) Une boucle qui répète du code",
+        "D) Un mot réservé du langage"
+      ],
+      "bonne_reponse": "A",
+      "explication": "Une variable est simplement une boîte (une zone de mémoire) qui stocke une valeur. Cette valeur peut être un nombre, du texte, ou autre chose.",
+      "indices": [
+        "Indice 1 : Qu'avez-vous appris dans la première section de la leçon ?",
+        "Indice 2 : Une variable stocke quelque chose pour la réutiliser."
+      ]
+    },
+    {
+      "id": "var_qcm_2",
+      "type": "mcq",
+      "numero": 2,
+      "difficulte": "facile",
+      "enonce": "Comment déclarez-vous une variable appelée 'nom' en JavaScript ?",
+      "options": [
+        "A) var nom;",
+        "B) let nom;",
+        "C) const nom;",
+        "D) Toutes les réponses sont correctes"
+      ],
+      "bonne_reponse": "D",
+      "explication": "Vous pouvez utiliser var, let, ou const pour déclarer une variable. Cependant, pour les débutants, let est recommandé car c'est le style moderne et le plus sûr.",
+      "indices": [
+        "Indice 1 : Il y a trois façons de déclarer une variable.",
+        "Indice 2 : La leçon recommande laquelle pour les débutants ?"
+      ]
+    },
+    {
+      "id": "var_qcm_3",
+      "type": "mcq",
+      "numero": 3,
+      "difficulte": "facile",
+      "enonce": "Quel sera le résultat de ce code ? let age = 25; console.log(age);",
+      "options": [
+        "A) age",
+        "B) 25",
+        "C) undefined",
+        "D) Erreur"
+      ],
+      "bonne_reponse": "B",
+      "explication": "Quand vous utilisez console.log(age), JavaScript affiche la valeur contenue dans la variable, qui est 25, pas le nom de la variable.",
+      "indices": [
+        "Indice 1 : Que stocke la variable age ?",
+        "Indice 2 : console.log affiche la VALEUR, pas le nom de la variable."
+      ]
+    },
+    {
+      "id": "var_qcm_4",
+      "type": "mcq",
+      "numero": 4,
+      "difficulte": "facile",
+      "enonce": "Que signifie 'assigner une valeur' à une variable ?",
+      "options": [
+        "A) Donner un nom à la variable",
+        "B) Donner une valeur à la variable",
+        "C) Afficher la variable",
+        "D) Supprimer la variable"
+      ],
+      "bonne_reponse": "B",
+      "explication": "Assigner veut dire donner une valeur. Par exemple, age = 25 assigne la valeur 25 à la variable age.",
+      "indices": [
+        "Indice 1 : Relisez la section 'Étape 2 : Assigner une valeur'.",
+        "Indice 2 : L'assignation utilise le signe = (égal)."
+      ]
+    },
+    {
+      "id": "var_qcm_5",
+      "type": "mcq",
+      "numero": 5,
+      "difficulte": "moyen",
+      "enonce": "Quelle est la principale différence entre 'let' et 'const' ?",
+      "options": [
+        "A) let est plus rapide que const",
+        "B) const ne peut pas être changée après sa déclaration",
+        "C) let fonctionne seulement dans les fonctions",
+        "D) Aucune différence, c'est juste une question de style"
+      ],
+      "bonne_reponse": "B",
+      "explication": "const signifie 'constant' — une fois qu'elle est définie, on ne peut pas changer sa valeur. let peut être changée autant de fois qu'on veut.",
+      "indices": [
+        "Indice 1 : Relisez le tableau comparatif dans la leçon.",
+        "Indice 2 : 'const' signifie 'constant' — quelque chose qui ne change pas."
+      ]
+    },
+    {
+      "id": "var_qcm_6",
+      "type": "mcq",
+      "numero": 6,
+      "difficulte": "moyen",
+      "enonce": "Quel nom de variable respecte la convention de nommage JavaScript recommandée ?",
+      "options": [
+        "A) let mon_nom = 'Tom';",
+        "B) let MontNom = 'Tom';",
+        "C) let monNom = 'Tom';",
+        "D) let monnom = 'Tom';"
+      ],
+      "bonne_reponse": "C",
+      "explication": "JavaScript utilise la convention camelCase : la première lettre est minuscule, puis chaque nouveau mot commence par une majuscule (monNom, pas mon_nom, MontNom, ou monnom).",
+      "indices": [
+        "Indice 1 : La convention s'appelle 'camelCase'. Pourquoi ?",
+        "Indice 2 : Regardez la section 'Convention recommandée' dans la leçon."
+      ]
+    },
+    {
+      "id": "var_qcm_7",
+      "type": "mcq",
+      "numero": 7,
+      "difficulte": "moyen",
+      "enonce": "Qu'affiche ce code ? let x = 10; if (true) { let x = 20; console.log(x); } console.log(x);",
+      "options": [
+        "A) 10 puis 10",
+        "B) 20 puis 10",
+        "C) 20 puis 20",
+        "D) Erreur"
+      ],
+      "bonne_reponse": "B",
+      "explication": "À cause de la portée : le x déclaré dans le bloc {} est différent du x global. À l'intérieur du bloc, on affiche 20. Après, on affiche le x global qui est 10.",
+      "indices": [
+        "Indice 1 : Relisez la section 'La portée (scope)'.",
+        "Indice 2 : Une variable créée avec let n'existe que dans son bloc."
+      ]
+    },
+    {
+      "id": "var_qcm_8",
+      "type": "mcq",
+      "numero": 8,
+      "difficulte": "difficile",
+      "enonce": "Pourquoi devez-vous toujours déclarer une variable avec let, const, ou var ?",
+      "options": [
+        "A) C'est juste une convention, ce n'est pas obligatoire",
+        "B) JavaScript l'exige pour éviter les erreurs et la confusion",
+        "C) Pour rendre le code plus lisible",
+        "D) Parce que c'est plus rapide"
+      ],
+      "bonne_reponse": "B",
+      "explication": "Si vous écrivez nom = 'Tom' sans let/const/var, vous créez une variable globale par accident. C'est dangereux car ça peut causer des bugs. Toujours déclarer explicitement.",
+      "indices": [
+        "Indice 1 : Relisez le piège 1 dans la leçon.",
+        "Indice 2 : Qu'arrive-t-il si vous oubliez de déclarer ?"
+      ]
+    },
+    {
+      "id": "var_qcm_9",
+      "type": "mcq",
+      "numero": 9,
+      "difficulte": "difficile",
+      "enonce": "Que ferait ce code ? const PI = 3.14; PI = 3.14159;",
+      "options": [
+        "A) Affiche 3.14159",
+        "B) Affiche 3.14",
+        "C) Produit une erreur",
+        "D) Declare PI deux fois"
+      ],
+      "bonne_reponse": "C",
+      "explication": "Vous ne pouvez pas changer une variable déclarée avec const. Ce code produit une erreur. const est utilisée pour les valeurs qui ne changent jamais.",
+      "indices": [
+        "Indice 1 : Relisez le piège 3 dans la leçon.",
+        "Indice 2 : 'const' signifie que la valeur ne peut pas être modifiée."
+      ]
+    },
+    {
+      "id": "var_qcm_10",
+      "type": "mcq",
+      "numero": 10,
+      "difficulte": "difficile",
+      "enonce": "Quel ensemble de déclarations suit les bonnes pratiques pour une boutique en ligne ?",
+      "options": [
+        "A) let prix = 29.99; let quantite = 2; let total = prix * quantite;",
+        "B) const prix = 29.99; const quantite = 2; let total = prix * quantite;",
+        "C) var prix = 29.99; var quantite = 2; var total = prix * quantite;",
+        "D) nom_produit = 'Livre'; prix = 29.99; quantite = 2;"
+      ],
+      "bonne_reponse": "B",
+      "explication": "Utilisez const pour les valeurs fixes (prix, quantité du produit) et let pour les valeurs calculées (total). Évitez var car c'est du style ancien. Toujours déclarer !",
+      "indices": [
+        "Indice 1 : Quelles valeurs ne changent pas ? Lesquelles changent ?",
+        "Indice 2 : const pour les constantes, let pour les variables qui changent."
+      ]
+    },
+    {
+      "id": "var_trou_1",
+      "type": "fill_blank",
+      "numero": 11,
+      "difficulte": "facile",
+      "enonce": "Complétez : _____ nom = 'Alice';",
+      "reponse_attendue": "let",
+      "reponses_acceptees": ["let", "var", "const"],
+      "explication": "Vous devez déclarer une variable avant de l'utiliser. let, var, et const sont tous acceptés, mais let est recommandé.",
+      "indices": [
+        "Indice 1 : C'est un mot-clé pour déclarer une variable.",
+        "Indice 2 : Pour les débutants, on recommande ___."
+      ]
+    },
+    {
+      "id": "var_trou_2",
+      "type": "fill_blank",
+      "numero": 12,
+      "difficulte": "facile",
+      "enonce": "Complétez : let age; age = ____;",
+      "reponse_attendue": "un nombre (ex: 25)",
+      "reponses_acceptees": ["25", "30", "20", "un nombre", "une valeur"],
+      "explication": "Vous assignez une valeur à la variable age. Vous pouvez mettre n'importe quel nombre.",
+      "indices": [
+        "Indice 1 : age est une variable pour stocker un âge.",
+        "Indice 2 : Assignez une valeur numérique."
+      ]
+    },
+    {
+      "id": "var_trou_3",
+      "type": "fill_blank",
+      "numero": 13,
+      "difficulte": "moyen",
+      "enonce": "Complétez : Les valeurs qui ne changent jamais doivent être déclarées avec _____.\\nLes valeurs qui changent doivent être déclarées avec _____.",
+      "reponse_attendue": "const; let",
+      "reponses_acceptees": ["const et let", "const; let"],
+      "explication": "const est pour les constantes (valeurs fixes). let est pour les variables qui peuvent changer. Cette distinction rend le code plus lisible et sûr.",
+      "indices": [
+        "Indice 1 : Relisez le tableau comparatif dans la leçon.",
+        "Indice 2 : Quel mot-clé vous empêche de modifier une valeur ?"
+      ]
+    },
+    {
+      "id": "var_trou_4",
+      "type": "fill_blank",
+      "numero": 14,
+      "difficulte": "moyen",
+      "enonce": "Complétez : La convention de nommage JavaScript utilise _____ : premiereLettreMajuscule, ou premierMot + SecondMot ?",
+      "reponse_attendue": "camelCase",
+      "reponses_acceptees": ["camelCase", "camel case", "camelcase"],
+      "explication": "JavaScript utilise camelCase : la première lettre est minuscule, puis chaque nouveau mot commence par une majuscule (ex: nomUtilisateur, agePersonne).",
+      "indices": [
+        "Indice 1 : Relisez la section 'Convention recommandée (camelCase)'.",
+        "Indice 2 : Ça s'appelle 'camel' parce que... c'est comme une bosse de chameau !"
+      ]
+    },
+    {
+      "id": "var_trou_5",
+      "type": "fill_blank",
+      "numero": 15,
+      "difficulte": "difficile",
+      "enonce": "Complétez : Une variable déclarée avec let ou const n'existe que dans son _____ (entre { et }).",
+      "reponse_attendue": "bloc",
+      "reponses_acceptees": ["bloc", "scope", "portée"],
+      "explication": "La portée (scope) d'une variable détermine où elle existe. Une variable let/const est limitée à son bloc { }. Elle n'existe pas en dehors.",
+      "indices": [
+        "Indice 1 : Relisez la section 'La portée (scope)'.",
+        "Indice 2 : Le mot anglais est 'scope', le mot français est '______'."
+      ]
+    },
+    {
+      "id": "var_libre_1",
+      "type": "free_text",
+      "numero": 16,
+      "difficulte": "facile",
+      "enonce": "Écrivez du code JavaScript qui :\n1. Déclare une variable appelée 'prenom' avec la valeur 'Bob'\n2. Affiche la valeur avec console.log()",
+      "solution": "let prenom = 'Bob';\nconsole.log(prenom);",
+      "explication": "Vous déclarez avec let, assignez une valeur entre guillemets (c'est du texte), puis utilisez console.log pour afficher la valeur de la variable.",
+      "indices": [
+        "Indice 1 : Déclarez avec let, puis assignez avec =",
+        "Indice 2 : Pour du texte, utilisez des guillemets : 'Bob'"
+      ]
+    },
+    {
+      "id": "var_libre_2",
+      "type": "free_text",
+      "numero": 17,
+      "difficulte": "moyen",
+      "enonce": "Écrivez du code qui crée un panier d'achat avec :\n- Un produit 'Livre' au prix 19.99 euros\n- Une quantité de 3\n- Calculez et affichez le total",
+      "solution": "let produit = 'Livre';\nlet prix = 19.99;\nlet quantite = 3;\nlet total = prix * quantite;\nconsole.log('Produit : ' + produit);\nconsole.log('Total : ' + total + ' euros');",
+      "explication": "Vous créez plusieurs variables, puis vous les combinezpour calculer le total. La concaténation (+) permet de coller du texte et des variables.",
+      "indices": [
+        "Indice 1 : Créez 4 variables (produit, prix, quantité, total).",
+        "Indice 2 : Pour afficher 'Total : 59.97 euros', utilisez console.log('Total : ' + total + ' euros')"
+      ]
+    },
+    {
+      "id": "var_libre_3",
+      "type": "free_text",
+      "numero": 18,
+      "difficulte": "moyen",
+      "enonce": "Écrivez du code qui déclare des constantes pour une forme géométrique :\n- Rayon d'un cercle : 5\n- Valeur de PI : 3.14159\n- Calculez l'aire (PI × rayon²) et affichez-la",
+      "solution": "const rayon = 5;\nconst PI = 3.14159;\nlet aire = PI * rayon * rayon;\nconsole.log('Aire : ' + aire);",
+      "explication": "Vous utilisez const pour les valeurs qui ne changent pas (PI, rayon). Vous calculez l'aire (PI × rayon²) dans une variable let et l'affichez.",
+      "indices": [
+        "Indice 1 : PI et rayon ne changent pas → const",
+        "Indice 2 : L'aire est calculée → let. Formule : PI × rayon × rayon"
+      ]
+    },
+    {
+      "id": "var_libre_4",
+      "type": "free_text",
+      "numero": 19,
+      "difficulte": "difficile",
+      "enonce": "Écrivez du code qui montre la différence entre portée globale et portée locale :\n- Déclarez une variable 'message' globale avec la valeur 'Globalement'\n- Créez une fonction qui déclare une variable 'message' locale avec 'Localement'\n- La fonction affiche le message local\n- Après la fonction, affiche le message global",
+      "solution": "let message = 'Globalement';\n\nfunction afficherMessage() {\n  let message = 'Localement';\n  console.log(message);\n}\n\nafficherMessage();  // Affiche: Localement\nconsole.log(message);  // Affiche: Globalement",
+      "explication": "Cet exercice montre que même si les deux variables s'appellent 'message', elles sont différentes grâce à la portée. La variable locale (dans la fonction) n'affecte pas la globale.",
+      "indices": [
+        "Indice 1 : Créez une fonction avec function afficherMessage() { }",
+        "Indice 2 : À l'intérieur, déclarez une variable locale avec let message = 'Localement'"
+      ]
+    },
+    {
+      "id": "var_libre_5",
+      "type": "free_text",
+      "numero": 20,
+      "difficulte": "difficile",
+      "enonce": "Écrivez du code qui applique les bonnes pratiques vues dans la leçon :\n- Utilisez des noms de variables en camelCase\n- Utilisez let pour les variables qui changent, const pour les constantes\n- Créez au moins 3 variables\n- Affichez un résultat final avec console.log()",
+      "solution": "const tauxTVA = 0.20;\nlet prixHT = 100;\nlet prixTTC = prixHT * (1 + tauxTVA);\n\nconsole.log('Prix HT : ' + prixHT);\nconsole.log('Taux TVA : ' + tauxTVA * 100 + '%');\nconsole.log('Prix TTC : ' + prixTTC);",
+      "explication": "Cet exercice teste votre compréhension globale : nommage (camelCase), choix de let/const, calculs, et affichage. Vous applique les bonnes pratiques vues dans la leçon.",
+      "indices": [
+        "Indice 1 : Les noms doivent être en camelCase (prixHT, tauxTVA, etc.)",
+        "Indice 2 : const pour les valeurs fixes, let pour celles qui peuvent changer"
+      ]
+    }
+  ],
+  "resume_scoring": {
+    "total_points": 20,
+    "seuil_reussite": 15,
+    "pourcentage_seuil": 75,
+    "repartition": {
+      "qcm": 10,
+      "texte_a_trou": 5,
+      "texte_libre": 5
+    },
+    "difficulte_repartition": {
+      "facile": 6,
+      "moyen": 8,
+      "difficile": 6
+    }
+  },
+  "instructions_evaluation": "Pour réussir ce package (leçon + exercices), l'apprenant doit obtenir au minimum 15/20 points. Chaque réponse correcte = 1 point. Les solutions doivent être validées manuellement ou avec un correcteur automatique. Les indices doivent être utilisés si l'apprenant a besoin d'aide."
+}

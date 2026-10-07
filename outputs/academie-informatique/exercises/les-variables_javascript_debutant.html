@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices - Les variables en JavaScript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #0088cc;
+            margin-bottom: 10px;
+        }
+
+        .scoring-info {
+            background-color: #e8f4f8;
+            border-left: 4px solid #0088cc;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+
+        .scoring-info p {
+            margin: 8px 0;
+        }
+
+        .scoring-info strong {
+            color: #0088cc;
+        }
+
+        .exercise-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 5px solid #0088cc;
+        }
+
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .exercise-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #0088cc;
+        }
+
+        .exercise-type {
+            display: inline-block;
+            background-color: #0088cc;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 10px;
+        }
+
+        .exercise-type.qcm {
+            background-color: #28a745;
+        }
+
+        .exercise-type.fill-blank {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .exercise-type.free-text {
+            background-color: #dc3545;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .difficulty.facile {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .difficulty.moyen {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .difficulty.difficile {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .enonce {
+            font-size: 1rem;
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+
+        .options {
+            margin: 15px 0;
+        }
+
+        .option {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .option:hover {
+            background-color: #e8f4f8;
+            border-color: #0088cc;
+        }
+
+        .solution-section {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .solution-header {
+            cursor: pointer;
+            color: #0088cc;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .solution-header:hover {
+            text-decoration: underline;
+        }
+
+        .solution-content {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .solution-content.show {
+            display: block;
+        }
+
+        .solution-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .solution-text {
+            color: #555;
+            margin: 8px 0;
+        }
+
+        .solution-code {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 8px 0;
+        }
+
+        .hint {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 4px;
+            color: #856404;
+        }
+
+        .hint-header {
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .hint-header:hover {
+            color: #333;
+        }
+
+        .hint-text {
+            display: none;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+        .hint-text.show {
+            display: block;
+        }
+
+        .filters {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .filter-btn {
+            padding: 8px 15px;
+            border: 2px solid #0088cc;
+            background-color: white;
+            color: #0088cc;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background-color: #0088cc;
+            color: white;
+        }
+
+        .filter-btn:hover {
+            background-color: #0088cc;
+            color: white;
+        }
+
+        .stats {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0088cc;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Exercices : Les variables en JavaScript</h1>
+            <p><strong>Niveau :</strong> Débutant</p>
+
+            <div class="scoring-info">
+                <p><strong>📊 Scoring :</strong></p>
+                <p>• <strong>Total :</strong> 20 points (1 point par exercice)</p>
+                <p>• <strong>Seuil de réussite :</strong> 15/20 points (75%)</p>
+                <p>• <strong>10 QCM</strong> + 5 Textes à trou + 5 Textes libres</p>
+                <p>✅ <strong>Réussir ce package</strong> = Maîtriser les variables en JavaScript pour le niveau débutant</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">20</div>
+                <div class="stat-label">Exercices</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">10</div>
+                <div class="stat-label">QCM</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Textes à trou</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Textes libres</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <span><strong>Filtrer par :</strong></span>
+                <button class="filter-btn active" onclick="filterByType('all')">Tous</button>
+                <button class="filter-btn" onclick="filterByType('qcm')">QCM</button>
+                <button class="filter-btn" onclick="filterByType('fill-blank')">Texte à trou</button>
+                <button class="filter-btn" onclick="filterByType('free-text')">Texte libre</button>
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn active" onclick="filterByDifficulty('all')">Tous niveaux</button>
+                <button class="filter-btn" onclick="filterByDifficulty('facile')">Facile</button>
+                <button class="filter-btn" onclick="filterByDifficulty('moyen')">Moyen</button>
+                <button class="filter-btn" onclick="filterByDifficulty('difficile')">Difficile</button>
+            </div>
+        </div>
+
+        <!-- QCM 1-10 -->
+        <div class="exercise-card" data-type="qcm" data-difficulty="facile">
+            <div class="exercise-header">
+                <div class="exercise-number">1</div>
+                <div>
+                    <span class="exercise-type qcm">QCM</span>
+                    <span class="difficulty facile">Facile</span>
+                </div>
+            </div>
+            <div class="enonce">Qu'est-ce qu'une variable en JavaScript ?</div>
+            <div class="options">
+                <div class="option">A) Un conteneur qui stocke une valeur</div>
+                <div class="option">B) Une fonction qui affiche du texte</div>
+                <div class="option">C) Une boucle qui répète du code</div>
+                <div class="option">D) Un mot réservé du langage</div>
+            </div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Bonne réponse : A</div>
+                    <div class="solution-text">Une variable est simplement une boîte (une zone de mémoire) qui stocke une valeur. Cette valeur peut être un nombre, du texte, ou autre chose.</div>
+                    <div class="hint">
+                        <div class="hint-header" onclick="toggleHint(this)">💡 Indice 1</div>
+                        <div class="hint-text">Qu'avez-vous appris dans la première section de la leçon ?</div>
+                    </div>
+                    <div class="hint">
+                        <div class="hint-header" onclick="toggleHint(this)">💡 Indice 2</div>
+                        <div class="hint-text">Une variable stocke quelque chose pour la réutiliser.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="qcm" data-difficulty="facile">
+            <div class="exercise-header">
+                <div class="exercise-number">2</div>
+                <div>
+                    <span class="exercise-type qcm">QCM</span>
+                    <span class="difficulty facile">Facile</span>
+                </div>
+            </div>
+            <div class="enonce">Comment déclarez-vous une variable appelée 'nom' en JavaScript ?</div>
+            <div class="options">
+                <div class="option">A) var nom;</div>
+                <div class="option">B) let nom;</div>
+                <div class="option">C) const nom;</div>
+                <div class="option">D) Toutes les réponses sont correctes</div>
+            </div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Bonne réponse : D</div>
+                    <div class="solution-text">Vous pouvez utiliser var, let, ou const pour déclarer une variable. Cependant, pour les débutants, let est recommandé car c'est le style moderne et le plus sûr.</div>
+                    <div class="hint">
+                        <div class="hint-header" onclick="toggleHint(this)">💡 Indice 1</div>
+                        <div class="hint-text">Il y a trois façons de déclarer une variable.</div>
+                    </div>
+                    <div class="hint">
+                        <div class="hint-header" onclick="toggleHint(this)">💡 Indice 2</div>
+                        <div class="hint-text">La leçon recommande laquelle pour les débutants ?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="qcm" data-difficulty="facile">
+            <div class="exercise-header">
+                <div class="exercise-number">3</div>
+                <div>
+                    <span class="exercise-type qcm">QCM</span>
+                    <span class="difficulty facile">Facile</span>
+                </div>
+            </div>
+            <div class="enonce">Quel sera le résultat de ce code ?
+let age = 25;
+console.log(age);</div>
+            <div class="options">
+                <div class="option">A) age</div>
+                <div class="option">B) 25</div>
+                <div class="option">C) undefined</div>
+                <div class="option">D) Erreur</div>
+            </div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Bonne réponse : B</div>
+                    <div class="solution-text">Quand vous utilisez console.log(age), JavaScript affiche la valeur contenue dans la variable, qui est 25, pas le nom de la variable.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="qcm" data-difficulty="facile">
+            <div class="exercise-header">
+                <div class="exercise-number">4</div>
+                <div>
+                    <span class="exercise-type qcm">QCM</span>
+                    <span class="difficulty facile">Facile</span>
+                </div>
+            </div>
+            <div class="enonce">Que signifie 'assigner une valeur' à une variable ?</div>
+            <div class="options">
+                <div class="option">A) Donner un nom à la variable</div>
+                <div class="option">B) Donner une valeur à la variable</div>
+                <div class="option">C) Afficher la variable</div>
+                <div class="option">D) Supprimer la variable</div>
+            </div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Bonne réponse : B</div>
+                    <div class="solution-text">Assigner veut dire donner une valeur. Par exemple, age = 25 assigne la valeur 25 à la variable age.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="qcm" data-difficulty="moyen">
+            <div class="exercise-header">
+                <div class="exercise-number">5</div>
+                <div>
+                    <span class="exercise-type qcm">QCM</span>
+                    <span class="difficulty moyen">Moyen</span>
+                </div>
+            </div>
+            <div class="enonce">Quelle est la principale différence entre 'let' et 'const' ?</div>
+            <div class="options">
+                <div class="option">A) let est plus rapide que const</div>
+                <div class="option">B) const ne peut pas être changée après sa déclaration</div>
+                <div class="option">C) let fonctionne seulement dans les fonctions</div>
+                <div class="option">D) Aucune différence, c'est juste une question de style</div>
+            </div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Bonne réponse : B</div>
+                    <div class="solution-text">const signifie 'constant' — une fois qu'elle est définie, on ne peut pas changer sa valeur. let peut être changée autant de fois qu'on veut.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="qcm" data-difficulty="moyen">
+            <div class="exercise-header">
+                <div class="exercise-number">6</div>
+                <div>
+                    <span class="exercise-type qcm">QCM</span>
+                    <span class="difficulty moyen">Moyen</span>
+                </div>
+            </div>
+            <div class="enonce">Quel nom de variable respecte la convention de nommage JavaScript recommandée ?</div>
+            <div class="options">
+                <div class="option">A) let mon_nom = 'Tom';</div>
+                <div class="option">B) let MontNom = 'Tom';</div>
+                <div class="option">C) let monNom = 'Tom';</div>
+                <div class="option">D) let monnom = 'Tom';</div>
+            </div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Bonne réponse : C</div>
+                    <div class="solution-text">JavaScript utilise la convention camelCase : la première lettre est minuscule, puis chaque nouveau mot commence par une majuscule (monNom, pas mon_nom, MontNom, ou monnom).</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="qcm" data-difficulty="moyen">
+            <div class="exercise-header">
+                <div class="exercise-number">7</div>
+                <div>
+                    <span class="exercise-type qcm">QCM</span>
+                    <span class="difficulty moyen">Moyen</span>
+                </div>
+            </div>
+            <div class="enonce">Qu'affiche ce code ?
+let x = 10;
+if (true) {
+  let x = 20;
+  console.log(x);
+}
+console.log(x);</div>
+            <div class="options">
+                <div class="option">A) 10 puis 10</div>
+                <div class="option">B) 20 puis 10</div>
+                <div class="option">C) 20 puis 20</div>
+                <div class="option">D) Erreur</div>
+            </div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Bonne réponse : B</div>
+                    <div class="solution-text">À cause de la portée : le x déclaré dans le bloc {} est différent du x global. À l'intérieur du bloc, on affiche 20. Après, on affiche le x global qui est 10.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="qcm" data-difficulty="difficile">
+            <div class="exercise-header">
+                <div class="exercise-number">8</div>
+                <div>
+                    <span class="exercise-type qcm">QCM</span>
+                    <span class="difficulty difficile">Difficile</span>
+                </div>
+            </div>
+            <div class="enonce">Pourquoi devez-vous toujours déclarer une variable avec let, const, ou var ?</div>
+            <div class="options">
+                <div class="option">A) C'est juste une convention, ce n'est pas obligatoire</div>
+                <div class="option">B) JavaScript l'exige pour éviter les erreurs et la confusion</div>
+                <div class="option">C) Pour rendre le code plus lisible</div>
+                <div class="option">D) Parce que c'est plus rapide</div>
+            </div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Bonne réponse : B</div>
+                    <div class="solution-text">Si vous écrivez nom = 'Tom' sans let/const/var, vous créez une variable globale par accident. C'est dangereux car ça peut causer des bugs. Toujours déclarer explicitement.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="qcm" data-difficulty="difficile">
+            <div class="exercise-header">
+                <div class="exercise-number">9</div>
+                <div>
+                    <span class="exercise-type qcm">QCM</span>
+                    <span class="difficulty difficile">Difficile</span>
+                </div>
+            </div>
+            <div class="enonce">Que ferait ce code ?
+const PI = 3.14;
+PI = 3.14159;</div>
+            <div class="options">
+                <div class="option">A) Affiche 3.14159</div>
+                <div class="option">B) Affiche 3.14</div>
+                <div class="option">C) Produit une erreur</div>
+                <div class="option">D) Déclare PI deux fois</div>
+            </div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Bonne réponse : C</div>
+                    <div class="solution-text">Vous ne pouvez pas changer une variable déclarée avec const. Ce code produit une erreur. const est utilisée pour les valeurs qui ne changent jamais.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="qcm" data-difficulty="difficile">
+            <div class="exercise-header">
+                <div class="exercise-number">10</div>
+                <div>
+                    <span class="exercise-type qcm">QCM</span>
+                    <span class="difficulty difficile">Difficile</span>
+                </div>
+            </div>
+            <div class="enonce">Quel ensemble de déclarations suit les bonnes pratiques pour une boutique en ligne ?</div>
+            <div class="options">
+                <div class="option">A) let prix = 29.99; let quantite = 2; let total = prix * quantite;</div>
+                <div class="option">B) const prix = 29.99; const quantite = 2; let total = prix * quantite;</div>
+                <div class="option">C) var prix = 29.99; var quantite = 2; var total = prix * quantite;</div>
+                <div class="option">D) nom_produit = 'Livre'; prix = 29.99; quantite = 2;</div>
+            </div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Bonne réponse : B</div>
+                    <div class="solution-text">Utilisez const pour les valeurs fixes (prix, quantité du produit) et let pour les valeurs calculées (total). Évitez var car c'est du style ancien. Toujours déclarer !</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEXTES À TROU 11-15 -->
+        <div class="exercise-card" data-type="fill-blank" data-difficulty="facile">
+            <div class="exercise-header">
+                <div class="exercise-number">11</div>
+                <div>
+                    <span class="exercise-type fill-blank">Texte à trou</span>
+                    <span class="difficulty facile">Facile</span>
+                </div>
+            </div>
+            <div class="enonce">Complétez : _____ nom = 'Alice';</div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Réponse : let</div>
+                    <div class="solution-text">Vous devez déclarer une variable avant de l'utiliser. let, var, et const sont tous acceptés, mais let est recommandé.</div>
+                    <div class="hint">
+                        <div class="hint-header" onclick="toggleHint(this)">💡 Indice 1</div>
+                        <div class="hint-text">C'est un mot-clé pour déclarer une variable.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="fill-blank" data-difficulty="facile">
+            <div class="exercise-header">
+                <div class="exercise-number">12</div>
+                <div>
+                    <span class="exercise-type fill-blank">Texte à trou</span>
+                    <span class="difficulty facile">Facile</span>
+                </div>
+            </div>
+            <div class="enonce">Complétez : let age; age = _____;</div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Réponse : un nombre (ex: 25)</div>
+                    <div class="solution-text">Vous assignez une valeur à la variable age. Vous pouvez mettre n'importe quel nombre comme 25, 30, 20, etc.</div>
+                    <div class="hint">
+                        <div class="hint-header" onclick="toggleHint(this)">💡 Indice 1</div>
+                        <div class="hint-text">age est une variable pour stocker un âge.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="fill-blank" data-difficulty="moyen">
+            <div class="exercise-header">
+                <div class="exercise-number">13</div>
+                <div>
+                    <span class="exercise-type fill-blank">Texte à trou</span>
+                    <span class="difficulty moyen">Moyen</span>
+                </div>
+            </div>
+            <div class="enonce">Complétez :
+Les valeurs qui ne changent jamais doivent être déclarées avec _____.
+Les valeurs qui changent doivent être déclarées avec _____.</div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Réponse : const; let</div>
+                    <div class="solution-text">const est pour les constantes (valeurs fixes). let est pour les variables qui peuvent changer. Cette distinction rend le code plus lisible et sûr.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="fill-blank" data-difficulty="moyen">
+            <div class="exercise-header">
+                <div class="exercise-number">14</div>
+                <div>
+                    <span class="exercise-type fill-blank">Texte à trou</span>
+                    <span class="difficulty moyen">Moyen</span>
+                </div>
+            </div>
+            <div class="enonce">Complétez : La convention de nommage JavaScript utilise _____ : premiereMajuscule, ou premierMot + SecondMot ?</div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Réponse : camelCase</div>
+                    <div class="solution-text">JavaScript utilise camelCase : la première lettre est minuscule, puis chaque nouveau mot commence par une majuscule (ex: nomUtilisateur, agePersonne).</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="fill-blank" data-difficulty="difficile">
+            <div class="exercise-header">
+                <div class="exercise-number">15</div>
+                <div>
+                    <span class="exercise-type fill-blank">Texte à trou</span>
+                    <span class="difficulty difficile">Difficile</span>
+                </div>
+            </div>
+            <div class="enonce">Complétez : Une variable déclarée avec let ou const n'existe que dans son _____ (entre { et }).</div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Réponse : bloc</div>
+                    <div class="solution-text">La portée (scope) d'une variable détermine où elle existe. Une variable let/const est limitée à son bloc { }. Elle n'existe pas en dehors.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEXTES LIBRES 16-20 -->
+        <div class="exercise-card" data-type="free-text" data-difficulty="facile">
+            <div class="exercise-header">
+                <div class="exercise-number">16</div>
+                <div>
+                    <span class="exercise-type free-text">Texte libre</span>
+                    <span class="difficulty facile">Facile</span>
+                </div>
+            </div>
+            <div class="enonce">Écrivez du code JavaScript qui :
+1. Déclare une variable appelée 'prenom' avec la valeur 'Bob'
+2. Affiche la valeur avec console.log()</div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Exemple de solution :</div>
+                    <div class="solution-code">let prenom = 'Bob';
+console.log(prenom);</div>
+                    <div class="solution-text"><strong>Explication :</strong> Vous déclarez avec let, assignez une valeur entre guillemets (c'est du texte), puis utilisez console.log pour afficher la valeur de la variable.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="free-text" data-difficulty="moyen">
+            <div class="exercise-header">
+                <div class="exercise-number">17</div>
+                <div>
+                    <span class="exercise-type free-text">Texte libre</span>
+                    <span class="difficulty moyen">Moyen</span>
+                </div>
+            </div>
+            <div class="enonce">Écrivez du code qui crée un panier d'achat avec :
+- Un produit 'Livre' au prix 19.99 euros
+- Une quantité de 3
+- Calculez et affichez le total</div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Exemple de solution :</div>
+                    <div class="solution-code">let produit = 'Livre';
+let prix = 19.99;
+let quantite = 3;
+let total = prix * quantite;
+console.log('Produit : ' + produit);
+console.log('Total : ' + total + ' euros');</div>
+                    <div class="solution-text"><strong>Explication :</strong> Vous créez plusieurs variables, puis vous les combinez pour calculer le total. La concaténation (+) permet de coller du texte et des variables.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="free-text" data-difficulty="moyen">
+            <div class="exercise-header">
+                <div class="exercise-number">18</div>
+                <div>
+                    <span class="exercise-type free-text">Texte libre</span>
+                    <span class="difficulty moyen">Moyen</span>
+                </div>
+            </div>
+            <div class="enonce">Écrivez du code qui déclare des constantes pour une forme géométrique :
+- Rayon d'un cercle : 5
+- Valeur de PI : 3.14159
+- Calculez l'aire (PI × rayon²) et affichez-la</div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Exemple de solution :</div>
+                    <div class="solution-code">const rayon = 5;
+const PI = 3.14159;
+let aire = PI * rayon * rayon;
+console.log('Aire : ' + aire);</div>
+                    <div class="solution-text"><strong>Explication :</strong> Vous utilisez const pour les valeurs qui ne changent pas (PI, rayon). Vous calculez l'aire (PI × rayon²) dans une variable let et l'affichez.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="free-text" data-difficulty="difficile">
+            <div class="exercise-header">
+                <div class="exercise-number">19</div>
+                <div>
+                    <span class="exercise-type free-text">Texte libre</span>
+                    <span class="difficulty difficile">Difficile</span>
+                </div>
+            </div>
+            <div class="enonce">Écrivez du code qui montre la différence entre portée globale et portée locale :
+- Déclarez une variable 'message' globale avec la valeur 'Globalement'
+- Créez une fonction qui déclare une variable 'message' locale avec 'Localement'
+- La fonction affiche le message local
+- Après la fonction, affiche le message global</div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Exemple de solution :</div>
+                    <div class="solution-code">let message = 'Globalement';
+
+function afficherMessage() {
+  let message = 'Localement';
+  console.log(message);
+}
+
+afficherMessage();  // Affiche: Localement
+console.log(message);  // Affiche: Globalement</div>
+                    <div class="solution-text"><strong>Explication :</strong> Cet exercice montre que même si les deux variables s'appellent 'message', elles sont différentes grâce à la portée. La variable locale (dans la fonction) n'affecte pas la globale.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-card" data-type="free-text" data-difficulty="difficile">
+            <div class="exercise-header">
+                <div class="exercise-number">20</div>
+                <div>
+                    <span class="exercise-type free-text">Texte libre</span>
+                    <span class="difficulty difficile">Difficile</span>
+                </div>
+            </div>
+            <div class="enonce">Écrivez du code qui applique les bonnes pratiques vues dans la leçon :
+- Utilisez des noms de variables en camelCase
+- Utilisez let pour les variables qui changent, const pour les constantes
+- Créez au moins 3 variables
+- Affichez un résultat final avec console.log()</div>
+            <div class="solution-section">
+                <div class="solution-header" onclick="toggleSolution(this)">▶ Voir la solution</div>
+                <div class="solution-content">
+                    <div class="solution-title">✅ Exemple de solution :</div>
+                    <div class="solution-code">const tauxTVA = 0.20;
+let prixHT = 100;
+let prixTTC = prixHT * (1 + tauxTVA);
+
+console.log('Prix HT : ' + prixHT);
+console.log('Taux TVA : ' + tauxTVA * 100 + '%');
+console.log('Prix TTC : ' + prixTTC);</div>
+                    <div class="solution-text"><strong>Explication :</strong> Cet exercice teste votre compréhension globale : nommage (camelCase), choix de let/const, calculs, et affichage. Vous appliquez les bonnes pratiques vues dans la leçon.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSolution(element) {
+            const content = element.nextElementSibling;
+            content.classList.toggle('show');
+            element.textContent = content.classList.contains('show') ? '▼ Masquer la solution' : '▶ Voir la solution';
+        }
+
+        function toggleHint(element) {
+            const hint = element.nextElementSibling;
+            hint.classList.toggle('show');
+            element.textContent = hint.classList.contains('show') ? '💡 Masquer' : '💡 Indice ' + (Array.from(element.parentElement.parentElement.querySelectorAll('.hint-header')).indexOf(element) + 1);
+        }
+
+        function filterByType(type) {
+            const exercises = document.querySelectorAll('.exercise-card');
+            exercises.forEach(ex => {
+                if (type === 'all' || ex.dataset.type === type) {
+                    ex.style.display = 'block';
+                } else {
+                    ex.style.display = 'none';
+                }
+            });
+        }
+
+        function filterByDifficulty(difficulty) {
+            const exercises = document.querySelectorAll('.exercise-card');
+            exercises.forEach(ex => {
+                if (difficulty === 'all' || ex.dataset.difficulty === difficulty) {
+                    ex.style.display = 'block';
+                } else {
+                    ex.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
