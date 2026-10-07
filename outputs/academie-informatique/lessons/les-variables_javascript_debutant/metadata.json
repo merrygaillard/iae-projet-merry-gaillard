@@ -1,0 +1,65 @@
+{
+  "titre": "Les variables en JavaScript",
+  "concept": "les variables",
+  "langage": "JavaScript",
+  "niveau": "débutant",
+  "durée_minutes": 18,
+  "concepts_clés": [
+    "Déclaration de variable",
+    "Assignation de valeur",
+    "let, var, const",
+    "Portée (scope)",
+    "Nommage (camelCase)",
+    "Bonnes pratiques",
+    "Pièges courants"
+  ],
+  "sources_count": 5,
+  "sources": [
+    {
+      "titre": "MDN - JavaScript First Steps: Variables",
+      "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables",
+      "type": "Documentation officielle",
+      "fiabilité": "Excellente"
+    },
+    {
+      "titre": "W3Schools - JavaScript Variables",
+      "url": "https://www.w3schools.com/js/js_variables.asp",
+      "type": "Tutoriel interactif",
+      "fiabilité": "Excellente"
+    },
+    {
+      "titre": "JavaScript.info - Variables, Naming, Constants",
+      "url": "https://javascript.info/variables",
+      "type": "Tutoriel pédagogique",
+      "fiabilité": "Excellente"
+    },
+    {
+      "titre": "Codecademy - Introduction to JavaScript",
+      "url": "https://www.codecademy.com/learn/introduction-to-javascript",
+      "type": "Plateforme interactive",
+      "fiabilité": "Très bonne"
+    },
+    {
+      "titre": "Stack Overflow - Questions tagées [javascript] [variables]",
+      "url": "https://stackoverflow.com/questions/tagged/javascript+variables",
+      "type": "Communauté Q&R",
+      "fiabilité": "Bonne"
+    }
+  ],
+  "exemples_count": 4,
+  "sections": [
+    "Le problème",
+    "Qu'est-ce qu'une variable ?",
+    "Comment créer une variable",
+    "Exemples progressifs",
+    "Les trois façons de déclarer",
+    "Les règles de nommage",
+    "La portée (scope)",
+    "Un cas d'usage concret",
+    "Les pièges courants",
+    "Résumé",
+    "Prochaines étapes"
+  ],
+  "date_création": "2026-10-07",
+  "version": "1.0"
+}

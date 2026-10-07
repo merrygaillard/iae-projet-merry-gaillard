@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les variables en JavaScript - Leçon Débutant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+            min-height: 100vh;
+        }
+
+        .metadata {
+            background-color: #e8f4f8;
+            border-left: 4px solid #0088cc;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .metadata p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+
+        .metadata strong {
+            color: #0088cc;
+        }
+
+        h1 {
+            color: #0088cc;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #0088cc;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #0088cc;
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .keyword {
+            color: #66d9ef;
+        }
+
+        .string {
+            color: #e6db74;
+        }
+
+        .comment {
+            color: #75715e;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fafafa;
+        }
+
+        table th {
+            background-color: #0088cc;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background-color: #f0f7ff;
+        }
+
+        .example-block {
+            background-color: #f9f9f9;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .success {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .error {
+            color: #dc3545;
+            font-weight: 600;
+        }
+
+        .warning {
+            color: #ff9800;
+            font-weight: 600;
+        }
+
+        .tabs {
+            margin-top: 50px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab-button {
+            background-color: transparent;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            color: #666;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button:hover {
+            color: #0088cc;
+        }
+
+        .tab-button.active {
+            color: #0088cc;
+            border-bottom-color: #0088cc;
+        }
+
+        .tab-content {
+            display: none;
+            padding-top: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .sources-list {
+            list-style: none;
+        }
+
+        .sources-list li {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #0088cc;
+            border-radius: 4px;
+        }
+
+        .sources-list a {
+            color: #0088cc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .sources-list a:hover {
+            text-decoration: underline;
+        }
+
+        .source-type {
+            display: inline-block;
+            background-color: #e0e0e0;
+            color: #666;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            margin-left: 10px;
+        }
+
+        .summary {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        .checkmark {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="metadata">
+            <p><strong>Concept :</strong> Les variables</p>
+            <p><strong>Langage :</strong> JavaScript</p>
+            <p><strong>Niveau :</strong> Débutant</p>
+            <p><strong>Durée estimée :</strong> 18 minutes</p>
+            <p><strong>Concepts clés :</strong> Déclaration, assignation, var/let/const, portée, nommage</p>
+        </div>
+
+        <h1>Les variables en JavaScript</h1>
+
+        <h2>Le problème</h2>
+        <p>Imaginez que vous voulez stocker le prénom d'une personne pour l'utiliser plus tard dans votre programme. Vous avez besoin d'un <strong>conteneur</strong> pour garder cette information. Ce conteneur s'appelle une <strong>variable</strong>.</p>
+        <p>Une variable est simplement une <strong>boîte</strong> qui contient une valeur. Cette valeur peut être un nombre, du texte, ou même autre chose. Vous pouvez donner un nom à cette boîte et la réutiliser partout dans votre code.</p>
+
+        <hr>
+
+        <h2>Qu'est-ce qu'une variable ?</h2>
+        <p>Une variable est une <strong>zone de mémoire</strong> qui stocke une valeur et qui est <strong>identifiée par un nom</strong>.</p>
+        <p><strong>Pourquoi c'est utile ?</strong></p>
+        <ul>
+            <li>Stocker des données pour les réutiliser</li>
+            <li>Éviter de répéter la même valeur plusieurs fois</li>
+            <li>Modifier une valeur en un seul endroit et que tout le code soit mis à jour</li>
+        </ul>
+
+        <hr>
+
+        <h2>Comment créer une variable</h2>
+
+        <h3>Étape 1 : Déclarer une variable</h3>
+        <p><strong>Déclarer</strong> veut dire dire à JavaScript : « Je vais créer une variable avec ce nom ».</p>
+        <p>Il y a <strong>trois façons</strong> de déclarer une variable en JavaScript : <code>var</code>, <code>let</code>, et <code>const</code>.</p>
+
+        <h3>Avec <code>let</code> (recommandé pour les débutants)</h3>
+        <pre><code><span class="keyword">let</span> nom;</code></pre>
+        <p>Ici, vous déclarez une variable appelée <code>nom</code>. Elle existe maintenant, mais elle ne contient rien (elle est vide, c'est <code>undefined</code>).</p>
+
+        <h3>Avec <code>var</code> (ancien style, à éviter)</h3>
+        <pre><code><span class="keyword">var</span> nom;</code></pre>
+        <p>C'est la façon ancienne. Elle fonctionne, mais elle a des comportements étranges (qu'on appelle "hoisting"). Mieux vaut utiliser <code>let</code> ou <code>const</code>.</p>
+
+        <h3>Avec <code>const</code> (pour les valeurs fixes)</h3>
+        <pre><code><span class="keyword">const</span> pi = <span class="string">3.14159</span>;</code></pre>
+        <p>Utilisez <code>const</code> quand vous êtes sûr que la valeur ne va pas changer. <code>const</code> signifie "constant" — une fois qu'elle est définie, on ne peut pas la changer.</p>
+
+        <h3>Étape 2 : Assigner une valeur</h3>
+        <p><strong>Assigner</strong> veut dire donner une valeur à la variable.</p>
+        <pre><code><span class="keyword">let</span> nom;
+nom = <span class="string">"Marie"</span>;</code></pre>
+        <p>Ou, plus court, déclarez et assignez en même temps :</p>
+        <pre><code><span class="keyword">let</span> nom = <span class="string">"Marie"</span>;</code></pre>
+
+        <hr>
+
+        <h2>Exemples progressifs</h2>
+
+        <h3>Exemple 1 : Stocker un prénom</h3>
+        <pre><code><span class="keyword">let</span> prenom = <span class="string">"Jean"</span>;
+console.log(prenom);  <span class="comment">// Affiche : Jean</span></code></pre>
+        <p>Ici, <code>prenom</code> est une variable qui contient le texte <code>"Jean"</code>. Quand vous utilisez <code>console.log(prenom)</code>, JavaScript affiche la valeur contenue dans la variable.</p>
+
+        <h3>Exemple 2 : Stocker un nombre</h3>
+        <pre><code><span class="keyword">let</span> age = <span class="string">25</span>;
+console.log(age);     <span class="comment">// Affiche : 25</span>
+
+age = <span class="string">26</span>;             <span class="comment">// On change la valeur</span>
+console.log(age);     <span class="comment">// Affiche : 26</span></code></pre>
+        <p>Vous pouvez changer la valeur d'une variable autant de fois que vous voulez (sauf si c'est une <code>const</code>).</p>
+
+        <h3>Exemple 3 : Utiliser plusieurs variables</h3>
+        <pre><code><span class="keyword">let</span> prenom = <span class="string">"Sophie"</span>;
+<span class="keyword">let</span> nom = <span class="string">"Dubois"</span>;
+<span class="keyword">let</span> age = <span class="string">30</span>;
+
+console.log(prenom + <span class="string">" "</span> + nom + <span class="string">" a "</span> + age + <span class="string">" ans"</span>);
+<span class="comment">// Affiche : Sophie Dubois a 30 ans</span></code></pre>
+        <p>Vous pouvez <strong>combiner</strong> des variables en les collant ensemble (on appelle ça la "concaténation").</p>
+
+        <h3>Exemple 4 : Variables constantes</h3>
+        <pre><code><span class="keyword">const</span> PI = <span class="string">3.14159</span>;
+<span class="keyword">const</span> RAYON = <span class="string">5</span>;
+
+<span class="keyword">let</span> surface = PI * RAYON * RAYON;
+console.log(surface);  <span class="comment">// Affiche : 78.53975</span></code></pre>
+        <p>Utilisez <code>const</code> pour les valeurs qui ne changent jamais, comme des constantes mathématiques.</p>
+
+        <hr>
+
+        <h2>Les trois façons de déclarer : <code>var</code>, <code>let</code>, <code>const</code></h2>
+        <table>
+            <tr>
+                <th>Mot-clé</th>
+                <th>Peut être changée ?</th>
+                <th>Portée</th>
+                <th>Quand l'utiliser ?</th>
+            </tr>
+            <tr>
+                <td><strong>let</strong></td>
+                <td><span class="checkmark">✅ Oui</span></td>
+                <td>Bloc ({ })</td>
+                <td><strong>Défaut</strong> — pour presque toutes les variables</td>
+            </tr>
+            <tr>
+                <td><strong>const</strong></td>
+                <td><span class="error">❌ Non</span></td>
+                <td>Bloc ({ })</td>
+                <td>Valeurs qui ne changent pas (constantes)</td>
+            </tr>
+            <tr>
+                <td><strong>var</strong></td>
+                <td><span class="checkmark">✅ Oui</span></td>
+                <td>Fonction</td>
+                <td><span class="warning">⚠️ Ancien style, à éviter</span></td>
+            </tr>
+        </table>
+        <p><strong>En résumé :</strong></p>
+        <ul>
+            <li><strong><code>let</code></strong> → Pour les variables qui changent. C'est le choix par défaut.</li>
+            <li><strong><code>const</code></strong> → Pour les valeurs fixes. Si vous n'êtes pas sûr, commencez avec <code>const</code>.</li>
+            <li><strong><code>var</code></strong> → Ne l'utilisez pas. C'est du code ancien.</li>
+        </ul>
+
+        <hr>
+
+        <h2>Les règles de nommage</h2>
+        <p>Le nom d'une variable doit respecter des règles :</p>
+
+        <p><span class="success">✅ Autorisé :</span></p>
+        <pre><code><span class="keyword">let</span> prenom = <span class="string">"Tom"</span>;           <span class="comment">// lettres minuscules</span>
+<span class="keyword">let</span> soyezPrenom = <span class="string">"Tom"</span>;      <span class="comment">// camelCase (recommandé)</span>
+<span class="keyword">let</span> _age = <span class="string">25</span>;                <span class="comment">// underscore au début</span>
+<span class="keyword">let</span> $prix = <span class="string">19.99</span>;            <span class="comment">// dollar au début (rare)</span>
+<span class="keyword">let</span> variable123 = <span class="string">"ok"</span>;       <span class="comment">// nombres (mais pas au début)</span></code></pre>
+
+        <p><span class="error">❌ Pas autorisé :</span></p>
+        <pre><code><span class="keyword">let</span> mon prenom = <span class="string">"Tom"</span>;       <span class="comment">// Erreur : espace</span>
+<span class="keyword">let</span> 123nom = <span class="string">"Tom"</span>;           <span class="comment">// Erreur : nombre au début</span>
+<span class="keyword">let</span> mon-nom = <span class="string">"Tom"</span>;          <span class="comment">// Erreur : tiret</span></code></pre>
+
+        <p><strong>Convention recommandée (camelCase) :</strong></p>
+        <pre><code><span class="keyword">let</span> nomUtilisateur = <span class="string">"Alice"</span>;       <span class="success">// ✅ Bon</span>
+<span class="keyword">let</span> ageUtilisateur = <span class="string">28</span>;            <span class="success">// ✅ Bon</span>
+<span class="keyword">let</span> nom_utilisateur = <span class="string">"Bob"</span>;        <span class="error">// ❌ Style Python, pas JavaScript</span>
+<span class="keyword">let</span> NomUtilisateur = <span class="string">"Charlie"</span>;     <span class="error">// ❌ Style pour les classes, pas les variables</span></code></pre>
+
+        <hr>
+
+        <h2>La portée (scope)</h2>
+        <p>La <strong>portée</strong> d'une variable détermine <strong>où</strong> on peut l'utiliser dans votre code.</p>
+
+        <h3>Portée globale</h3>
+        <pre><code><span class="keyword">let</span> message = <span class="string">"Bonjour"</span>;  <span class="comment">// Variable globale</span>
+
+<span class="keyword">function</span> direBonjour() {
+  console.log(message);   <span class="comment">// Fonctionne ! message existe ici</span>
+}
+
+direBonjour();            <span class="comment">// Affiche : Bonjour</span></code></pre>
+
+        <h3>Portée locale (dans un bloc)</h3>
+        <pre><code><span class="keyword">function</span> direBonjour() {
+  <span class="keyword">let</span> message = <span class="string">"Salut"</span>;  <span class="comment">// Variable locale à la fonction</span>
+  console.log(message);   <span class="comment">// Fonctionne</span>
+}
+
+direBonjour();            <span class="comment">// Affiche : Salut</span>
+console.log(message);     <span class="comment">// Erreur ! message n'existe que dans la fonction</span></code></pre>
+
+        <p><strong>Règle simple :</strong> Une variable créée avec <code>let</code> ou <code>const</code> n'existe que <strong>dans son bloc</strong> (entre <code>{</code> et <code>}</code>).</p>
+
+        <hr>
+
+        <h2>Un cas d'usage concret</h2>
+        <p>Imaginez un <strong>panier d'achat</strong> dans une boutique en ligne :</p>
+        <pre><code><span class="keyword">let</span> nomProduit = <span class="string">"Livre JavaScript"</span>;
+<span class="keyword">let</span> prixUnitaire = <span class="string">29.99</span>;
+<span class="keyword">let</span> quantite = <span class="string">2</span>;
+
+<span class="comment">// Calculer le total</span>
+<span class="keyword">let</span> total = prixUnitaire * quantite;
+
+console.log(<span class="string">"Produit : "</span> + nomProduit);
+console.log(<span class="string">"Prix unitaire : "</span> + prixUnitaire + <span class="string">" €"</span>);
+console.log(<span class="string">"Quantité : "</span> + quantite);
+console.log(<span class="string">"Total : "</span> + total + <span class="string">" €"</span>);</code></pre>
+
+        <p><strong>Résultat :</strong></p>
+        <pre><code>Produit : Livre JavaScript
+Prix unitaire : 29.99 €
+Quantité : 2
+Total : 59.98 €</code></pre>
+
+        <p>Sans les variables, vous deviez écrire les nombres partout. Avec les variables, le code est plus lisible et facile à modifier.</p>
+
+        <hr>
+
+        <h2>Les pièges courants</h2>
+
+        <h3>Piège 1 : Oublier de déclarer</h3>
+        <pre><code>nom = <span class="string">"Tom"</span>;  <span class="error">// ❌ Mauvais : pas de let, const ou var</span></code></pre>
+        <p>Toujours déclarer avec <code>let</code>, <code>const</code> ou <code>var</code>.</p>
+        <pre><code><span class="keyword">let</span> nom = <span class="string">"Tom"</span>;  <span class="success">// ✅ Bon</span></code></pre>
+
+        <h3>Piège 2 : Utiliser une variable avant sa déclaration</h3>
+        <pre><code>console.log(age);  <span class="comment">// Erreur : age n'existe pas encore</span>
+<span class="keyword">let</span> age = <span class="string">25</span>;</code></pre>
+
+        <h3>Piège 3 : Essayer de changer une <code>const</code></h3>
+        <pre><code><span class="keyword">const</span> PI = <span class="string">3.14</span>;
+PI = <span class="string">3.14159</span>;  <span class="error">// ❌ Erreur : on ne peut pas changer une const</span></code></pre>
+
+        <hr>
+
+        <h2>Résumé</h2>
+        <table>
+            <tr>
+                <th>Concept</th>
+                <th>Explication</th>
+                <th>Exemple</th>
+            </tr>
+            <tr>
+                <td><strong>Variable</strong></td>
+                <td>Un conteneur pour stocker une valeur</td>
+                <td><code>let prenom = "Alice"</code></td>
+            </tr>
+            <tr>
+                <td><strong>Déclaration</strong></td>
+                <td>Créer une variable</td>
+                <td><code>let age;</code></td>
+            </tr>
+            <tr>
+                <td><strong>Assignation</strong></td>
+                <td>Donner une valeur</td>
+                <td><code>age = 25;</code></td>
+            </tr>
+            <tr>
+                <td><strong>let</strong></td>
+                <td>Variable qui peut changer</td>
+                <td><code>let temperature = 20;</code></td>
+            </tr>
+            <tr>
+                <td><strong>const</strong></td>
+                <td>Variable qui ne change pas</td>
+                <td><code>const PI = 3.14;</code></td>
+            </tr>
+            <tr>
+                <td><strong>Nommage</strong></td>
+                <td>Utiliser camelCase</td>
+                <td><code>let nomUtilisateur</code></td>
+            </tr>
+            <tr>
+                <td><strong>Portée</strong></td>
+                <td>Où la variable existe</td>
+                <td>Bloc <code>{ }</code> pour <code>let</code>/<code>const</code></td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <h2>Prochaines étapes</h2>
+        <p>Maintenant que vous comprenez les variables, vous pouvez :</p>
+        <ul>
+            <li><strong>Pratiquer</strong> sur Codecademy avec des exercices interactifs</li>
+            <li><strong>Lire</strong> les sources pour plus de détails</li>
+            <li><strong>Explorer</strong> comment les variables s'utilisent avec les boucles et les fonctions</li>
+        </ul>
+
+        <!-- Onglets -->
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="switchTab(event, 'content')">Leçon</button>
+                <button class="tab-button" onclick="switchTab(event, 'sources')">📚 Sources</button>
+            </div>
+
+            <div id="content" class="tab-content active">
+                <!-- Le contenu principal est déjà affiché ci-dessus -->
+            </div>
+
+            <div id="sources" class="tab-content">
+                <h2>Sources académiques</h2>
+                <p>Cette leçon a été synthétisée à partir des sources fiables suivantes :</p>
+
+                <ul class="sources-list">
+                    <li>
+                        <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables" target="_blank">
+                            MDN - JavaScript First Steps: Variables
+                        </a>
+                        <span class="source-type">Documentation officielle</span>
+                        <div class="summary">Guide officiel de Mozilla. Explique <code>var</code>, <code>let</code>, <code>const</code>, la déclaration, l'assignation, et les bonnes pratiques. Inclut des exemples interactifs et une section sur la portée des variables. Idéal pour les débutants.</div>
+                    </li>
+
+                    <li>
+                        <a href="https://www.w3schools.com/js/js_variables.asp" target="_blank">
+                            W3Schools - JavaScript Variables
+                        </a>
+                        <span class="source-type">Tutoriel interactif</span>
+                        <div class="summary">Tutoriel interactif avec exemples "Try it Yourself". Couvre la création et l'assignation de variables, les règles de nommage, et les différences entre <code>var</code>, <code>let</code>, <code>const</code>. Structure très progressive pour débutants.</div>
+                    </li>
+
+                    <li>
+                        <a href="https://javascript.info/variables" target="_blank">
+                            JavaScript.info - Variables, Naming, Constants
+                        </a>
+                        <span class="source-type">Tutoriel pédagogique</span>
+                        <div class="summary">Tutoriel complet par Ilya Kantor. Explique les déclarations avec exemples simples, les conventions de nommage, les constantes, et la portée. Approche pédagogique très claire.</div>
+                    </li>
+
+                    <li>
+                        <a href="https://www.codecademy.com/learn/introduction-to-javascript" target="_blank">
+                            Codecademy - Introduction to JavaScript
+                        </a>
+                        <span class="source-type">Plateforme interactive</span>
+                        <div class="summary">Cours interactif complet incluant un module entier sur les variables. Permet la pratique immédiate avec des exercices. Idéal pour l'apprentissage par la pratique.</div>
+                    </li>
+
+                    <li>
+                        <a href="https://stackoverflow.com/questions/tagged/javascript+variables" target="_blank">
+                            Stack Overflow - Questions tagées [javascript] [variables]
+                        </a>
+                        <span class="source-type">Communauté Q&R</span>
+                        <div class="summary">Recueil de Q&R authentiques posées par des développeurs. Couvre les cas d'usage réels, les pièges courants (hoisting, portée), et les questions fréquentes des débutants. À utiliser après les sources "trad" pour le contexte pratique.</div>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h3>Recommandations pour poursuivre</h3>
+                <p><strong>Ordre de lecture suggéré :</strong></p>
+                <ol>
+                    <li><strong>MDN</strong> (source officielle, complète, fiable) → comprendre les fondations</li>
+                    <li><strong>W3Schools</strong> (exemples interactifs) → voir en action</li>
+                    <li><strong>JavaScript.info</strong> (explications claires) → renforcer avec une autre perspective</li>
+                    <li><strong>Codecademy</strong> (exercices) → pratiquer immédiatement</li>
+                    <li><strong>Stack Overflow</strong> (Q&R réelles) → voir les cas concrets et pièges à éviter</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(evt, tabName) {
+            // Masquer tous les onglets
+            const contents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+
+            // Retirer la classe active de tous les boutons
+            const buttons = document.getElementsByClassName('tab-button');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+
+            // Afficher l'onglet sélectionné et activer le bouton
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
