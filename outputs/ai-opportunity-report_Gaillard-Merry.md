@@ -9,6 +9,23 @@
 
 ---
 
+## Chiffrage de l'opportunité retenue (hypothèses)
+
+Opportunité retenue : **#3 — Construction d'un site d'apprentissage de langages informatiques**.
+
+Hypothèses de départ, à confirmer par un chronométrage sur la première semaine d'utilisation :
+
+- Temps de conception d'une leçon : **1 h** (temps de travail)
+- Coût horaire : **12,50 €**
+- Cadence : **1 leçon par jour ouvré**, soit 21 leçons par mois
+- Temps de travail libéré : 1 h × 12,50 € × 21 = **262,50 €/mois**
+- Licence IA : **15 €/mois**, payée à titre personnel (hors entreprise)
+- Vérification des sources et tests : réalisés sur temps personnel, donc non comptés dans le calcul
+
+Le temps libéré est un **coût d'opportunité** (temps qui pourrait servir à autre chose), et non une dépense de trésorerie pour l'entreprise.
+
+---
+
 ## Tableau récapitulatif
 
 | # | Opportunité | Autonomie | Implication | Impact |
