@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les types de données en JavaScript</title>
+</head>
+<body>
+    <div class="lesson-content">
+        <h1>Les types de données en JavaScript</h1>
+
+        <p><strong>Durée estimée :</strong> 12 minutes | <strong>Niveau :</strong> Débutant</p>
+
+        <h2>Introduction</h2>
+        <p>Votre variable peut stocker différents types d'informations : un nombre, du texte, vrai ou faux, etc. JavaScript accepte automatiquement différents types de données. Comprenez les types principaux pour écrire du code robuste.</p>
+
+        <h2>1. Les nombres (Number)</h2>
+        <p>Les nombres en JavaScript incluent les entiers et les décimaux.</p>
+
+        <h3>Exemples</h3>
+        <pre><code>let age = 25;              // Nombre entier
+let prix = 19.99;          // Nombre décimal
+let negatif = -5;          // Nombre négatif
+let temperature = 36.6;    // Température en degrés
+
+console.log(age);          // Affiche : 25
+console.log(prix);         // Affiche : 19.99</code></pre>
+
+        <h3>Opérations sur les nombres</h3>
+        <pre><code>let x = 10;
+let y = 3;
+
+console.log(x + y);        // Affiche : 13 (addition)
+console.log(x - y);        // Affiche : 7 (soustraction)
+console.log(x * y);        // Affiche : 30 (multiplication)
+console.log(x / y);        // Affiche : 3.333... (division)
+console.log(x % y);        // Affiche : 1 (reste de division)</code></pre>
+
+        <h2>2. Le texte (String)</h2>
+        <p>Une chaîne de caractères (string) est du texte. Elle doit être entourée de guillemets simples ou doubles.</p>
+
+        <h3>Déclarer une chaîne</h3>
+        <pre><code>let nom = "Alice";         // Guillemets doubles
+let ville = 'Paris';       // Guillemets simples
+let message = "Bonjour";   // Les deux fonctionnent</code></pre>
+
+        <p><strong>Important :</strong> Les guillemets font partie de la syntaxe, pas de la valeur. La valeur de <code>nom</code> est <code>Alice</code>, pas <code>"Alice"</code>.</p>
+
+        <h3>Chaînes multi-lignes</h3>
+        <pre><code>let poeme = `Ligne 1
+Ligne 2
+Ligne 3`;
+
+console.log(poeme);
+// Affiche :
+// Ligne 1
+// Ligne 2
+// Ligne 3</code></pre>
+
+        <h3>Concaténation (joindre des chaînes)</h3>
+        <pre><code>let prenom = "Tom";
+let nom = "Dubois";
+
+// Avec le signe +
+let nomComplet = prenom + " " + nom;
+console.log(nomComplet);   // Affiche : Tom Dubois
+
+// Avec les backticks (template literals)
+let message = `Bonjour ${prenom} ${nom}`;
+console.log(message);      // Affiche : Bonjour Tom Dubois</code></pre>
+
+        <h2>3. Le booléen (Boolean)</h2>
+        <p>Un booléen ne peut avoir que deux valeurs : <code>true</code> (vrai) ou <code>false</code> (faux). Utile pour les conditions.</p>
+
+        <h3>Exemples</h3>
+        <pre><code>let estEtudiant = true;
+let estProfesseur = false;
+let estValide = true;
+
+console.log(estEtudiant);  // Affiche : true
+console.log(estProfesseur);// Affiche : false</code></pre>
+
+        <h3>Résultats de comparaisons</h3>
+        <pre><code>let x = 5;
+let y = 3;
+
+console.log(x > y);        // Affiche : true (5 est plus grand que 3)
+console.log(x === y);      // Affiche : false (5 n'égale pas 3)
+console.log(x !== y);      // Affiche : true (5 n'égale pas 3)</code></pre>
+
+        <h2>4. Undefined et Null</h2>
+        <p>Deux valeurs spéciales pour « rien ».</p>
+
+        <h3>Undefined</h3>
+        <p><code>undefined</code> signifie « pas encore défini ». C'est la valeur par défaut d'une variable déclarée mais non assignée.</p>
+        <pre><code>let variable;
+console.log(variable);     // Affiche : undefined</code></pre>
+
+        <h3>Null</h3>
+        <p><code>null</code> signifie « aucune valeur » (volontairement vide).</p>
+        <pre><code>let valeur = null;
+console.log(valeur);       // Affiche : null</code></pre>
+
+        <h2>5. Les objets (Object) — Introduction</h2>
+        <p>Un objet regroupe plusieurs valeurs sous des noms.</p>
+
+        <h3>Exemple simple</h3>
+        <pre><code>let personne = {
+  nom: "Alice",
+  age: 28,
+  ville: "Paris"
+};
+
+console.log(personne.nom);   // Affiche : Alice
+console.log(personne.age);   // Affiche : 28
+console.log(personne.ville); // Affiche : Paris</code></pre>
+
+        <h2>6. Les tableaux (Array) — Introduction</h2>
+        <p>Un tableau stocke plusieurs valeurs dans une liste.</p>
+
+        <h3>Créer un tableau</h3>
+        <pre><code>let couleurs = ["rouge", "vert", "bleu"];
+let nombres = [1, 2, 3, 4, 5];
+let mixte = [1, "texte", true];  // Un tableau peut contenir différents types</code></pre>
+
+        <h3>Accéder aux éléments</h3>
+        <pre><code>let fruits = ["pomme", "banane", "orange"];
+
+console.log(fruits[0]);    // Affiche : pomme (premier élément, indice 0)
+console.log(fruits[1]);    // Affiche : banane (deuxième élément, indice 1)
+console.log(fruits[2]);    // Affiche : orange (troisième élément, indice 2)</code></pre>
+
+        <p><strong>Important :</strong> En programmation, on compte à partir de 0 ! Le premier élément est à l'indice 0.</p>
+
+        <h3>Longueur d'un tableau</h3>
+        <pre><code>let couleurs = ["rouge", "vert", "bleu"];
+console.log(couleurs.length); // Affiche : 3</code></pre>
+
+        <h2>Tableau comparatif des types</h2>
+        <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Type</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Exemple</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Description</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Number</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">42, 3.14, -5</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Nombres entiers et décimaux</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>String</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">"Bonjour", 'texte'</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Texte (entre guillemets)</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Boolean</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">true, false</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Vrai ou Faux</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Array</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">[1, 2, 3]</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Liste de valeurs</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Object</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{nom: "Tom"}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Groupement de propriétés</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Null</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">null</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Aucune valeur (intentionnel)</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Undefined</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">undefined</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Pas de valeur (par défaut)</td>
+            </tr>
+        </table>
+
+        <h2>Vérifier le type d'une variable</h2>
+        <p>Utilisez l'opérateur <code>typeof</code> pour vérifier le type.</p>
+
+        <h3>Exemples</h3>
+        <pre><code>console.log(typeof 42);           // Affiche : "number"
+console.log(typeof "Bonjour");    // Affiche : "string"
+console.log(typeof true);         // Affiche : "boolean"
+console.log(typeof [1, 2, 3]);    // Affiche : "object"
+console.log(typeof {nom: "Tom"}); // Affiche : "object"
+console.log(typeof undefined);    // Affiche : "undefined"
+console.log(typeof null);         // Affiche : "object" (anomalie en JS!)</code></pre>
+
+        <h2>Conversion de types</h2>
+        <p>Parfois vous devez convertir un type en un autre.</p>
+
+        <h3>Convertir en nombre</h3>
+        <pre><code>let texte = "25";
+let nombre = Number(texte);
+console.log(nombre);              // Affiche : 25 (maintenant un nombre)</code></pre>
+
+        <h3>Convertir en texte</h3>
+        <pre><code>let nombre = 42;
+let texte = String(nombre);
+console.log(texte);               // Affiche : "42" (maintenant du texte)</code></pre>
+
+        <h3>Convertir en booléen</h3>
+        <pre><code>let nombre = 1;
+let bool = Boolean(nombre);
+console.log(bool);                // Affiche : true</code></pre>
+
+        <h2>Piège courant : Mélanger les types</h2>
+        <p>Attention quand vous mélangez les types avec <code>+</code> :</p>
+
+        <pre><code>console.log(5 + 3);           // Affiche : 8 (addition)
+console.log("5" + 3);         // Affiche : 53 (concaténation!)
+console.log(5 + "3");         // Affiche : 53 (concaténation!)
+console.log("5" + "3");       // Affiche : 53 (concaténation!)</code></pre>
+
+        <p><strong>Explication :</strong> Quand <code>+</code> voit une chaîne, il joint les valeurs au lieu de les ajouter.</p>
+
+        <h2>Points clés à retenir</h2>
+        <ul>
+            <li>JavaScript a 7 types de base : Number, String, Boolean, Object, Array, Null, Undefined</li>
+            <li>Utilisez <code>typeof</code> pour vérifier le type</li>
+            <li>Attention à ne pas mélanger les types, surtout avec <code>+</code></li>
+            <li>Les tableaux et objets contiennent plusieurs valeurs</li>
+            <li>Comptez toujours à partir de 0 pour les indices</li>
+        </ul>
+
+        <h2>Sources</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures" target="_blank">MDN — JavaScript Data Types</a></li>
+            <li><a href="https://www.w3schools.com/js/js_datatypes.asp" target="_blank">W3Schools — JavaScript Data Types</a></li>
+            <li><a href="https://javascript.info/types" target="_blank">JavaScript.info — Data Types</a></li>
+            <li><a href="https://www.codecademy.com/learn/introduction-to-javascript" target="_blank">Codecademy — Introduction to JavaScript</a></li>
+        </ul>
+    </div>
+</body>
+</html>

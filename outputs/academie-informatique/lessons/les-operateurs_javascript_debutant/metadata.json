@@ -1,0 +1,47 @@
+{
+  "titre": "Les opérateurs en JavaScript",
+  "concept": "les opérateurs",
+  "langage": "javascript",
+  "niveau": "debutant",
+  "durée_minutes": 15,
+  "concepts_clés": [
+    "opérateurs arithmétiques",
+    "opérateurs de comparaison",
+    "opérateurs logiques",
+    "assignation",
+    "incrémentation",
+    "décrémentation",
+    "opérateur ternaire",
+    "chaînes de caractères",
+    "ordre de priorité",
+    "égalité vs identité"
+  ],
+  "sources": [
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators",
+      "titre": "MDN — Expressions and Operators",
+      "domaine": "mdn.org"
+    },
+    {
+      "url": "https://www.w3schools.com/js/js_operators.asp",
+      "titre": "W3Schools — JavaScript Operators",
+      "domaine": "w3schools.com"
+    },
+    {
+      "url": "https://javascript.info/operators",
+      "titre": "JavaScript.info — Operators",
+      "domaine": "javascript.info"
+    },
+    {
+      "url": "https://www.codecademy.com/learn/introduction-to-javascript",
+      "titre": "Codecademy — Introduction to JavaScript",
+      "domaine": "codecademy.com"
+    }
+  ],
+  "sources_count": 4,
+  "prérequis": [
+    "Les variables",
+    "Les types de données"
+  ],
+  "date_création": "2026-10-07"
+}

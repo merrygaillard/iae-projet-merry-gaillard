@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les opérateurs en JavaScript</title>
+</head>
+<body>
+    <div class="lesson-content">
+        <h1>Les opérateurs en JavaScript</h1>
+
+        <p><strong>Durée estimée :</strong> 15 minutes | <strong>Niveau :</strong> Débutant</p>
+
+        <h2>Introduction</h2>
+        <p>Les opérateurs sont des symboles qui permettent de faire des actions : ajouter deux nombres, comparer des valeurs, assigner une variable. Maîtriser les opérateurs est essentiel pour écrire du code JavaScript.</p>
+
+        <h2>1. Les opérateurs arithmétiques</h2>
+        <p>Ils servent à faire des calculs mathématiques.</p>
+
+        <h3>Les quatre opérations de base</h3>
+        <pre><code>let a = 10;
+let b = 3;
+
+console.log(a + b);        // Affiche : 13 (addition)
+console.log(a - b);        // Affiche : 7 (soustraction)
+console.log(a * b);        // Affiche : 30 (multiplication)
+console.log(a / b);        // Affiche : 3.333... (division)</code></pre>
+
+        <h3>Modulo (reste de division)</h3>
+        <pre><code>let a = 10;
+let b = 3;
+
+console.log(a % b);        // Affiche : 1 (reste de 10 / 3)
+
+// Utile pour vérifier si un nombre est pair
+console.log(10 % 2);       // Affiche : 0 (10 est pair)
+console.log(11 % 2);       // Affiche : 1 (11 est impair)</code></pre>
+
+        <h3>Puissance</h3>
+        <pre><code>console.log(2 ** 3);       // Affiche : 8 (2 à la puissance 3)
+console.log(5 ** 2);       // Affiche : 25 (5 au carré)</code></pre>
+
+        <h2>2. L'opérateur d'assignation</h2>
+        <p><code>=</code> sert à donner une valeur à une variable.</p>
+
+        <h3>Assignation simple</h3>
+        <pre><code>let nom = "Alice";
+let age = 25;
+let actif = true;</code></pre>
+
+        <h3>Opérateurs d'assignation raccourcis</h3>
+        <pre><code>let x = 10;
+
+x += 5;    // Équivalent à : x = x + 5;  Résultat : 15
+x -= 3;    // Équivalent à : x = x - 3;  Résultat : 12
+x *= 2;    // Équivalent à : x = x * 2;  Résultat : 24
+x /= 4;    // Équivalent à : x = x / 4;  Résultat : 6</code></pre>
+
+        <h2>3. Les opérateurs de comparaison</h2>
+        <p>Ils comparent deux valeurs et retournent <code>true</code> ou <code>false</code>.</p>
+
+        <h3>Les comparaisons de base</h3>
+        <pre><code>console.log(5 > 3);        // Affiche : true (5 est supérieur à 3)
+console.log(5 < 3);        // Affiche : false (5 n'est pas inférieur à 3)
+console.log(5 >= 5);       // Affiche : true (5 est supérieur ou égal à 5)
+console.log(5 <= 3);       // Affiche : false (5 n'est pas inférieur ou égal à 3)</code></pre>
+
+        <h3>L'égalité</h3>
+        <pre><code>console.log(5 == "5");     // Affiche : true (valeur égale, type ignoré)
+console.log(5 === "5");    // Affiche : false (type et valeur doivent être identiques)
+
+console.log(5 != "5");     // Affiche : false (pas différent en valeur)
+console.log(5 !== "5");    // Affiche : true (pas égal en type ET valeur)</code></pre>
+
+        <p><strong>⚠️ Important :</strong> Préférez toujours <code>===</code> à <code>==</code> en JavaScript. C'est plus sûr.</p>
+
+        <h2>4. Les opérateurs logiques</h2>
+        <p>Ils combinent ou modifient des conditions booléennes.</p>
+
+        <h3>ET logique (&&)</h3>
+        <pre><code>console.log(true && true);   // Affiche : true
+console.log(true && false);  // Affiche : false
+console.log(false && false); // Affiche : false
+
+// Exemple pratique
+let age = 20;
+let permis = true;
+
+let peutConduire = (age >= 18) && permis;
+console.log(peutConduire);   // Affiche : true</code></pre>
+
+        <h3>OU logique (||)</h3>
+        <pre><code>console.log(true || false);  // Affiche : true
+console.log(false || false); // Affiche : false
+
+// Exemple pratique
+let estEtudiant = false;
+let estRetraite = true;
+
+let obtientReduction = estEtudiant || estRetraite;
+console.log(obtientReduction); // Affiche : true</code></pre>
+
+        <h3>NON logique (!)</h3>
+        <pre><code>console.log(!true);          // Affiche : false
+console.log(!false);         // Affiche : true
+
+// Exemple pratique
+let estConnecte = false;
+console.log(!estConnecte);   // Affiche : true (NOT connected = connected)</code></pre>
+
+        <h2>5. Les opérateurs d'incrémentation et décrémentation</h2>
+        <p>Raccourcis pour ajouter ou soustraire 1.</p>
+
+        <h3>Incrémentation (ajouter 1)</h3>
+        <pre><code>let x = 5;
+x++;          // x devient 6
+console.log(x); // Affiche : 6
+
+// Équivalent à
+let y = 5;
+y += 1;       // y devient 6</code></pre>
+
+        <h3>Décrémentation (soustraire 1)</h3>
+        <pre><code>let x = 5;
+x--;          // x devient 4
+console.log(x); // Affiche : 4
+
+// Équivalent à
+let y = 5;
+y -= 1;       // y devient 4</code></pre>
+
+        <h2>6. L'opérateur conditionnel (ternaire)</h2>
+        <p>Un raccourci pour une condition simple.</p>
+
+        <h3>Syntaxe</h3>
+        <pre><code>condition ? valeur_si_vraie : valeur_si_fausse</code></pre>
+
+        <h3>Exemple</h3>
+        <pre><code>let age = 20;
+let statut = (age >= 18) ? "Adulte" : "Enfant";
+console.log(statut);       // Affiche : Adulte
+
+// Équivalent à
+let statut2;
+if (age >= 18) {
+  statut2 = "Adulte";
+} else {
+  statut2 = "Enfant";
+}</code></pre>
+
+        <h2>7. L'opérateur de chaîne</h2>
+        <p><code>+</code> sert aussi à joindre des chaînes de caractères.</p>
+
+        <h3>Concaténation</h3>
+        <pre><code>let prenom = "Tom";
+let nom = "Dubois";
+
+let nomComplet = prenom + " " + nom;
+console.log(nomComplet);   // Affiche : Tom Dubois
+
+// Avec template literals
+let age = 25;
+let message = `${prenom} a ${age} ans`;
+console.log(message);      // Affiche : Tom a 25 ans</code></pre>
+
+        <h2>Tableau récapitulatif</h2>
+        <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Type</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Symbole</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Exemple</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Résultat</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Arithmétique</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">+ - * / %</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">10 + 3</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">13</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Assignation</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">= += -= *= /=</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">x += 5</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">x augmente de 5</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Comparaison</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">== === != !== > < >= <=</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">5 === 5</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">true</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Logique</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">&& || !</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">true && false</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">false</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Chaîne</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">+</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">"Bonjour " + "monde"</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">"Bonjour monde"</td>
+            </tr>
+        </table>
+
+        <h2>Ordre de priorité des opérateurs</h2>
+        <p>Comme en mathématiques, certains opérateurs sont évalués avant d'autres.</p>
+
+        <pre><code>console.log(2 + 3 * 4);    // Affiche : 14 (pas 20)
+// Multiplication d'abord : 3 * 4 = 12, puis 2 + 12 = 14
+
+console.log((2 + 3) * 4);  // Affiche : 20 (parenthèses d'abord)
+// 2 + 3 = 5, puis 5 * 4 = 20</code></pre>
+
+        <p><strong>Ordre (du plus prioritaire au moins):</strong></p>
+        <ol>
+            <li>Parenthèses <code>()</code></li>
+            <li>Puissance <code>**</code></li>
+            <li>Multiplication, Division, Modulo <code>* / %</code></li>
+            <li>Addition, Soustraction <code>+ -</code></li>
+            <li>Comparaison <code>< > <= >= === !==</code></li>
+            <li>Logique ET <code>&&</code></li>
+            <li>Logique OU <code>||</code></li>
+            <li>Assignation <code>=</code></li>
+        </ol>
+
+        <h2>Exemples pratiques</h2>
+
+        <h3>Exemple 1 : Calculer le prix TTC</h3>
+        <pre><code>let prixHT = 100;
+let tauxTVA = 0.20;  // 20% de TVA
+
+let prixTTC = prixHT * (1 + tauxTVA);
+console.log(prixTTC);  // Affiche : 120</code></pre>
+
+        <h3>Exemple 2 : Vérifier si un utilisateur peut voter</h3>
+        <pre><code>let age = 18;
+let estCitoyen = true;
+
+let peutVoter = (age >= 18) && estCitoyen;
+console.log(peutVoter);  // Affiche : true</code></pre>
+
+        <h3>Exemple 3 : Vérifier si un nombre est pair</h3>
+        <pre><code>let nombre = 7;
+let estPair = (nombre % 2 === 0);
+console.log(estPair);  // Affiche : false (7 est impair)</code></pre>
+
+        <h2>Points clés à retenir</h2>
+        <ul>
+            <li>Les opérateurs arithmétiques : <code>+ - * / % **</code></li>
+            <li>Assignation : <code>=</code>, raccourcis : <code>+= -= *= /=</code></li>
+            <li>Comparaison : <code>== === != !== > < >= <=</code></li>
+            <li>Logique : <code>&& || !</code></li>
+            <li>Toujours préférer <code>===</code> à <code>==</code></li>
+            <li>Utilisez les parenthèses <code>()</code> pour clarifier</li>
+            <li>L'ordre de priorité change le résultat</li>
+        </ul>
+
+        <h2>Sources</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators" target="_blank">MDN — Expressions and Operators</a></li>
+            <li><a href="https://www.w3schools.com/js/js_operators.asp" target="_blank">W3Schools — JavaScript Operators</a></li>
+            <li><a href="https://javascript.info/operators" target="_blank">JavaScript.info — Operators</a></li>
+            <li><a href="https://www.codecademy.com/learn/introduction-to-javascript" target="_blank">Codecademy — Introduction to JavaScript</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "titre": "Les types de données en JavaScript",
+  "concept": "les types de données",
+  "langage": "javascript",
+  "niveau": "debutant",
+  "durée_minutes": 12,
+  "concepts_clés": [
+    "Number",
+    "String",
+    "Boolean",
+    "Array",
+    "Object",
+    "Null",
+    "Undefined",
+    "typeof",
+    "conversion de types",
+    "chaînes de caractères"
+  ],
+  "sources": [
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures",
+      "titre": "MDN — JavaScript Data Types",
+      "domaine": "mdn.org"
+    },
+    {
+      "url": "https://www.w3schools.com/js/js_datatypes.asp",
+      "titre": "W3Schools — JavaScript Data Types",
+      "domaine": "w3schools.com"
+    },
+    {
+      "url": "https://javascript.info/types",
+      "titre": "JavaScript.info — Data Types",
+      "domaine": "javascript.info"
+    },
+    {
+      "url": "https://www.codecademy.com/learn/introduction-to-javascript",
+      "titre": "Codecademy — Introduction to JavaScript",
+      "domaine": "codecademy.com"
+    }
+  ],
+  "sources_count": 4,
+  "prérequis": [
+    "Les variables"
+  ],
+  "date_création": "2026-10-07"
+}
