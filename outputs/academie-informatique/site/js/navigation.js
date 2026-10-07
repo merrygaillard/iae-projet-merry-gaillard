@@ -109,12 +109,176 @@ console.log(prenom + " " + nom + " a " + age + " ans");
     avance: []
   },
   python: {
-    debutant: [],
+    debutant: [
+      {
+        id: 'variables',
+        title: 'Les variables',
+        description: 'Stocker et utiliser des données en Python',
+        duration: 15,
+        concepts: 'Déclaration, assignation, types, nommage, print()',
+        content: `
+          <h1>Les variables en Python</h1>
+          <h2>Le problème</h2>
+          <p>Imaginez que vous voulez stocker l'âge d'une personne pour l'afficher plus tard. Vous avez besoin d'une <strong>boîte</strong> pour garder cette information. En Python, cette boîte s'appelle une <strong>variable</strong>.</p>
+
+          <h2>Qu'est-ce qu'une variable ?</h2>
+          <p>Une variable est un <strong>nom</strong> qui pointe vers une valeur stockée en mémoire. Contrairement à JavaScript, Python n'a pas besoin de mot-clé comme <code>let</code> ou <code>const</code> — vous déclarez simplement !</p>
+
+          <h2>Comment créer une variable en Python</h2>
+          <h3>Étape 1 : Assigner une valeur</h3>
+          <p>En Python, déclarer et assigner se font <strong>en même temps</strong> :</p>
+          <pre><code>nom = "Alice"
+age = 25
+prix = 19.99</code></pre>
+          <p>Voilà ! Vous avez 3 variables. Python détecte automatiquement le type.</p>
+
+          <h2>Les types en Python</h2>
+          <table>
+            <tr><th>Type</th><th>Exemple</th><th>Description</th></tr>
+            <tr><td><strong>str</strong> (texte)</td><td><code>"Hello"</code></td><td>Chaîne de caractères</td></tr>
+            <tr><td><strong>int</strong> (entier)</td><td><code>42</code></td><td>Nombre sans décimale</td></tr>
+            <tr><td><strong>float</strong> (décimal)</td><td><code>3.14</code></td><td>Nombre avec décimale</td></tr>
+            <tr><td><strong>bool</strong> (booléen)</td><td><code>True</code></td><td>Vrai ou Faux</td></tr>
+          </table>
+
+          <h2>Afficher une variable avec print()</h2>
+          <pre><code>prenom = "Jean"
+print(prenom)  # Affiche : Jean</code></pre>
+
+          <h2>Exemples progressifs</h2>
+          <h3>Exemple 1 : Stocker un prénom</h3>
+          <pre><code>prenom = "Sophie"
+print(prenom)</code></pre>
+
+          <h3>Exemple 2 : Faire du calcul</h3>
+          <pre><code>age = 30
+age_dans_5_ans = age + 5
+print(age_dans_5_ans)  # Affiche : 35</code></pre>
+
+          <h3>Exemple 3 : Combiner du texte et des nombres</h3>
+          <pre><code>nom = "Dubois"
+age = 28
+print("Je m'appelle " + nom + " et j'ai " + str(age) + " ans")</code></pre>
+
+          <h2>Règles pour nommer une variable</h2>
+          <ul>
+            <li>✅ <strong>Commence par une lettre ou _</strong> : <code>ma_variable</code>, <code>_secret</code></li>
+            <li>✅ <strong>Contient des lettres, chiffres, _</strong> : <code>var2</code>, <code>mon_age_2025</code></li>
+            <li>❌ <strong>Ne commence pas par un chiffre</strong> : <code>2ma_var</code> ← ERREUR</li>
+            <li>❌ <strong>Pas d'espaces ni caractères spéciaux</strong> : <code>ma var</code> ← ERREUR</li>
+            <li>💡 <strong>Préfère snake_case</strong> : <code>ma_variable</code> plutôt que <code>maVariable</code></li>
+          </ul>
+
+          <h2>Résumé</h2>
+          <p>En Python, les variables sont simples : vous dites le nom, vous assignez une valeur, et c'est tout. Python gère les types automatiquement, ce qui rend Python très accessible pour les débutants !</p>
+        `,
+        sources: [
+          {
+            url: 'https://docs.python.org/3/tutorial/introduction.html',
+            title: 'Python Docs — Introduction',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://www.w3schools.com/python/python_variables.asp',
+            title: 'W3Schools — Python Variables',
+            type: 'Tutoriel interactif'
+          },
+          {
+            url: 'https://www.codecademy.com/learn/learn-python-3',
+            title: 'Codecademy — Learn Python 3',
+            type: 'Plateforme interactive'
+          }
+        ]
+      }
+    ],
     intermediaire: [],
     avance: []
   },
   sql: {
-    debutant: [],
+    debutant: [
+      {
+        id: 'select',
+        title: 'Le SELECT',
+        description: 'Récupérer des données dans une base de données',
+        duration: 18,
+        concepts: 'SELECT, FROM, colonnes, lignes, base de données, table',
+        content: `
+          <h1>Le SELECT en SQL</h1>
+          <h2>Le problème</h2>
+          <p>Vous avez une base de données avec des milliers de clients. Comment récupérer les informations que vous cherchez ? Vous avez besoin d'une <strong>requête</strong> pour dire : « Donne-moi les noms et les âges ». Cette requête s'appelle un <strong>SELECT</strong>.</p>
+
+          <h2>Qu'est-ce qu'une base de données ?</h2>
+          <p>Une base de données est une <strong>collection organisée</strong> de données, structurée en <strong>tables</strong>. Chaque table ressemble à une feuille Excel :</p>
+          <ul>
+            <li><strong>Colonnes</strong> = champs (ex: id, nom, email, âge)</li>
+            <li><strong>Lignes</strong> = enregistrements (chaque personne)</li>
+          </ul>
+
+          <h2>Syntaxe basique du SELECT</h2>
+          <pre><code>SELECT nom, email FROM clients;</code></pre>
+          <p>Cela veut dire : « Récupère les colonnes nom et email de la table clients »</p>
+
+          <h2>Sélectionner toutes les colonnes</h2>
+          <pre><code>SELECT * FROM clients;</code></pre>
+          <p>L'astérisque <code>*</code> signifie « toutes les colonnes »</p>
+
+          <h2>Sélectionner avec une condition (WHERE)</h2>
+          <pre><code>SELECT nom, email FROM clients WHERE age > 18;</code></pre>
+          <p>Cela récupère seulement les clients de plus de 18 ans.</p>
+
+          <h2>Exemples progressifs</h2>
+          <h3>Exemple 1 : Tous les produits</h3>
+          <pre><code>SELECT * FROM produits;</code></pre>
+
+          <h3>Exemple 2 : Seulement le nom des produits</h3>
+          <pre><code>SELECT nom FROM produits;</code></pre>
+
+          <h3>Exemple 3 : Produits qui coûtent moins de 50 €</h3>
+          <pre><code>SELECT nom, prix FROM produits WHERE prix < 50;</code></pre>
+
+          <h3>Exemple 4 : Clients d'une ville spécifique</h3>
+          <pre><code>SELECT nom, email FROM clients WHERE ville = 'Paris';</code></pre>
+
+          <h2>Structure d'une requête SELECT</h2>
+          <table>
+            <tr><th>Partie</th><th>Signification</th><th>Obligatoire ?</th></tr>
+            <tr><td><code>SELECT colonnes</code></td><td>Quelles données récupérer</td><td>✅ Oui</td></tr>
+            <tr><td><code>FROM table</code></td><td>Dans quelle table chercher</td><td>✅ Oui</td></tr>
+            <tr><td><code>WHERE condition</code></td><td>Filtrer les résultats</td><td>❌ Non</td></tr>
+          </table>
+
+          <h2>Cas d'usage courants</h2>
+          <p><strong>Trouver tous les clients :</strong></p>
+          <pre><code>SELECT * FROM clients;</code></pre>
+
+          <p><strong>Chercher par id :</strong></p>
+          <pre><code>SELECT * FROM clients WHERE id = 5;</code></pre>
+
+          <p><strong>Récupérer les noms seulement :</strong></p>
+          <pre><code>SELECT nom FROM clients;</code></pre>
+
+          <h2>Résumé</h2>
+          <p>Le SELECT est le cœur de SQL. Il vous permet de poser des questions à votre base de données et de récupérer les réponses. Maîtriser le SELECT, c'est maîtriser SQL !</p>
+        `,
+        sources: [
+          {
+            url: 'https://dev.mysql.com/doc/refman/8.0/en/select.html',
+            title: 'MySQL — SELECT Statement',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://www.w3schools.com/sql/sql_select.asp',
+            title: 'W3Schools — SQL SELECT',
+            type: 'Tutoriel interactif'
+          },
+          {
+            url: 'https://sqlzoo.net/',
+            title: 'SQL Zoo — Interactive SQL Tutorial',
+            type: 'Plateforme interactive'
+          }
+        ]
+      }
+    ],
     intermediaire: [],
     avance: []
   }
