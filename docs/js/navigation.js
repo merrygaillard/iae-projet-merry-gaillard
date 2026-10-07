@@ -110,9 +110,237 @@ console.log(prenom + " " + nom + " a " + age + " ans");
         description: 'Comprendre les types : nombres, texte, booléens, tableaux, objets',
         duration: 12,
         concepts: 'Number, String, Boolean, Array, Object, Null, Undefined, typeof',
-        content: `<h1>Les types de données en JavaScript</h1><h2>Introduction</h2><p>Votre variable peut stocker différents types d'informations : un nombre, du texte, vrai ou faux, etc.</p><h2>Les 7 types de base</h2><p><strong>Number :</strong> 42, 3.14, -5</p><p><strong>String :</strong> "Bonjour", 'texte'</p><p><strong>Boolean :</strong> true, false</p><p><strong>Array :</strong> [1, 2, 3]</p><p><strong>Object :</strong> {nom: "Tom"}</p><p><strong>Null :</strong> null (aucune valeur)</p><p><strong>Undefined :</strong> undefined (pas défini)</p><h2>Vérifier le type</h2><pre><code>console.log(typeof 42);           // "number"
-console.log(typeof "Bonjour");    // "string"
-console.log(typeof true);         // "boolean"</code></pre>`,
+        content: `
+        <h1>Les types de données en JavaScript</h1>
+
+        <p><strong>Durée estimée :</strong> 12 minutes | <strong>Niveau :</strong> Débutant</p>
+
+        <h2>Introduction</h2>
+        <p>Votre variable peut stocker différents types d'informations : un nombre, du texte, vrai ou faux, etc. JavaScript accepte automatiquement différents types de données. Comprenez les types principaux pour écrire du code robuste.</p>
+
+        <h2>1. Les nombres (Number)</h2>
+        <p>Les nombres en JavaScript incluent les entiers et les décimaux.</p>
+
+        <h3>Exemples</h3>
+        <pre><code>let age = 25;              // Nombre entier
+let prix = 19.99;          // Nombre décimal
+let negatif = -5;          // Nombre négatif
+let temperature = 36.6;    // Température en degrés
+
+console.log(age);          // Affiche : 25
+console.log(prix);         // Affiche : 19.99</code></pre>
+
+        <h3>Opérations sur les nombres</h3>
+        <pre><code>let x = 10;
+let y = 3;
+
+console.log(x + y);        // Affiche : 13 (addition)
+console.log(x - y);        // Affiche : 7 (soustraction)
+console.log(x * y);        // Affiche : 30 (multiplication)
+console.log(x / y);        // Affiche : 3.333... (division)
+console.log(x % y);        // Affiche : 1 (reste de division)</code></pre>
+
+        <h2>2. Le texte (String)</h2>
+        <p>Une chaîne de caractères (string) est du texte. Elle doit être entourée de guillemets simples ou doubles.</p>
+
+        <h3>Déclarer une chaîne</h3>
+        <pre><code>let nom = "Alice";         // Guillemets doubles
+let ville = 'Paris';       // Guillemets simples
+let message = "Bonjour";   // Les deux fonctionnent</code></pre>
+
+        <p><strong>Important :</strong> Les guillemets font partie de la syntaxe, pas de la valeur. La valeur de <code>nom</code> est <code>Alice</code>, pas <code>"Alice"</code>.</p>
+
+        <h3>Chaînes multi-lignes</h3>
+        <pre><code>let poeme = \`Ligne 1
+Ligne 2
+Ligne 3\`;
+
+console.log(poeme);
+// Affiche :
+// Ligne 1
+// Ligne 2
+// Ligne 3</code></pre>
+
+        <h3>Concaténation (joindre des chaînes)</h3>
+        <pre><code>let prenom = "Tom";
+let nom = "Dubois";
+
+// Avec le signe +
+let nomComplet = prenom + " " + nom;
+console.log(nomComplet);   // Affiche : Tom Dubois
+
+// Avec les backticks (template literals)
+let message = \`Bonjour \${prenom} \${nom}\`;
+console.log(message);      // Affiche : Bonjour Tom Dubois</code></pre>
+
+        <h2>3. Le booléen (Boolean)</h2>
+        <p>Un booléen ne peut avoir que deux valeurs : <code>true</code> (vrai) ou <code>false</code> (faux). Utile pour les conditions.</p>
+
+        <h3>Exemples</h3>
+        <pre><code>let estEtudiant = true;
+let estProfesseur = false;
+let estValide = true;
+
+console.log(estEtudiant);  // Affiche : true
+console.log(estProfesseur);// Affiche : false</code></pre>
+
+        <h3>Résultats de comparaisons</h3>
+        <pre><code>let x = 5;
+let y = 3;
+
+console.log(x > y);        // Affiche : true (5 est plus grand que 3)
+console.log(x === y);      // Affiche : false (5 n'égale pas 3)
+console.log(x !== y);      // Affiche : true (5 n'égale pas 3)</code></pre>
+
+        <h2>4. Undefined et Null</h2>
+        <p>Deux valeurs spéciales pour « rien ».</p>
+
+        <h3>Undefined</h3>
+        <p><code>undefined</code> signifie « pas encore défini ». C'est la valeur par défaut d'une variable déclarée mais non assignée.</p>
+        <pre><code>let variable;
+console.log(variable);     // Affiche : undefined</code></pre>
+
+        <h3>Null</h3>
+        <p><code>null</code> signifie « aucune valeur » (volontairement vide).</p>
+        <pre><code>let valeur = null;
+console.log(valeur);       // Affiche : null</code></pre>
+
+        <h2>5. Les objets (Object) — Introduction</h2>
+        <p>Un objet regroupe plusieurs valeurs sous des noms.</p>
+
+        <h3>Exemple simple</h3>
+        <pre><code>let personne = {
+  nom: "Alice",
+  age: 28,
+  ville: "Paris"
+};
+
+console.log(personne.nom);   // Affiche : Alice
+console.log(personne.age);   // Affiche : 28
+console.log(personne.ville); // Affiche : Paris</code></pre>
+
+        <h2>6. Les tableaux (Array) — Introduction</h2>
+        <p>Un tableau stocke plusieurs valeurs dans une liste.</p>
+
+        <h3>Créer un tableau</h3>
+        <pre><code>let couleurs = ["rouge", "vert", "bleu"];
+let nombres = [1, 2, 3, 4, 5];
+let mixte = [1, "texte", true];  // Un tableau peut contenir différents types</code></pre>
+
+        <h3>Accéder aux éléments</h3>
+        <pre><code>let fruits = ["pomme", "banane", "orange"];
+
+console.log(fruits[0]);    // Affiche : pomme (premier élément, indice 0)
+console.log(fruits[1]);    // Affiche : banane (deuxième élément, indice 1)
+console.log(fruits[2]);    // Affiche : orange (troisième élément, indice 2)</code></pre>
+
+        <p><strong>Important :</strong> En programmation, on compte à partir de 0 ! Le premier élément est à l'indice 0.</p>
+
+        <h3>Longueur d'un tableau</h3>
+        <pre><code>let couleurs = ["rouge", "vert", "bleu"];
+console.log(couleurs.length); // Affiche : 3</code></pre>
+
+        <h2>Tableau comparatif des types</h2>
+        <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Type</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Exemple</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Description</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Number</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">42, 3.14, -5</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Nombres entiers et décimaux</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>String</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">"Bonjour", 'texte'</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Texte (entre guillemets)</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Boolean</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">true, false</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Vrai ou Faux</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Array</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">[1, 2, 3]</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Liste de valeurs</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Object</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">{nom: "Tom"}</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Groupement de propriétés</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Null</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">null</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Aucune valeur (intentionnel)</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Undefined</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">undefined</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Pas de valeur (par défaut)</td>
+            </tr>
+        </table>
+
+        <h2>Vérifier le type d'une variable</h2>
+        <p>Utilisez l'opérateur <code>typeof</code> pour vérifier le type.</p>
+
+        <h3>Exemples</h3>
+        <pre><code>console.log(typeof 42);           // Affiche : "number"
+console.log(typeof "Bonjour");    // Affiche : "string"
+console.log(typeof true);         // Affiche : "boolean"
+console.log(typeof [1, 2, 3]);    // Affiche : "object"
+console.log(typeof {nom: "Tom"}); // Affiche : "object"
+console.log(typeof undefined);    // Affiche : "undefined"
+console.log(typeof null);         // Affiche : "object" (anomalie en JS!)</code></pre>
+
+        <h2>Conversion de types</h2>
+        <p>Parfois vous devez convertir un type en un autre.</p>
+
+        <h3>Convertir en nombre</h3>
+        <pre><code>let texte = "25";
+let nombre = Number(texte);
+console.log(nombre);              // Affiche : 25 (maintenant un nombre)</code></pre>
+
+        <h3>Convertir en texte</h3>
+        <pre><code>let nombre = 42;
+let texte = String(nombre);
+console.log(texte);               // Affiche : "42" (maintenant du texte)</code></pre>
+
+        <h3>Convertir en booléen</h3>
+        <pre><code>let nombre = 1;
+let bool = Boolean(nombre);
+console.log(bool);                // Affiche : true</code></pre>
+
+        <h2>Piège courant : Mélanger les types</h2>
+        <p>Attention quand vous mélangez les types avec <code>+</code> :</p>
+
+        <pre><code>console.log(5 + 3);           // Affiche : 8 (addition)
+console.log("5" + 3);         // Affiche : 53 (concaténation!)
+console.log(5 + "3");         // Affiche : 53 (concaténation!)
+console.log("5" + "3");       // Affiche : 53 (concaténation!)</code></pre>
+
+        <p><strong>Explication :</strong> Quand <code>+</code> voit une chaîne, il joint les valeurs au lieu de les ajouter.</p>
+
+        <h2>Points clés à retenir</h2>
+        <ul>
+            <li>JavaScript a 7 types de base : Number, String, Boolean, Object, Array, Null, Undefined</li>
+            <li>Utilisez <code>typeof</code> pour vérifier le type</li>
+            <li>Attention à ne pas mélanger les types, surtout avec <code>+</code></li>
+            <li>Les tableaux et objets contiennent plusieurs valeurs</li>
+            <li>Comptez toujours à partir de 0 pour les indices</li>
+        </ul>
+
+        <h2>Sources</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures" target="_blank">MDN — JavaScript Data Types</a></li>
+            <li><a href="https://www.w3schools.com/js/js_datatypes.asp" target="_blank">W3Schools — JavaScript Data Types</a></li>
+            <li><a href="https://javascript.info/types" target="_blank">JavaScript.info — Data Types</a></li>
+            <li><a href="https://www.codecademy.com/learn/introduction-to-javascript" target="_blank">Codecademy — Introduction to JavaScript</a></li>
+        </ul>
+        `,
         sources: [
           {
             url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures',
@@ -128,6 +356,11 @@ console.log(typeof true);         // "boolean"</code></pre>`,
             url: 'https://javascript.info/types',
             title: 'JavaScript.info — Data Types',
             type: 'Tutoriel pédagogique'
+          },
+          {
+            url: 'https://www.codecademy.com/learn/introduction-to-javascript',
+            title: 'Codecademy — Introduction to JavaScript',
+            type: 'Plateforme interactive'
           }
         ]
       },
@@ -137,18 +370,264 @@ console.log(typeof true);         // "boolean"</code></pre>`,
         description: 'Arithmétique, comparaison, logique, assignation, chaînes',
         duration: 15,
         concepts: 'Opérateurs arithmétiques, comparaison, logiques, assignation, ternaire',
-        content: `<h1>Les opérateurs en JavaScript</h1><h2>Introduction</h2><p>Les opérateurs permettent de faire des actions : ajouter deux nombres, comparer des valeurs, assigner une variable.</p><h2>Opérateurs arithmétiques</h2><pre><code>let a = 10;
+        content: `
+        <h1>Les opérateurs en JavaScript</h1>
+
+        <p><strong>Durée estimée :</strong> 15 minutes | <strong>Niveau :</strong> Débutant</p>
+
+        <h2>Introduction</h2>
+        <p>Les opérateurs sont des symboles qui permettent de faire des actions : ajouter deux nombres, comparer des valeurs, assigner une variable. Maîtriser les opérateurs est essentiel pour écrire du code JavaScript.</p>
+
+        <h2>1. Les opérateurs arithmétiques</h2>
+        <p>Ils servent à faire des calculs mathématiques.</p>
+
+        <h3>Les quatre opérations de base</h3>
+        <pre><code>let a = 10;
 let b = 3;
 
-console.log(a + b);        // 13 (addition)
-console.log(a - b);        // 7 (soustraction)
-console.log(a * b);        // 30 (multiplication)
-console.log(a / b);        // 3.333... (division)
-console.log(a % b);        // 1 (reste)</code></pre><h2>Comparaison</h2><pre><code>console.log(5 > 3);        // true
-console.log(5 === 5);      // true
-console.log(5 !== 3);      // true</code></pre><h2>Logique</h2><pre><code>console.log(true && false);  // false (ET)
-console.log(true || false);  // true (OU)
-console.log(!true);          // false (NON)</code></pre>`,
+console.log(a + b);        // Affiche : 13 (addition)
+console.log(a - b);        // Affiche : 7 (soustraction)
+console.log(a * b);        // Affiche : 30 (multiplication)
+console.log(a / b);        // Affiche : 3.333... (division)</code></pre>
+
+        <h3>Modulo (reste de division)</h3>
+        <pre><code>let a = 10;
+let b = 3;
+
+console.log(a % b);        // Affiche : 1 (reste de 10 / 3)
+
+// Utile pour vérifier si un nombre est pair
+console.log(10 % 2);       // Affiche : 0 (10 est pair)
+console.log(11 % 2);       // Affiche : 1 (11 est impair)</code></pre>
+
+        <h3>Puissance</h3>
+        <pre><code>console.log(2 ** 3);       // Affiche : 8 (2 à la puissance 3)
+console.log(5 ** 2);       // Affiche : 25 (5 au carré)</code></pre>
+
+        <h2>2. L'opérateur d'assignation</h2>
+        <p><code>=</code> sert à donner une valeur à une variable.</p>
+
+        <h3>Assignation simple</h3>
+        <pre><code>let nom = "Alice";
+let age = 25;
+let actif = true;</code></pre>
+
+        <h3>Opérateurs d'assignation raccourcis</h3>
+        <pre><code>let x = 10;
+
+x += 5;    // Équivalent à : x = x + 5;  Résultat : 15
+x -= 3;    // Équivalent à : x = x - 3;  Résultat : 12
+x *= 2;    // Équivalent à : x = x * 2;  Résultat : 24
+x /= 4;    // Équivalent à : x = x / 4;  Résultat : 6</code></pre>
+
+        <h2>3. Les opérateurs de comparaison</h2>
+        <p>Ils comparent deux valeurs et retournent <code>true</code> ou <code>false</code>.</p>
+
+        <h3>Les comparaisons de base</h3>
+        <pre><code>console.log(5 > 3);        // Affiche : true (5 est supérieur à 3)
+console.log(5 < 3);        // Affiche : false (5 n'est pas inférieur à 3)
+console.log(5 >= 5);       // Affiche : true (5 est supérieur ou égal à 5)
+console.log(5 <= 3);       // Affiche : false (5 n'est pas inférieur ou égal à 3)</code></pre>
+
+        <h3>L'égalité</h3>
+        <pre><code>console.log(5 == "5");     // Affiche : true (valeur égale, type ignoré)
+console.log(5 === "5");    // Affiche : false (type et valeur doivent être identiques)
+
+console.log(5 != "5");     // Affiche : false (pas différent en valeur)
+console.log(5 !== "5");    // Affiche : true (pas égal en type ET valeur)</code></pre>
+
+        <p><strong>⚠️ Important :</strong> Préférez toujours <code>===</code> à <code>==</code> en JavaScript. C'est plus sûr.</p>
+
+        <h2>4. Les opérateurs logiques</h2>
+        <p>Ils combinent ou modifient des conditions booléennes.</p>
+
+        <h3>ET logique (&&)</h3>
+        <pre><code>console.log(true && true);   // Affiche : true
+console.log(true && false);  // Affiche : false
+console.log(false && false); // Affiche : false
+
+// Exemple pratique
+let age = 20;
+let permis = true;
+
+let peutConduire = (age >= 18) && permis;
+console.log(peutConduire);   // Affiche : true</code></pre>
+
+        <h3>OU logique (||)</h3>
+        <pre><code>console.log(true || false);  // Affiche : true
+console.log(false || false); // Affiche : false
+
+// Exemple pratique
+let estEtudiant = false;
+let estRetraite = true;
+
+let obtientReduction = estEtudiant || estRetraite;
+console.log(obtientReduction); // Affiche : true</code></pre>
+
+        <h3>NON logique (!)</h3>
+        <pre><code>console.log(!true);          // Affiche : false
+console.log(!false);         // Affiche : true
+
+// Exemple pratique
+let estConnecte = false;
+console.log(!estConnecte);   // Affiche : true (NOT connected = connected)</code></pre>
+
+        <h2>5. Les opérateurs d'incrémentation et décrémentation</h2>
+        <p>Raccourcis pour ajouter ou soustraire 1.</p>
+
+        <h3>Incrémentation (ajouter 1)</h3>
+        <pre><code>let x = 5;
+x++;          // x devient 6
+console.log(x); // Affiche : 6
+
+// Équivalent à
+let y = 5;
+y += 1;       // y devient 6</code></pre>
+
+        <h3>Décrémentation (soustraire 1)</h3>
+        <pre><code>let x = 5;
+x--;          // x devient 4
+console.log(x); // Affiche : 4
+
+// Équivalent à
+let y = 5;
+y -= 1;       // y devient 4</code></pre>
+
+        <h2>6. L'opérateur conditionnel (ternaire)</h2>
+        <p>Un raccourci pour une condition simple.</p>
+
+        <h3>Syntaxe</h3>
+        <pre><code>condition ? valeur_si_vraie : valeur_si_fausse</code></pre>
+
+        <h3>Exemple</h3>
+        <pre><code>let age = 20;
+let statut = (age >= 18) ? "Adulte" : "Enfant";
+console.log(statut);       // Affiche : Adulte
+
+// Équivalent à
+let statut2;
+if (age >= 18) {
+  statut2 = "Adulte";
+} else {
+  statut2 = "Enfant";
+}</code></pre>
+
+        <h2>7. L'opérateur de chaîne</h2>
+        <p><code>+</code> sert aussi à joindre des chaînes de caractères.</p>
+
+        <h3>Concaténation</h3>
+        <pre><code>let prenom = "Tom";
+let nom = "Dubois";
+
+let nomComplet = prenom + " " + nom;
+console.log(nomComplet);   // Affiche : Tom Dubois
+
+// Avec template literals
+let age = 25;
+let message = \`\${prenom} a \${age} ans\`;
+console.log(message);      // Affiche : Tom a 25 ans</code></pre>
+
+        <h2>Tableau récapitulatif</h2>
+        <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Type</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Symbole</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Exemple</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Résultat</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Arithmétique</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">+ - * / %</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">10 + 3</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">13</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Assignation</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">= += -= *= /=</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">x += 5</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">x augmente de 5</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Comparaison</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">== === != !== > < >= <=</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">5 === 5</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">true</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Logique</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">&& || !</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">true && false</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">false</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><strong>Chaîne</strong></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">+</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">"Bonjour " + "monde"</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">"Bonjour monde"</td>
+            </tr>
+        </table>
+
+        <h2>Ordre de priorité des opérateurs</h2>
+        <p>Comme en mathématiques, certains opérateurs sont évalués avant d'autres.</p>
+
+        <pre><code>console.log(2 + 3 * 4);    // Affiche : 14 (pas 20)
+// Multiplication d'abord : 3 * 4 = 12, puis 2 + 12 = 14
+
+console.log((2 + 3) * 4);  // Affiche : 20 (parenthèses d'abord)
+// 2 + 3 = 5, puis 5 * 4 = 20</code></pre>
+
+        <p><strong>Ordre (du plus prioritaire au moins):</strong></p>
+        <ol>
+            <li>Parenthèses <code>()</code></li>
+            <li>Puissance <code>**</code></li>
+            <li>Multiplication, Division, Modulo <code>* / %</code></li>
+            <li>Addition, Soustraction <code>+ -</code></li>
+            <li>Comparaison <code>&lt; &gt; &lt;= &gt;= === !==</code></li>
+            <li>Logique ET <code>&&</code></li>
+            <li>Logique OU <code>||</code></li>
+            <li>Assignation <code>=</code></li>
+        </ol>
+
+        <h2>Exemples pratiques</h2>
+
+        <h3>Exemple 1 : Calculer le prix TTC</h3>
+        <pre><code>let prixHT = 100;
+let tauxTVA = 0.20;  // 20% de TVA
+
+let prixTTC = prixHT * (1 + tauxTVA);
+console.log(prixTTC);  // Affiche : 120</code></pre>
+
+        <h3>Exemple 2 : Vérifier si un utilisateur peut voter</h3>
+        <pre><code>let age = 18;
+let estCitoyen = true;
+
+let peutVoter = (age >= 18) && estCitoyen;
+console.log(peutVoter);  // Affiche : true</code></pre>
+
+        <h3>Exemple 3 : Vérifier si un nombre est pair</h3>
+        <pre><code>let nombre = 7;
+let estPair = (nombre % 2 === 0);
+console.log(estPair);  // Affiche : false (7 est impair)</code></pre>
+
+        <h2>Points clés à retenir</h2>
+        <ul>
+            <li>Les opérateurs arithmétiques : <code>+ - * / % **</code></li>
+            <li>Assignation : <code>=</code>, raccourcis : <code>+= -= *= /=</code></li>
+            <li>Comparaison : <code>== === != !== > < >= <=</code></li>
+            <li>Logique : <code>&& || !</code></li>
+            <li>Toujours préférer <code>===</code> à <code>==</code></li>
+            <li>Utilisez les parenthèses <code>()</code> pour clarifier</li>
+            <li>L'ordre de priorité change le résultat</li>
+        </ul>
+
+        <h2>Sources</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators" target="_blank">MDN — Expressions and Operators</a></li>
+            <li><a href="https://www.w3schools.com/js/js_operators.asp" target="_blank">W3Schools — JavaScript Operators</a></li>
+            <li><a href="https://javascript.info/operators" target="_blank">JavaScript.info — Operators</a></li>
+            <li><a href="https://www.codecademy.com/learn/introduction-to-javascript" target="_blank">Codecademy — Introduction to JavaScript</a></li>
+        </ul>
+        `,
         sources: [
           {
             url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators',
@@ -164,6 +643,11 @@ console.log(!true);          // false (NON)</code></pre>`,
             url: 'https://javascript.info/operators',
             title: 'JavaScript.info — Operators',
             type: 'Tutoriel pédagogique'
+          },
+          {
+            url: 'https://www.codecademy.com/learn/introduction-to-javascript',
+            title: 'Codecademy — Introduction to JavaScript',
+            type: 'Plateforme interactive'
           }
         ]
       }
