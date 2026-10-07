@@ -1,0 +1,294 @@
+/* ====================================
+   RESPONSIVE DESIGN
+   ==================================== */
+
+/* Tablettes (768px et plus) */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-lg);
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .container {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .hero p {
+    font-size: var(--font-size-base);
+  }
+
+  .languages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lessons-container {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-content {
+    padding: var(--spacing-lg);
+  }
+
+  .lesson-content h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .lesson-content h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .tab-buttons {
+    flex-wrap: wrap;
+  }
+
+  .tab-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+
+  table {
+    font-size: var(--font-size-sm);
+  }
+
+  table th,
+  table td {
+    padding: var(--spacing-sm);
+  }
+}
+
+/* Petits écrans (moins de 480px) */
+@media (max-width: 480px) {
+  :root {
+    --font-size-base: 14px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --spacing-lg: 16px;
+    --spacing-xl: 20px;
+  }
+
+  .logo {
+    font-size: var(--font-size-xl);
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .main-nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .hero {
+    padding: var(--spacing-lg);
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  .hero p {
+    font-size: var(--font-size-sm);
+  }
+
+  .btn {
+    width: 100%;
+    padding: var(--spacing-md);
+  }
+
+  .languages-grid {
+    gap: var(--spacing-md);
+  }
+
+  .language-card {
+    padding: var(--spacing-md);
+  }
+
+  .language-card h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .lessons-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lessons-header h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .lesson-card {
+    padding: var(--spacing-md);
+  }
+
+  .lesson-content {
+    padding: var(--spacing-md);
+  }
+
+  .lesson-content h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  .lesson-content h2 {
+    font-size: var(--font-size-base);
+  }
+
+  .lesson-content pre {
+    padding: var(--spacing-md);
+    font-size: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab-buttons {
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+  }
+
+  .tab-button {
+    padding: var(--spacing-sm);
+    font-size: 12px;
+    flex: 1;
+    min-width: 80px;
+  }
+
+  .exercise-card,
+  .quiz-card {
+    padding: var(--spacing-md);
+  }
+
+  .sources-list li {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  table {
+    font-size: 12px;
+    overflow-x: auto;
+    display: block;
+  }
+
+  table th,
+  table td {
+    padding: var(--spacing-xs);
+  }
+
+  .progress-item {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Orientation paysage sur petits écrans */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hero h1 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .hero p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .container {
+    min-height: auto;
+  }
+}
+
+/* Très grands écrans (1920px et plus) */
+@media (min-width: 1920px) {
+  .container,
+  .header-container {
+    max-width: 1600px;
+  }
+
+  :root {
+    --font-size-base: 18px;
+    --font-size-lg: 20px;
+    --font-size-xl: 28px;
+    --font-size-2xl: 36px;
+  }
+}
+
+/* ====================================
+   OPTIMISATIONS POUR MOBILE
+   ==================================== */
+
+/* Améliorer la lisibilité sur mobile */
+@media (max-width: 768px) {
+  /* Augmenter les zones tactiles */
+  .btn,
+  .option,
+  .quiz-option,
+  .lesson-card {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Éviter la magnification du texte */
+  input,
+  button,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  /* Améliorer les gestes tactiles */
+  .language-card:active,
+  .lesson-card:active,
+  .option:active,
+  .btn:active {
+    opacity: 0.8;
+  }
+}
+
+/* ====================================
+   IMPRESSION (couleur d'impression)
+   ==================================== */
+@media print {
+  header,
+  footer,
+  .btn,
+  .main-nav {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+
+  .lesson-content,
+  .exercise-card {
+    border: 1px solid #000;
+    page-break-inside: avoid;
+  }
+
+  .lesson-content h1,
+  .lesson-content h2 {
+    page-break-after: avoid;
+  }
+}
