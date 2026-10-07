@@ -1,0 +1,156 @@
+---
+workflow: academie-informatique
+design_spec: outputs/academie-informatique/design-spec.md
+requirements: outputs/academie-informatique/requirements.md
+date: 2026-10-07
+environment: "Claude Code (local, web search enabled)"
+round_status: in-progress
+criteria_total: 0
+criteria_met: 0
+results: {}
+---
+
+# Test Results — Académie Informatique
+
+## Check list
+
+| ID | Critère | Type | Détail |
+|---|---|---|---|
+| **AC1** | UX fluide et claire | must | Navigation web/mobile sans doc externe |
+| **AC2** | Exercices progressifs | must | Débutant ≠ avancé, ordre logique |
+| **AC3** | Exercices challenging | must | Vraie compréhension, pas recall |
+| **AC4** | Sources citées en bas | should | URLs vérifiées et accessibles |
+| **AC5** | Sécurité | should | Input validation, protection XSS/SQL |
+| **AC6** | Français + code anglais | should | Contenu/syntax séparé |
+| **AC7** | Feedback widget | should | « Un commentaire ? » fin leçon/exercice |
+| **R1** | Solutions accessibles au niveau | must | Débutant avec indices, bonus sans |
+| **R2** | Variété exercices | must | QCM + texte à trou + texte libre |
+| **R3** | QCM une seule réponse correcte | must | Single-choice validation |
+| **R4** | QCM final : 50Q, 2pts/Q, ≥15/20 | must | Seuil 15/20 pour passer |
+| **R5** | Contenu français; code anglais | must | Séparation langue |
+| **R6** | Code attribué (jamais copier sans URL) | must | Attribution systématique |
+| **R7** | Sources cité en bas (URL cliquable) | must | Pas inline, onglet Sources |
+| **R8** | Reddit validé en sources "trad" | must | Cross-check avant inclusion |
+| **R9** | Progression indépendante par pôle | must | Jamais shortcut inter-pôle |
+| **R10** | Barre progression + déverrouillage | must | Par pôle et par niveau |
+| **R11** | Fallback : skip + notifier | must | Si ressources insuffisantes |
+| **R12** | Source morte → remplacer | must | Validation URL continue |
+| **G1** | Tableau Excel validé utilisateur | human | Validation sources par utilisateur |
+| **G2** | Test par niveau avant activation | human | Qualité et fiabilité testées |
+| **G3** | Approbation finale avant go-live | human | Validation UX/contenu/sources |
+
+---
+
+## Scenarios to run
+
+### E1 — Cas typique (real)
+
+**Input :** `outputs/academie-informatique/inputs/E1-cas-typique.md`
+
+```
+Langages : JavaScript, Python, MySQL
+Niveaux : Débutant, Intermédiaire, Avancé
+Documentation optionnelle : Non fournie
+```
+
+**What to look for :**
+Le site contient 30-35h (débutant+intermédiaire prioritaires, avancé moins); chaque exercice challenge; sources citées (URL); progression logique par pôle (start débutant); QCM final 50Q/niveau; barre progression; responsive; tests AC1–AC7
+
+**Tests spécifiques :**
+- Couverture : 30-35 heures validées
+- Exercices : progression claire, challenging
+- Sources : URLs actives et vérifiées
+- UX : responsive, navigation fluide
+- Sécurité : input validation présente
+
+---
+
+### E2 — Ajouter un langage (proposed)
+
+**Input :** `outputs/academie-informatique/inputs/E2-ajouter-langage.md`
+
+```
+Langages : JavaScript, Python, MySQL, R
+Niveaux : Débutant, Intermédiaire, Avancé
+Documentation optionnelle : Non fournie
+```
+
+**What to look for :**
+L'IA peut scaler à 4 langages; qualité du contenu R maintenue; cohérence inter-pôles; progression indépendante; tests AC1–AC7 + scalabilité
+
+**Tests spécifiques :**
+- Scalabilité : 4 langages gérés
+- Qualité R : contenu fiable
+- Cohérence : même niveau entre pôles
+- Progression : indépendante par pôle
+
+---
+
+### E3 — Ajouter niveau bonus (proposed)
+
+**Input :** `outputs/academie-informatique/inputs/E3-ajouter-niveau-bonus.md`
+
+```
+Langages : JavaScript, Python, MySQL
+Niveaux : Débutant, Intermédiaire, Avancé, Bonus
+Documentation optionnelle : Non fournie
+```
+
+**What to look for :**
+Bonus intégré (4 niveaux au lieu de 3); hors comptage 30-35h; accessibilité avancée; tests AC1–AC7 + bonus cohérent
+
+**Tests spécifiques :**
+- Bonus : contenu avancé, hors 30-35h
+- Accessibilité : pas de regression sur D/I/A
+- Progression : bonus déverrouillable après Avancé
+
+---
+
+## Report card
+
+(À compléter après chaque scénario)
+
+---
+
+## Golden example deltas
+
+(À compléter si applicable)
+
+---
+
+## Not run
+
+(Aucun pour le moment)
+
+---
+
+## Environment
+
+- **Platform:** Claude Code (local)
+- **Web search:** Enabled
+- **Connectors:** None required (read-only workflow)
+- **Write access:** Local files only (HTML, CSS, JS, CSV)
+
+---
+
+## Issues identified
+
+(À compléter après diagnose)
+
+---
+
+## Accepted misses
+
+(À compléter si applicable)
+
+---
+
+## Verdict
+
+(À compléter après E3)
+
+---
+
+## Test records created
+
+(À compléter après testing)
