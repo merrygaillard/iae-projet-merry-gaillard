@@ -154,3 +154,20 @@ Bonus intégré (4 niveaux au lieu de 3); hors comptage 30-35h; accessibilité a
 ## Test records created
 
 (À compléter après testing)
+
+## Résultats — contrôles automatiques du 2026-10-07 (lecture seule)
+
+| Test | Périmètre | Résultat |
+|---|---|---|
+| T1 — Liens des sources | 21 liens, 4 leçons | **0 vérifié automatiquement.** La session ne peut pas joindre MDN, W3Schools ou Codecademy (refus 403 du proxy réseau). Liste à vérifier à la main : `sources/sources tests.md`. |
+| T2a — Exercices du site | 6 jeux de 20 exercices (`docs/js/navigation.js`) | **6 sur 6 OK** : 10 QCM, 5 textes à trou, 5 textes libres. Chaque bonne réponse QCM pointe vers une option existante. |
+| T2b — Fichiers d'exercices source | 4 fichiers dans `outputs/academie-informatique/exercises/` | **Échec réel :** le nom du champ « bonne réponse » n'est pas uniforme (1 fichier `bonne_reponse` en lettre, 1 fichier `bonne_réponse` avec accent, 2 fichiers `bonne_réponse_index` en numéro). Le nombre (20 par fichier) est correct. Non corrigé. |
+| T2c — Quiz | 2 quiz (JS débutant, JS intermédiaire) | **2 sur 2 OK** : 50 questions, 2 points par question, seuil 15/20. |
+| T2d — Sources par leçon | 4 leçons | **3 sur 4 OK** (3 à 5 sources). `les-boucles-avancees` en a 8. Non corrigé. |
+
+**Non testé dans cette session :**
+- T3 : génération de nouvelles leçons à partir de E1, E2, E3 (non lancée, en attente d'accord).
+- Sécurité du site (AC5) : non testée.
+- Widget « Un commentaire ? » (AC7) : absent du code.
+- Détection des données personnelles dans les notes (C1) : non implémentée.
+- Cas piégés (valeur impossible, doublon, donnée personnelle, consigne cachée) : non corrigés, non rejoués.
