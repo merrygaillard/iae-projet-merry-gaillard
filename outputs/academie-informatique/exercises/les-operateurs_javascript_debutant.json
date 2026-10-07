@@ -1,0 +1,200 @@
+{
+  "concept": "Les opérateurs",
+  "langage": "JavaScript",
+  "niveau": "débutant",
+  "total_questions": 20,
+  "points_par_question": 1,
+  "seuil_reussite": 15,
+  "exercices": [
+    {
+      "id": "operateurs_qcm_1",
+      "numero": 1,
+      "type": "mcq",
+      "difficulté": "facile",
+      "énoncé": "Quel est le résultat de 10 + 5 ?",
+      "options": ["5", "15", "105", "Erreur"],
+      "bonne_réponse_index": 1,
+      "explication": "L'opérateur + avec deux nombres fait l'addition : 10 + 5 = 15."
+    },
+    {
+      "id": "operateurs_qcm_2",
+      "numero": 2,
+      "type": "mcq",
+      "difficulté": "facile",
+      "énoncé": "Qu'affiche console.log(10 > 5) ?",
+      "options": ["10", "false", "true", "Erreur"],
+      "bonne_réponse_index": 2,
+      "explication": "10 est supérieur à 5, donc la comparaison retourne true."
+    },
+    {
+      "id": "operateurs_qcm_3",
+      "numero": 3,
+      "type": "mcq",
+      "difficulté": "facile",
+      "énoncé": "Quel opérateur permet de donner une valeur à une variable ?",
+      "options": ["+", "==", "=", "!"],
+      "bonne_réponse_index": 2,
+      "explication": "L'opérateur = est l'opérateur d'assignation. Il donne une valeur à une variable."
+    },
+    {
+      "id": "operateurs_qcm_4",
+      "numero": 4,
+      "type": "mcq",
+      "difficulté": "facile",
+      "énoncé": "Qu'affiche console.log(5 % 2) ?",
+      "options": ["2.5", "2", "1", "0"],
+      "bonne_réponse_index": 2,
+      "explication": "Le modulo (%) retourne le reste de la division : 5 divisé par 2 donne reste 1."
+    },
+    {
+      "id": "operateurs_qcm_5",
+      "numero": 5,
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Quelle est la différence entre == et === ?",
+      "options": ["Aucune différence", "== compare la valeur, === compare la valeur ET le type", "== est plus rapide", "=== n'existe pas"],
+      "bonne_réponse_index": 1,
+      "explication": "== ignore le type (5 == '5' est true), === compare strictement (5 === '5' est false)."
+    },
+    {
+      "id": "operateurs_qcm_6",
+      "numero": 6,
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Qu'affiche console.log(true && false) ?",
+      "options": ["true", "false", "Erreur", "undefined"],
+      "bonne_réponse_index": 1,
+      "explication": "Le ET logique (&&) retourne true uniquement si les deux côtés sont true."
+    },
+    {
+      "id": "operateurs_qcm_7",
+      "numero": 7,
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Qu'affiche console.log(!true) ?",
+      "options": ["true", "false", "1", "Erreur"],
+      "bonne_réponse_index": 1,
+      "explication": "L'opérateur NON (!) inverse une valeur booléenne : !true = false."
+    },
+    {
+      "id": "operateurs_qcm_8",
+      "numero": 8,
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Qu'affiche console.log(2 + 3 * 4) ?",
+      "options": ["20", "14", "24", "Erreur"],
+      "bonne_réponse_index": 1,
+      "explication": "La multiplication a priorité sur l'addition : 3 * 4 = 12, puis 2 + 12 = 14."
+    },
+    {
+      "id": "operateurs_qcm_9",
+      "numero": 9,
+      "type": "mcq",
+      "difficulté": "difficile",
+      "énoncé": "Qu'affiche console.log(5 !== 5) ?",
+      "options": ["true", "false", "0", "Erreur"],
+      "bonne_réponse_index": 1,
+      "explication": "!== signifie 'pas identique'. 5 === 5 est true, donc 5 !== 5 est false."
+    },
+    {
+      "id": "operateurs_qcm_10",
+      "numero": 10,
+      "type": "mcq",
+      "difficulté": "difficile",
+      "énoncé": "Qu'affiche console.log((age >= 18) ? 'Adulte' : 'Enfant') si age = 20 ?",
+      "options": ["Adulte", "Enfant", "20", "Erreur"],
+      "bonne_réponse_index": 0,
+      "explication": "L'opérateur ternaire retourne la première valeur si la condition est vraie, sinon la deuxième."
+    },
+    {
+      "id": "operateurs_trou_1",
+      "numero": 11,
+      "type": "fill_blank",
+      "difficulté": "facile",
+      "énoncé": "Complète : 10 _____ 5 = 15",
+      "réponse": "+",
+      "explication": "L'addition est 10 + 5 = 15."
+    },
+    {
+      "id": "operateurs_trou_2",
+      "numero": 12,
+      "type": "fill_blank",
+      "difficulté": "facile",
+      "énoncé": "Complète : 10 _____ 3 = 1",
+      "réponse": "%",
+      "explication": "Le modulo : 10 % 3 = 1 (reste de 10 divisé par 3)."
+    },
+    {
+      "id": "operateurs_trou_3",
+      "numero": 13,
+      "type": "fill_blank",
+      "difficulté": "moyen",
+      "énoncé": "Complète : let x = 10; x _____ 5; // x vaut maintenant 15",
+      "réponse": "+=",
+      "explication": "L'opérateur += additionne et assigne : x += 5 équivaut à x = x + 5."
+    },
+    {
+      "id": "operateurs_trou_4",
+      "numero": 14,
+      "type": "fill_blank",
+      "difficulté": "moyen",
+      "énoncé": "Complète : console.log(5 _____ '5'); // Affiche : true (comparaison de valeur)",
+      "réponse": "==",
+      "explication": "== compare les valeurs sans considérer le type. 5 == '5' est true."
+    },
+    {
+      "id": "operateurs_trou_5",
+      "numero": 15,
+      "type": "fill_blank",
+      "difficulté": "difficile",
+      "énoncé": "Complète : console.log(true _____ false); // Affiche : true (OU logique)",
+      "réponse": "||",
+      "explication": "L'opérateur OU (||) retourne true si au moins un côté est true."
+    },
+    {
+      "id": "operateurs_libre_1",
+      "numero": 16,
+      "type": "free_text",
+      "difficulté": "moyen",
+      "énoncé": "Écris du code pour vérifier si un nombre est pair (utilise l'opérateur modulo).",
+      "solution": "let nombre = 10;\nlet estPair = (nombre % 2 === 0);\nconsole.log(estPair); // Affiche : true",
+      "explication": "Si le reste de la division par 2 est 0, le nombre est pair."
+    },
+    {
+      "id": "operateurs_libre_2",
+      "numero": 17,
+      "type": "free_text",
+      "difficulté": "moyen",
+      "énoncé": "Utilise l'opérateur ternaire pour affecter 'Majeur' ou 'Mineur' selon si age >= 18.",
+      "solution": "let age = 20;\nlet statut = (age >= 18) ? 'Majeur' : 'Mineur';\nconsole.log(statut); // Affiche : Majeur",
+      "explication": "L'opérateur ternaire est plus court qu'une condition if/else pour des cas simples."
+    },
+    {
+      "id": "operateurs_libre_3",
+      "numero": 18,
+      "type": "free_text",
+      "difficulté": "moyen",
+      "énoncé": "Écris du code qui affiche vrai si age >= 18 ET permis === true (utilise &&).",
+      "solution": "let age = 20;\nlet permis = true;\nlet peutConduire = (age >= 18) && (permis === true);\nconsole.log(peutConduire); // Affiche : true",
+      "explication": "Le ET logique (&&) exige que les deux conditions soient vraies."
+    },
+    {
+      "id": "operateurs_libre_4",
+      "numero": 19,
+      "type": "free_text",
+      "difficulté": "difficile",
+      "énoncé": "Écris une condition : obtientReduction si estEtudiant OU estRetraite (utilise ||).",
+      "solution": "let estEtudiant = false;\nlet estRetraite = true;\nlet obtientReduction = (estEtudiant || estRetraite);\nconsole.log(obtientReduction); // Affiche : true",
+      "explication": "Le OU logique (||) est vrai si au moins une condition est vraie."
+    },
+    {
+      "id": "operateurs_libre_5",
+      "numero": 20,
+      "type": "free_text",
+      "difficulté": "difficile",
+      "énoncé": "Écris le résultat de (2 + 3) * 4 et explique pourquoi tu dois utiliser les parenthèses.",
+      "solution": "console.log((2 + 3) * 4); // Affiche : 20\nExplication : Sans parenthèses, la multiplication aurait priorité (2 + 3*4 = 14). Les parenthèses forcent l'addition en premier.",
+      "explication": "Cet exercice montre l'importance de la priorité des opérateurs et des parenthèses pour clarifier."
+    }
+  ]
+}

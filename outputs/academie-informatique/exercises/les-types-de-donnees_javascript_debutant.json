@@ -1,0 +1,200 @@
+{
+  "concept": "Les types de données",
+  "langage": "JavaScript",
+  "niveau": "débutant",
+  "total_questions": 20,
+  "points_par_question": 1,
+  "seuil_reussite": 15,
+  "exercices": [
+    {
+      "id": "types_qcm_1",
+      "numero": 1,
+      "type": "mcq",
+      "difficulté": "facile",
+      "énoncé": "Quel est le type de la valeur 42 en JavaScript ?",
+      "options": ["String", "Number", "Boolean", "Object"],
+      "bonne_réponse_index": 1,
+      "explication": "42 est un nombre entier, donc son type est Number."
+    },
+    {
+      "id": "types_qcm_2",
+      "numero": 2,
+      "type": "mcq",
+      "difficulté": "facile",
+      "énoncé": "Quel opérateur permet de vérifier le type d'une variable ?",
+      "options": ["checkType()", "type()", "typeof", "getType()"],
+      "bonne_réponse_index": 2,
+      "explication": "L'opérateur typeof permet de vérifier le type d'une valeur : typeof 5 retourne 'number'."
+    },
+    {
+      "id": "types_qcm_3",
+      "numero": 3,
+      "type": "mcq",
+      "difficulté": "facile",
+      "énoncé": "Qu'affiche console.log(typeof 'Bonjour') ?",
+      "options": ["'string'", "'String'", "'text'", "Erreur"],
+      "bonne_réponse_index": 0,
+      "explication": "typeof retourne toujours une chaîne en minuscules. Pour du texte, il retourne 'string'."
+    },
+    {
+      "id": "types_qcm_4",
+      "numero": 4,
+      "type": "mcq",
+      "difficulté": "facile",
+      "énoncé": "Quelle est la différence entre null et undefined ?",
+      "options": ["Aucune différence", "undefined est une erreur, null non", "null signifie 'intentionnellement vide', undefined signifie 'pas encore défini'", "undefined n'existe pas"],
+      "bonne_réponse_index": 2,
+      "explication": "null représente une absence de valeur volontaire, tandis que undefined signifie qu'une variable n'a pas encore reçu de valeur."
+    },
+    {
+      "id": "types_qcm_5",
+      "numero": 5,
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Qu'affiche console.log(5 + '3') ?",
+      "options": ["8", "'53'", "Erreur", "undefined"],
+      "bonne_réponse_index": 1,
+      "explication": "Quand + voit une chaîne, il concatène au lieu d'ajouter : 5 + '3' = '53'."
+    },
+    {
+      "id": "types_qcm_6",
+      "numero": 6,
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Quel est le type de [1, 2, 3] selon typeof ?",
+      "options": ["'array'", "'object'", "'list'", "'Array'"],
+      "bonne_réponse_index": 1,
+      "explication": "En JavaScript, typeof [] retourne 'object'. Les tableaux sont des objets spécialisés."
+    },
+    {
+      "id": "types_qcm_7",
+      "numero": 7,
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Qu'affiche console.log(Number('25')) ?",
+      "options": ["'25'", "25", "Erreur", "NaN"],
+      "bonne_réponse_index": 1,
+      "explication": "Number() convertit une chaîne en nombre. '25' devient 25 (le type change)."
+    },
+    {
+      "id": "types_qcm_8",
+      "numero": 8,
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Comment accéder au premier élément d'un tableau ?",
+      "options": ["tableau[1]", "tableau[0]", "tableau.first", "tableau.get(0)"],
+      "bonne_réponse_index": 1,
+      "explication": "Les indices commencent à 0 en programmation. Le premier élément est à l'indice 0."
+    },
+    {
+      "id": "types_qcm_9",
+      "numero": 9,
+      "type": "mcq",
+      "difficulté": "difficile",
+      "énoncé": "Qu'affiche console.log(typeof null) ?",
+      "options": ["'null'", "'object'", "'undefined'", "Erreur"],
+      "bonne_réponse_index": 1,
+      "explication": "C'est une anomalie en JavaScript : typeof null retourne 'object' au lieu de 'null'."
+    },
+    {
+      "id": "types_qcm_10",
+      "numero": 10,
+      "type": "mcq",
+      "difficulté": "difficile",
+      "énoncé": "Quelle conversion est possible sans perte d'information ?",
+      "options": ["String → Number (ex: '5' → 5)", "Number → String (ex: 5 → '5')", "Boolean → Number", "Object → Array"],
+      "bonne_réponse_index": 1,
+      "explication": "Convertir un nombre en chaîne est sans risque (5 → '5'). Convertir '5' en nombre fonctionne seulement si c'est un nombre valide."
+    },
+    {
+      "id": "types_trou_1",
+      "numero": 11,
+      "type": "fill_blank",
+      "difficulté": "facile",
+      "énoncé": "Complète : let age = _____ ; // Assigner le nombre 25",
+      "réponse": "25",
+      "explication": "On assigne simplement le nombre 25 à la variable age."
+    },
+    {
+      "id": "types_trou_2",
+      "numero": 12,
+      "type": "fill_blank",
+      "difficulté": "facile",
+      "énoncé": "Complète : let fruits = ['pomme', 'banane', 'orange']; console.log(fruits[_____]); // Affiche 'banane'",
+      "réponse": "1",
+      "explication": "Le deuxième élément est à l'indice 1 (on compte à partir de 0)."
+    },
+    {
+      "id": "types_trou_3",
+      "numero": 13,
+      "type": "fill_blank",
+      "difficulté": "moyen",
+      "énoncé": "Complète : console.log(typeof _____); // Affiche 'boolean'",
+      "réponse": "true",
+      "explication": "typeof true retourne 'boolean'. On peut aussi utiliser false."
+    },
+    {
+      "id": "types_trou_4",
+      "numero": 14,
+      "type": "fill_blank",
+      "difficulté": "moyen",
+      "énoncé": "Complète : let nombre = String(_____); // Convertir 42 en chaîne",
+      "réponse": "42",
+      "explication": "String(42) convertit le nombre 42 en chaîne '42'."
+    },
+    {
+      "id": "types_trou_5",
+      "numero": 15,
+      "type": "fill_blank",
+      "difficulté": "difficile",
+      "énoncé": "Complète : let personne = {nom: 'Alice', age: _____}; // Ajouter l'âge 28",
+      "réponse": "28",
+      "explication": "On assigne une valeur Number comme propriété d'un objet."
+    },
+    {
+      "id": "types_libre_1",
+      "numero": 16,
+      "type": "free_text",
+      "difficulté": "moyen",
+      "énoncé": "Écris du code qui affiche le résultat de 10 + '5' et explique pourquoi tu obtiens ce résultat.",
+      "solution": "console.log(10 + '5'); // Affiche '105'\nExplication : Quand + rencontre une chaîne, il concatène au lieu d'ajouter. 10 est converti en '10' et joint à '5'.",
+      "explication": "Cet exercice teste la compréhension du piège courant de mélanger nombres et chaînes avec l'opérateur +."
+    },
+    {
+      "id": "types_libre_2",
+      "numero": 17,
+      "type": "free_text",
+      "difficulté": "moyen",
+      "énoncé": "Crée un tableau contenant 3 types de données différents et accède au deuxième élément.",
+      "solution": "let mixte = [42, 'texte', true];\nconsole.log(mixte[1]); // Affiche : 'texte'",
+      "explication": "Les tableaux peuvent contenir n'importe quel type. L'indice 1 donne le deuxième élément."
+    },
+    {
+      "id": "types_libre_3",
+      "numero": 18,
+      "type": "free_text",
+      "difficulté": "moyen",
+      "énoncé": "Écris du code qui convertit la chaîne '100' en nombre, puis affiche son type.",
+      "solution": "let nombre = Number('100');\nconsole.log(typeof nombre); // Affiche : 'number'",
+      "explication": "Number() convertit une chaîne numérique en type Number."
+    },
+    {
+      "id": "types_libre_4",
+      "numero": 19,
+      "type": "free_text",
+      "difficulté": "difficile",
+      "énoncé": "Crée un objet 'voiture' avec les propriétés : marque (String), année (Number), électrique (Boolean). Accède à la marque.",
+      "solution": "let voiture = {marque: 'Tesla', année: 2023, électrique: true};\nconsole.log(voiture.marque); // Affiche : 'Tesla'",
+      "explication": "Les objets groupent plusieurs propriétés de types différents."
+    },
+    {
+      "id": "types_libre_5",
+      "numero": 20,
+      "type": "free_text",
+      "difficulté": "difficile",
+      "énoncé": "Explique pourquoi typeof [1, 2, 3] retourne 'object' et non 'array'. Comment vérifier qu'une valeur est un tableau ?",
+      "solution": "typeof [] retourne 'object' car les tableaux sont des objets spécialisés en JavaScript.\nPour vérifier si c'est un tableau : Array.isArray([1, 2, 3]) // retourne true",
+      "explication": "C'est une subtilité en JavaScript : les tableaux sont des objets. Array.isArray() est plus précis que typeof."
+    }
+  ]
+}
