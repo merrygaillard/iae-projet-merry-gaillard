@@ -1,0 +1,309 @@
+{
+  "concept": "Les boucles avancées",
+  "langage": "JavaScript",
+  "niveau": "intermédiaire",
+  "total_questions": 20,
+  "seuil_reussite": 15,
+  "exercices": [
+    {
+      "id": "boucles_adv_qcm_1",
+      "type": "mcq",
+      "difficulté": "facile",
+      "énoncé": "Quelle boucle utiliser pour parcourir les propriétés d'un objet JavaScript ?",
+      "options": [
+        "for...in",
+        "for...of",
+        "forEach",
+        "map"
+      ],
+      "bonne_réponse": 0,
+      "explication": "for...in itère sur les propriétés énumérables d'un objet. for...of itère sur les valeurs d'un itérable (tableau, chaîne), pas les objets.",
+      "indices": [
+        "Indice 1 : 'in' signifie 'à l'intérieur de'",
+        "Indice 2 : Pensez aux objets { clé: valeur }"
+      ]
+    },
+    {
+      "id": "boucles_adv_qcm_2",
+      "type": "mcq",
+      "difficulté": "facile",
+      "énoncé": "Quelle est la différence principale entre for...in et for...of sur un tableau ?",
+      "options": [
+        "for...in retourne les indices, for...of retourne les valeurs",
+        "for...in est plus rapide",
+        "Aucune différence",
+        "for...of ne fonctionne pas sur les tableaux"
+      ],
+      "bonne_réponse": 0,
+      "explication": "for...in itère sur les indices (0, 1, 2...), tandis que for...of itère directement sur les valeurs du tableau.",
+      "indices": [
+        "Indice 1 : Pensez à ce qu'on obtient à chaque itération",
+        "Indice 2 : for...in = propriétés, for...of = valeurs"
+      ]
+    },
+    {
+      "id": "boucles_adv_qcm_3",
+      "type": "mcq",
+      "difficulté": "facile",
+      "énoncé": "Quel est le retour de la méthode forEach() ?",
+      "options": [
+        "undefined",
+        "Le tableau original",
+        "Un nouveau tableau",
+        "true ou false"
+      ],
+      "bonne_réponse": 0,
+      "explication": "forEach() n'a pas de valeur de retour (undefined). Elle effectue juste une action pour chaque élément, sans retourner rien.",
+      "indices": [
+        "Indice 1 : forEach est pour les effets secondaires",
+        "Indice 2 : Elle ne crée pas un nouveau tableau"
+      ]
+    },
+    {
+      "id": "boucles_adv_qcm_4",
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Quel est le résultat de [1, 2, 3].map(x => x * 2) ?",
+      "options": [
+        "[2, 4, 6]",
+        "[1, 2, 3]",
+        "6",
+        "undefined"
+      ],
+      "bonne_réponse": 0,
+      "explication": "map() transforme chaque élément : 1*2=2, 2*2=4, 3*2=6. Elle retourne un nouveau tableau avec les valeurs transformées.",
+      "indices": [
+        "Indice 1 : map() = transformation",
+        "Indice 2 : Multipliez chaque élément par 2"
+      ]
+    },
+    {
+      "id": "boucles_adv_qcm_5",
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Quel est le résultat de [1, 2, 3, 4, 5].filter(x => x > 2) ?",
+      "options": [
+        "[3, 4, 5]",
+        "[1, 2]",
+        "3",
+        "true"
+      ],
+      "bonne_réponse": 0,
+      "explication": "filter() garde seulement les éléments où la condition est vraie. Les éléments > 2 sont 3, 4, et 5.",
+      "indices": [
+        "Indice 1 : filter() = sélectionner",
+        "Indice 2 : Quels nombres sont supérieurs à 2 ?"
+      ]
+    },
+    {
+      "id": "boucles_adv_qcm_6",
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Quel est le résultat de [1, 2, 3, 4].reduce((acc, x) => acc + x, 0) ?",
+      "options": [
+        "10",
+        "4",
+        "undefined",
+        "[1, 2, 3, 4]"
+      ],
+      "bonne_réponse": 0,
+      "explication": "reduce() accumule les valeurs : 0+1=1, 1+2=3, 3+3=6, 6+4=10. La valeur initiale est 0.",
+      "indices": [
+        "Indice 1 : reduce() = accumulation",
+        "Indice 2 : Sommez tous les éléments à partir de 0"
+      ]
+    },
+    {
+      "id": "boucles_adv_qcm_7",
+      "type": "mcq",
+      "difficulté": "moyen",
+      "énoncé": "Que retourne [1, 2, 3].map(x => x * 2).filter(x => x > 3) ?",
+      "options": [
+        "[4, 6]",
+        "[2, 4, 6]",
+        "[3]",
+        "undefined"
+      ],
+      "bonne_réponse": 0,
+      "explication": "D'abord map transforme : [1*2, 2*2, 3*2] = [2, 4, 6]. Ensuite filter garde seulement les éléments > 3 : [4, 6].",
+      "indices": [
+        "Indice 1 : Appliquez d'abord map, puis filter",
+        "Indice 2 : Quels éléments de [2, 4, 6] sont > 3 ?"
+      ]
+    },
+    {
+      "id": "boucles_adv_qcm_8",
+      "type": "mcq",
+      "difficulté": "difficile",
+      "énoncé": "Quelle boucle permet d'arrêter l'itération avec break ?",
+      "options": [
+        "for...of",
+        "forEach",
+        "map",
+        "filter"
+      ],
+      "bonne_réponse": 0,
+      "explication": "for...of accepte break et continue. forEach, map, filter ne les acceptent pas — vous devez utiliser une boucle traditionnelle ou for...of.",
+      "indices": [
+        "Indice 1 : break et continue fonctionnent dans les boucles traditionnelles",
+        "Indice 2 : Laquelle de ces méthodes est une vraie boucle ?"
+      ]
+    },
+    {
+      "id": "boucles_adv_qcm_9",
+      "type": "mcq",
+      "difficulté": "difficile",
+      "énoncé": "Quel est le résultat de ['a', 'b', 'c'].reduce((acc, letter) => acc + letter, '') ?",
+      "options": [
+        "'abc'",
+        "['a', 'b', 'c']",
+        "3",
+        "undefined"
+      ],
+      "bonne_réponse": 0,
+      "explication": "reduce accumule les lettres dans une chaîne : ''+a='a', 'a'+b='ab', 'ab'+c='abc'. La valeur initiale est une chaîne vide ''.",
+      "indices": [
+        "Indice 1 : La valeur initiale est une chaîne vide",
+        "Indice 2 : On concatène les lettres"
+      ]
+    },
+    {
+      "id": "boucles_adv_qcm_10",
+      "type": "mcq",
+      "difficulté": "difficile",
+      "énoncé": "Comment parcourir seulement les caractères d'une chaîne en JavaScript ?",
+      "options": [
+        "for (let char of 'hello') { }",
+        "for (let char in 'hello') { }",
+        "'hello'.forEach(char => { })",
+        "Impossible, seulement avec split()"
+      ],
+      "bonne_réponse": 0,
+      "explication": "for...of fonctionne sur les chaînes et parcourt chaque caractère. for...in retournerait les indices (0, 1, 2...) seulement.",
+      "indices": [
+        "Indice 1 : Les chaînes sont itérables",
+        "Indice 2 : for...of = valeurs, for...in = propriétés"
+      ]
+    },
+    {
+      "id": "boucles_adv_remplissage_1",
+      "type": "fill_blank",
+      "difficulté": "facile",
+      "énoncé": "Complétez : for (let key _____ objet) { console.log(objet[key]); }",
+      "réponse": "in",
+      "explication": "for...in itère sur les propriétés d'un objet. La syntaxe est 'for (let key in objet)'.",
+      "indices": [
+        "Indice 1 : Quel mot signifie 'à l'intérieur de' ?",
+        "Indice 2 : for...__ itère sur les propriétés"
+      ]
+    },
+    {
+      "id": "boucles_adv_remplissage_2",
+      "type": "fill_blank",
+      "difficulté": "facile",
+      "énoncé": "Complétez : for (let val _____ [1, 2, 3]) { console.log(val); }",
+      "réponse": "of",
+      "explication": "for...of itère sur les valeurs d'un tableau. La syntaxe est 'for (let val of tableau)'.",
+      "indices": [
+        "Indice 1 : Quel mot itère sur les valeurs ?",
+        "Indice 2 : for...___ itère sur les éléments du tableau"
+      ]
+    },
+    {
+      "id": "boucles_adv_remplissage_3",
+      "type": "fill_blank",
+      "difficulté": "moyen",
+      "énoncé": "Complétez : [1, 2, 3]._____((x) => x * 2) retourne [2, 4, 6]",
+      "réponse": "map",
+      "explication": "map() transforme chaque élément. [1, 2, 3].map(x => x * 2) retourne [2, 4, 6].",
+      "indices": [
+        "Indice 1 : Quelle méthode transforme chaque élément ?",
+        "Indice 2 : m___ crée un nouveau tableau transformé"
+      ]
+    },
+    {
+      "id": "boucles_adv_remplissage_4",
+      "type": "fill_blank",
+      "difficulté": "moyen",
+      "énoncé": "Complétez : [1, 2, 3, 4, 5]._____((x) => x > 2) retourne [3, 4, 5]",
+      "réponse": "filter",
+      "explication": "filter() sélectionne les éléments qui satisfont une condition. Les éléments > 2 sont conservés.",
+      "indices": [
+        "Indice 1 : Quelle méthode sélectionne les éléments ?",
+        "Indice 2 : f______ garde les éléments qui correspondent"
+      ]
+    },
+    {
+      "id": "boucles_adv_remplissage_5",
+      "type": "fill_blank",
+      "difficulté": "difficile",
+      "énoncé": "Complétez : [1, 2, 3, 4]._____((acc, x) => acc + x, 0) retourne 10",
+      "réponse": "reduce",
+      "explication": "reduce() accumule les valeurs. Elle somme 1+2+3+4 = 10 à partir d'une valeur initiale de 0.",
+      "indices": [
+        "Indice 1 : Quelle méthode accumule une seule valeur ?",
+        "Indice 2 : red_____ accumule"
+      ]
+    },
+    {
+      "id": "boucles_adv_libre_1",
+      "type": "free_text",
+      "difficulté": "moyen",
+      "énoncé": "Écrivez une fonction qui retourne la somme de tous les nombres d'un tableau en utilisant reduce().",
+      "solution": "function sommeTableau(arr) {\n  return arr.reduce((acc, num) => acc + num, 0);\n}",
+      "explication": "reduce() accumule les valeurs en commençant par 0. À chaque itération, on ajoute le nombre actuel à l'accumulateur.",
+      "indices": [
+        "Indice 1 : Utilisez reduce avec un accumulateur",
+        "Indice 2 : La valeur initiale doit être 0"
+      ]
+    },
+    {
+      "id": "boucles_adv_libre_2",
+      "type": "free_text",
+      "difficulté": "moyen",
+      "énoncé": "Écrivez une fonction qui filtre les nombres pairs d'un tableau et les double.",
+      "solution": "function doublerPairs(arr) {\n  return arr.filter(n => n % 2 === 0).map(n => n * 2);\n}",
+      "explication": "Chaînez filter() pour garder seulement les pairs (n % 2 === 0), puis map() pour les doubler.",
+      "indices": [
+        "Indice 1 : Utilisez filter pour les nombres pairs",
+        "Indice 2 : Puis map pour les transformer"
+      ]
+    },
+    {
+      "id": "boucles_adv_libre_3",
+      "type": "free_text",
+      "difficulté": "difficile",
+      "énoncé": "Écrivez une fonction qui compte combien de fois chaque valeur apparaît dans un tableau.",
+      "solution": "function compterOccurrences(arr) {\n  return arr.reduce((acc, val) => {\n    acc[val] = (acc[val] || 0) + 1;\n    return acc;\n  }, {});\n}",
+      "explication": "reduce() accumule dans un objet. Pour chaque valeur, on incrémente son compteur (ou initialise à 1 s'il n'existe pas).",
+      "indices": [
+        "Indice 1 : Utilisez reduce pour accumuler dans un objet",
+        "Indice 2 : Initialisez à 0 si la clé n'existe pas (acc[val] || 0)"
+      ]
+    },
+    {
+      "id": "boucles_adv_libre_4",
+      "type": "free_text",
+      "difficulté": "difficile",
+      "énoncé": "Écrivez une fonction qui retourne tous les utilisateurs avec un score > 80, trié par score descendant.",
+      "solution": "function utilisateursBonScores(utilisateurs) {\n  return utilisateurs\n    .filter(u => u.score > 80)\n    .sort((a, b) => b.score - a.score);\n}",
+      "explication": "Chaînez filter() pour garder seulement ceux avec score > 80, puis sort() pour les trier en ordre descendant (b - a pour descendant).",
+      "indices": [
+        "Indice 1 : Utilisez filter pour score > 80",
+        "Indice 2 : Utilisez sort avec (a, b) => b.score - a.score pour descendant"
+      ]
+    },
+    {
+      "id": "boucles_adv_libre_5",
+      "type": "free_text",
+      "difficulté": "difficile",
+      "énoncé": "Écrivez une fonction qui parcourt les propriétés d'un objet et retourne un tableau de [clé, valeur] pour chaque propriété.",
+      "solution": "function entriesObjet(obj) {\n  const result = [];\n  for (let key in obj) {\n    result.push([key, obj[key]]);\n  }\n  return result;\n}",
+      "explication": "Utilisez for...in pour parcourir les propriétés, puis poussez chaque paire [clé, valeur] dans un nouveau tableau.",
+      "indices": [
+        "Indice 1 : Utilisez for...in pour les propriétés",
+        "Indice 2 : Poussez des tableaux [key, obj[key]] dans le résultat"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "titre": "Les boucles avancées en JavaScript",
+  "concept": "les boucles avancées",
+  "langage": "javascript",
+  "niveau": "intermediaire",
+  "durée_minutes": 18,
+  "concepts_clés": [
+    "for...in",
+    "for...of",
+    "forEach()",
+    "map()",
+    "filter()",
+    "reduce()",
+    "chaînage de méthodes",
+    "programmation fonctionnelle"
+  ],
+  "sources": [
+    {
+      "url": "https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/for...in",
+      "titre": "MDN — for...in",
+      "domaine": "mdn.org"
+    },
+    {
+      "url": "https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/for...of",
+      "titre": "MDN — for...of",
+      "domaine": "mdn.org"
+    },
+    {
+      "url": "https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach",
+      "titre": "MDN — Array.forEach()",
+      "domaine": "mdn.org"
+    },
+    {
+      "url": "https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+      "titre": "MDN — Array.map()",
+      "domaine": "mdn.org"
+    },
+    {
+      "url": "https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter",
+      "titre": "MDN — Array.filter()",
+      "domaine": "mdn.org"
+    },
+    {
+      "url": "https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce",
+      "titre": "MDN — Array.reduce()",
+      "domaine": "mdn.org"
+    },
+    {
+      "url": "https://www.w3schools.com/js/js_loop_for.asp",
+      "titre": "W3Schools — JavaScript for Loop",
+      "domaine": "w3schools.com"
+    },
+    {
+      "url": "https://www.w3schools.com/js/js_array_methods.asp",
+      "titre": "W3Schools — Array Methods",
+      "domaine": "w3schools.com"
+    }
+  ],
+  "sources_count": 8,
+  "prérequis": [
+    "Les boucles de base (for, while, do...while)",
+    "Les tableaux et leurs propriétés",
+    "Les fonctions et les fonctions fléchées"
+  ],
+  "date_création": "2026-10-07"
+}

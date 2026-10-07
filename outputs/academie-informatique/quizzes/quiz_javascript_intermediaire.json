@@ -1,0 +1,780 @@
+{
+  "quiz_metadata": {
+    "langage": "JavaScript",
+    "niveau": "intermédiaire",
+    "nombre_questions": 50,
+    "points_par_question": 2,
+    "total_points": 100,
+    "seuil_reussite": 75,
+    "seuil_note_sur_20": 15,
+    "formule_scoring": "note /20 = (points_obtenus / 100) * 20"
+  },
+  "concepts_couverts": [
+    "for...in et for...of",
+    "forEach, map, filter, reduce",
+    "Chaînage de méthodes",
+    "Fonctions déclaratives et fléchées",
+    "Paramètres par défaut",
+    "Déstructuration",
+    "Closures et portée lexicale",
+    "Objets et propriétés",
+    "Méthodes et contexte this",
+    "DOM querySelector et addEventListener",
+    "Gestion d'événements",
+    "Manipulation du DOM",
+    "Portée de bloc vs portée de fonction",
+    "Valeurs par référence vs par valeur"
+  ],
+  "questions": [
+    {
+      "id": "js_int_q1",
+      "numero": 1,
+      "concept": "for...in et for...of",
+      "difficulté": "facile",
+      "énoncé": "Quel est le résultat de for (let i of [10, 20, 30]) ?",
+      "options": [
+        "Les valeurs 10, 20, 30",
+        "Les indices 0, 1, 2",
+        "Les deux",
+        "Une erreur"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "for...of itère sur les valeurs (10, 20, 30). for...in itérerait sur les indices."
+    },
+    {
+      "id": "js_int_q2",
+      "numero": 2,
+      "concept": "for...in et for...of",
+      "difficulté": "facile",
+      "énoncé": "Quelle méthode utiliser pour parcourir les propriétés d'un objet ?",
+      "options": [
+        "for...in",
+        "for...of",
+        "forEach",
+        "map"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "for...in parcourt les propriétés énumérables d'un objet."
+    },
+    {
+      "id": "js_int_q3",
+      "numero": 3,
+      "concept": "map, filter, reduce",
+      "difficulté": "facile",
+      "énoncé": "Que retourne [1, 2, 3].map(x => x * 2) ?",
+      "options": [
+        "[2, 4, 6]",
+        "[1, 2, 3]",
+        "6",
+        "undefined"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "map transforme chaque élément : [1*2, 2*2, 3*2] = [2, 4, 6]."
+    },
+    {
+      "id": "js_int_q4",
+      "numero": 4,
+      "concept": "map, filter, reduce",
+      "difficulté": "facile",
+      "énoncé": "Que retourne [1, 2, 3, 4].filter(x => x > 2) ?",
+      "options": [
+        "[3, 4]",
+        "[1, 2]",
+        "true",
+        "[1, 2, 3, 4]"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "filter garde seulement les éléments > 2, soit 3 et 4."
+    },
+    {
+      "id": "js_int_q5",
+      "numero": 5,
+      "concept": "map, filter, reduce",
+      "difficulté": "moyen",
+      "énoncé": "Que retourne [1, 2, 3, 4].reduce((acc, x) => acc + x, 0) ?",
+      "options": [
+        "10",
+        "4",
+        "[1, 2, 3, 4]",
+        "undefined"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "reduce accumule : 0+1+2+3+4 = 10."
+    },
+    {
+      "id": "js_int_q6",
+      "numero": 6,
+      "concept": "Chaînage de méthodes",
+      "difficulté": "moyen",
+      "énoncé": "Que retourne [1, 2, 3, 4, 5].filter(x => x > 2).map(x => x * 2) ?",
+      "options": [
+        "[6, 8, 10]",
+        "[2, 4, 6, 8, 10]",
+        "[3, 4, 5]",
+        "undefined"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "D'abord filter : [3, 4, 5]. Puis map : [3*2, 4*2, 5*2] = [6, 8, 10]."
+    },
+    {
+      "id": "js_int_q7",
+      "numero": 7,
+      "concept": "forEach",
+      "difficulté": "facile",
+      "énoncé": "Quel est le retour de forEach() ?",
+      "options": [
+        "undefined",
+        "Le tableau original",
+        "Un nouveau tableau",
+        "Un nombre"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "forEach n'a pas de valeur de retour. Elle effectue juste une action sur chaque élément."
+    },
+    {
+      "id": "js_int_q8",
+      "numero": 8,
+      "concept": "for...in et for...of",
+      "difficulté": "moyen",
+      "énoncé": "Pourquoi ne pas utiliser for...in pour les tableaux ?",
+      "options": [
+        "Il parcourt les propriétés, pas seulement les indices",
+        "C'est plus lent",
+        "Syntaxe incorrecte",
+        "Aucune raison, c'est équivalent"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "for...in parcourt toutes les propriétés énumérables, pas seulement les indices du tableau."
+    },
+    {
+      "id": "js_int_q9",
+      "numero": 9,
+      "concept": "Fonctions déclaratives et fléchées",
+      "difficulté": "facile",
+      "énoncé": "Quelle est la syntaxe d'une fonction fléchée ?",
+      "options": [
+        "const fn = (x) => x * 2",
+        "const fn = function(x) { return x * 2; }",
+        "const fn => (x) => x * 2",
+        "function fn(x) => x * 2"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Les fonctions fléchées utilisent la syntaxe (paramètres) => corps."
+    },
+    {
+      "id": "js_int_q10",
+      "numero": 10,
+      "concept": "Fonctions déclaratives et fléchées",
+      "difficulté": "moyen",
+      "énoncé": "Quelle est la différence clé entre une fonction déclarative et une fonction fléchée ?",
+      "options": [
+        "Les fonctions fléchées n'ont pas leur propre 'this'",
+        "Les fonctions fléchées sont plus rapides",
+        "Les fonctions fléchées retournent toujours une valeur",
+        "Les fonctions déclaratives ne peuvent pas avoir de paramètres"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Les fonctions fléchées héritent du 'this' du contexte parent, contrairement aux fonctions déclaratives."
+    },
+    {
+      "id": "js_int_q11",
+      "numero": 11,
+      "concept": "Paramètres par défaut",
+      "difficulté": "moyen",
+      "énoncé": "Comment définir une valeur par défaut pour un paramètre ?",
+      "options": [
+        "function fn(x = 10) { return x; }",
+        "function fn(x) { x = x || 10; return x; }",
+        "Les deux",
+        "Aucune des deux"
+      ],
+      "bonne_réponse_index": 2,
+      "explication": "Les deux syntaxes fonctionnent, mais la première (paramètres par défaut) est plus moderne."
+    },
+    {
+      "id": "js_int_q12",
+      "numero": 12,
+      "concept": "Déstructuration",
+      "difficulté": "moyen",
+      "énoncé": "Qu'est-ce que la déstructuration ?",
+      "options": [
+        "Extraire des valeurs d'un objet ou tableau",
+        "Supprimer une structure",
+        "Diviser une fonction en plusieurs",
+        "Copier un objet"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "La déstructuration permet d'extraire et d'assigner des valeurs facilement : const { x, y } = obj;"
+    },
+    {
+      "id": "js_int_q13",
+      "numero": 13,
+      "concept": "Déstructuration",
+      "difficulté": "moyen",
+      "énoncé": "Quel est le résultat de const { x, y } = { x: 1, y: 2 } ?",
+      "options": [
+        "x = 1, y = 2",
+        "x = { x: 1, y: 2 }",
+        "Une erreur",
+        "x = 'x', y = 'y'"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "La déstructuration extrait x=1 et y=2 de l'objet."
+    },
+    {
+      "id": "js_int_q14",
+      "numero": 14,
+      "concept": "Objets et propriétés",
+      "difficulté": "facile",
+      "énoncé": "Comment accéder à la propriété d'un objet ?",
+      "options": [
+        "obj.propriété ou obj['propriété']",
+        "obj.get('propriété')",
+        "obj[propriété]",
+        "obj('propriété')"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Les deux notations (point et crochets) permettent d'accéder aux propriétés."
+    },
+    {
+      "id": "js_int_q15",
+      "numero": 15,
+      "concept": "Objets et propriétés",
+      "difficulté": "moyen",
+      "énoncé": "Que retourne Object.keys({ a: 1, b: 2, c: 3 }) ?",
+      "options": [
+        "['a', 'b', 'c']",
+        "[1, 2, 3]",
+        "{ a: 1, b: 2, c: 3 }",
+        "3"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Object.keys() retourne un tableau contenant toutes les clés de l'objet."
+    },
+    {
+      "id": "js_int_q16",
+      "numero": 16,
+      "concept": "Méthodes et contexte this",
+      "difficulté": "moyen",
+      "énoncé": "Qu'est-ce que 'this' dans une méthode d'objet ?",
+      "options": [
+        "L'objet qui contient la méthode",
+        "L'objet global (window)",
+        "undefined",
+        "La fenêtre du navigateur"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Dans une méthode, 'this' se réfère à l'objet qui contient la méthode."
+    },
+    {
+      "id": "js_int_q17",
+      "numero": 17,
+      "concept": "Closures et portée lexicale",
+      "difficulté": "difficile",
+      "énoncé": "Qu'est-ce qu'une closure ?",
+      "options": [
+        "Une fonction qui accède à des variables de sa portée parent",
+        "Une fonction sans paramètres",
+        "Une fonction qui retourne un objet",
+        "Une fonction anonyme"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Une closure est une fonction qui 'se souvient' des variables de sa portée parent, même après que celle-ci ait terminé."
+    },
+    {
+      "id": "js_int_q18",
+      "numero": 18,
+      "concept": "Portée de bloc vs portée de fonction",
+      "difficulté": "moyen",
+      "énoncé": "Quelle est la différence entre let et var ?",
+      "options": [
+        "let a une portée de bloc, var a une portée de fonction",
+        "Aucune différence",
+        "var est plus moderne",
+        "let peut être réutilisé dans la même portée"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "let a une portée limitée au bloc {} où elle est déclarée. var a une portée de fonction."
+    },
+    {
+      "id": "js_int_q19",
+      "numero": 19,
+      "concept": "Valeurs par référence vs par valeur",
+      "difficulté": "moyen",
+      "énoncé": "Les objets sont-ils passés par valeur ou par référence ?",
+      "options": [
+        "Par référence",
+        "Par valeur",
+        "Les deux",
+        "Aucun des deux"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Les objets sont passés par référence, les primitives (nombre, chaîne) par valeur."
+    },
+    {
+      "id": "js_int_q20",
+      "numero": 20,
+      "concept": "DOM querySelector et addEventListener",
+      "difficulté": "facile",
+      "énoncé": "Comment sélectionner un élément du DOM avec JavaScript ?",
+      "options": [
+        "document.querySelector('#id')",
+        "document.getElementId('id')",
+        "document.find('#id')",
+        "$('#id')"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "querySelector utilise les sélecteurs CSS : '#id' pour un ID, '.classe' pour une classe."
+    },
+    {
+      "id": "js_int_q21",
+      "numero": 21,
+      "concept": "DOM querySelector et addEventListener",
+      "difficulté": "facile",
+      "énoncé": "Comment ajouter un événement 'click' à un bouton ?",
+      "options": [
+        "btn.addEventListener('click', fonction)",
+        "btn.onclick = fonction",
+        "Les deux",
+        "btn.on('click', fonction)"
+      ],
+      "bonne_réponse_index": 2,
+      "explication": "Les deux méthodes fonctionnent, addEventListener() est plus moderne."
+    },
+    {
+      "id": "js_int_q22",
+      "numero": 22,
+      "concept": "Gestion d'événements",
+      "difficulté": "moyen",
+      "énoncé": "Qu'est-ce que event.preventDefault() ?",
+      "options": [
+        "Empêche le comportement par défaut d'un événement",
+        "Annule l'événement",
+        "Arrête la propagation",
+        "Redéfinit l'événement"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "preventDefault() empêche l'action par défaut (ex: empêche un formulaire de se soumettre)."
+    },
+    {
+      "id": "js_int_q23",
+      "numero": 23,
+      "concept": "Gestion d'événements",
+      "difficulté": "moyen",
+      "énoncé": "Quelle est la différence entre event.target et event.currentTarget ?",
+      "options": [
+        "target = l'élément qui a déclenché l'événement, currentTarget = l'élément attaché au listener",
+        "Aucune différence",
+        "currentTarget est plus précis",
+        "target concerne le DOM, currentTarget le JavaScript"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "target est l'élément qui a généralement l'événement, currentTarget est celui sur lequel le listener est attaché."
+    },
+    {
+      "id": "js_int_q24",
+      "numero": 24,
+      "concept": "Manipulation du DOM",
+      "difficulté": "facile",
+      "énoncé": "Comment créer un nouvel élément DOM ?",
+      "options": [
+        "document.createElement('div')",
+        "new Element('div')",
+        "document.newElement('div')",
+        "<div></div>"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "createElement() crée un nouvel élément DOM."
+    },
+    {
+      "id": "js_int_q25",
+      "numero": 25,
+      "concept": "Manipulation du DOM",
+      "difficulté": "facile",
+      "énoncé": "Comment ajouter un élément dans le DOM ?",
+      "options": [
+        "parent.appendChild(enfant)",
+        "parent.add(enfant)",
+        "parent.insert(enfant)",
+        "document.append(enfant)"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "appendChild() ajoute un enfant à la fin d'un élément parent."
+    },
+    {
+      "id": "js_int_q26",
+      "numero": 26,
+      "concept": "Manipulations avancées de tableaux",
+      "difficulté": "moyen",
+      "énoncé": "Que retourne [1, 2, 3].includes(2) ?",
+      "options": [
+        "true",
+        "false",
+        "1",
+        "undefined"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "includes() retourne true si le tableau contient l'élément, false sinon."
+    },
+    {
+      "id": "js_int_q27",
+      "numero": 27,
+      "concept": "Manipulations avancées de tableaux",
+      "difficulté": "moyen",
+      "énoncé": "Que retourne [1, 2, 3].find(x => x > 2) ?",
+      "options": [
+        "3",
+        "[3]",
+        "undefined",
+        "true"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "find() retourne le premier élément qui satisfait la condition, ou undefined."
+    },
+    {
+      "id": "js_int_q28",
+      "numero": 28,
+      "concept": "Manipulations avancées de tableaux",
+      "difficulté": "moyen",
+      "énoncé": "Que retourne [1, 2, 3].some(x => x > 2) ?",
+      "options": [
+        "true",
+        "false",
+        "[3]",
+        "3"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "some() retourne true si au moins un élément satisfait la condition."
+    },
+    {
+      "id": "js_int_q29",
+      "numero": 29,
+      "concept": "Manipulations avancées de tableaux",
+      "difficulté": "moyen",
+      "énoncé": "Que retourne [1, 2, 3].every(x => x > 0) ?",
+      "options": [
+        "true",
+        "false",
+        "[1, 2, 3]",
+        "undefined"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "every() retourne true seulement si tous les éléments satisfont la condition."
+    },
+    {
+      "id": "js_int_q30",
+      "numero": 30,
+      "concept": "Spread operator",
+      "difficulté": "moyen",
+      "énoncé": "Que retourne [...[1, 2, 3], 4, 5] ?",
+      "options": [
+        "[1, 2, 3, 4, 5]",
+        "[[1, 2, 3], 4, 5]",
+        "[1, 2, 3]",
+        "Une erreur"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Le spread operator ... déploie les éléments du tableau : [1, 2, 3, 4, 5]."
+    },
+    {
+      "id": "js_int_q31",
+      "numero": 31,
+      "concept": "Spread operator avec objets",
+      "difficulté": "moyen",
+      "énoncé": "Que retourne { ...{ a: 1, b: 2 }, c: 3 } ?",
+      "options": [
+        "{ a: 1, b: 2, c: 3 }",
+        "{ a: 1, b: 2 }",
+        "Une erreur",
+        "{ c: 3 }"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Le spread operator déploie les propriétés de l'objet."
+    },
+    {
+      "id": "js_int_q32",
+      "numero": 32,
+      "concept": "Rest parameters",
+      "difficulté": "moyen",
+      "énoncé": "Que signifie ...args dans une fonction ?",
+      "options": [
+        "Capture tous les arguments restants dans un tableau",
+        "Duplique les arguments",
+        "Retourne le nombre d'arguments",
+        "Une erreur"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Les rest parameters collectent les arguments supplémentaires dans un tableau."
+    },
+    {
+      "id": "js_int_q33",
+      "numero": 33,
+      "concept": "Template literals",
+      "difficulté": "facile",
+      "énoncé": "Quel est le résultat de `Hello, ${name}` ?",
+      "options": [
+        "Insère la valeur de name",
+        "Affiche littéralement ${name}",
+        "Une erreur",
+        "undefined"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Les template literals (backticks) permettent d'insérer des expressions avec ${} ."
+    },
+    {
+      "id": "js_int_q34",
+      "numero": 34,
+      "concept": "Objets et propriétés",
+      "difficulté": "moyen",
+      "énoncé": "Comment vérifier si une propriété existe dans un objet ?",
+      "options": [
+        "'propriété' in objet ou objet.hasOwnProperty('propriété')",
+        "objet.propriété !== undefined",
+        "Les deux",
+        "objet.exists('propriété')"
+      ],
+      "bonne_réponse_index": 2,
+      "explication": "Les deux approches fonctionnent, mais 'in' et hasOwnProperty() sont les plus sûres."
+    },
+    {
+      "id": "js_int_q35",
+      "numero": 35,
+      "concept": "Classes",
+      "difficulté": "moyen",
+      "énoncé": "Quelle est la syntaxe pour créer une classe en JavaScript ?",
+      "options": [
+        "class Nom { constructor() { } }",
+        "function Nom() { }",
+        "Les deux",
+        "new Classe()"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "La syntaxe 'class' est la manière moderne de créer des objets avec un constructeur."
+    },
+    {
+      "id": "js_int_q36",
+      "numero": 36,
+      "concept": "Classes",
+      "difficulté": "moyen",
+      "énoncé": "Qu'est-ce que le constructeur dans une classe ?",
+      "options": [
+        "Une méthode appelée quand on crée une instance",
+        "Une méthode pour accéder aux propriétés",
+        "Une méthode pour supprimer un objet",
+        "Une méthode statique"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Le constructeur est appelé automatiquement avec 'new NomClasse()'."
+    },
+    {
+      "id": "js_int_q37",
+      "numero": 37,
+      "concept": "Héritage",
+      "difficulté": "difficile",
+      "énoncé": "Quelle est la syntaxe pour l'héritage en JavaScript ?",
+      "options": [
+        "class Enfant extends Parent { }",
+        "class Enfant inherits Parent { }",
+        "Enfant.prototype = Parent",
+        "function Enfant(Parent) { }"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Le mot-clé 'extends' crée un héritage entre classes."
+    },
+    {
+      "id": "js_int_q38",
+      "numero": 38,
+      "concept": "Gestion des erreurs",
+      "difficulté": "moyen",
+      "énoncé": "Comment gérer une erreur en JavaScript ?",
+      "options": [
+        "try { } catch (e) { }",
+        "try { } except { }",
+        "if (error) { }",
+        "error { }"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "try...catch permet de capturer et gérer les erreurs."
+    },
+    {
+      "id": "js_int_q39",
+      "numero": 39,
+      "concept": "Promises",
+      "difficulté": "difficile",
+      "énoncé": "Qu'est-ce qu'une Promise ?",
+      "options": [
+        "Un objet représentant une valeur qui peut être disponible maintenant, plus tard, ou jamais",
+        "Une fonction qui promet quelque chose",
+        "Un tableau d'objets",
+        "Une variable globale"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Une Promise représente le résultat futur d'une opération asynchrone (success ou erreur)."
+    },
+    {
+      "id": "js_int_q40",
+      "numero": 40,
+      "concept": "Async/await",
+      "difficulté": "difficile",
+      "énoncé": "Quelle est la fonction de async/await ?",
+      "options": [
+        "Simplifier l'utilisation des Promises",
+        "Créer une nouvelle variable",
+        "Vérifier si une condition est vraie",
+        "Attendre une confirmation de l'utilisateur"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "async/await rend le code asynchrone plus lisible et facile à écrire comme du code synchrone."
+    },
+    {
+      "id": "js_int_q41",
+      "numero": 41,
+      "concept": "Chaînage de méthodes avancées",
+      "difficulté": "difficile",
+      "énoncé": "Que retourne ['10', '20', '30'].map(Number).filter(x => x > 15) ?",
+      "options": [
+        "[20, 30]",
+        "['20', '30']",
+        "[15]",
+        "Une erreur"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "D'abord map(Number) convertit les chaînes en nombres : [10, 20, 30]. Puis filter garde seulement > 15."
+    },
+    {
+      "id": "js_int_q42",
+      "numero": 42,
+      "concept": "Récursion",
+      "difficulté": "difficile",
+      "énoncé": "Qu'est-ce qu'une fonction récursive ?",
+      "options": [
+        "Une fonction qui s'appelle elle-même",
+        "Une fonction qui appelle une autre fonction",
+        "Une fonction sans paramètres",
+        "Une fonction fléchée"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "La récursion est une technique où une fonction s'appelle elle-même avec une condition d'arrêt."
+    },
+    {
+      "id": "js_int_q43",
+      "numero": 43,
+      "concept": "Closures pratiques",
+      "difficulté": "difficile",
+      "énoncé": "À quoi servent principalement les closures ?",
+      "options": [
+        "Créer des données privées et des fonction réutilisables",
+        "Améliorer les performances",
+        "Simplifier les boucles",
+        "Remplacer les variables globales"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "Les closures sont utiles pour l'encapsulation et créer des fonctions factory."
+    },
+    {
+      "id": "js_int_q44",
+      "numero": 44,
+      "concept": "Import/Export",
+      "difficulté": "moyen",
+      "énoncé": "Comment exporter une fonction dans un module ES6 ?",
+      "options": [
+        "export function fn() { }",
+        "module.exports.fn = function() { }",
+        "exports.fn = function() { }",
+        "public function fn() { }"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "La syntaxe 'export' est utilisée dans les modules ES6."
+    },
+    {
+      "id": "js_int_q45",
+      "numero": 45,
+      "concept": "Import/Export",
+      "difficulté": "moyen",
+      "énoncé": "Comment importer une fonction dans un module ES6 ?",
+      "options": [
+        "import { fn } from './module.js'",
+        "require('./module.js')",
+        "import fn from './module.js'",
+        "const fn = require('./module.js')"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "La syntaxe 'import { fn }' import un export nommé."
+    },
+    {
+      "id": "js_int_q46",
+      "numero": 46,
+      "concept": "Manipulation du DOM avancée",
+      "difficulté": "moyen",
+      "énoncé": "Comment modifier plusieurs éléments du DOM à la fois ?",
+      "options": [
+        "document.querySelectorAll() + forEach ou map",
+        "for (let el of document.querySelectorAll()) { }",
+        "Les deux",
+        "document.updateAll()"
+      ],
+      "bonne_réponse_index": 2,
+      "explication": "Les deux approches fonctionnent pour modifier plusieurs éléments."
+    },
+    {
+      "id": "js_int_q47",
+      "numero": 47,
+      "concept": "Délégation d'événements",
+      "difficulté": "difficile",
+      "énoncé": "Qu'est-ce que la délégation d'événements ?",
+      "options": [
+        "Attacher un listener au parent plutôt qu'à chaque enfant",
+        "Copier un événement d'un élément à un autre",
+        "Supprimer tous les événements",
+        "Rediriger un événement ailleurs"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "La délégation utilise event.target pour gérer les clics sur les enfants via un seul listener sur le parent."
+    },
+    {
+      "id": "js_int_q48",
+      "numero": 48,
+      "concept": "JSON",
+      "difficulté": "facile",
+      "énoncé": "Comment convertir un objet JavaScript en chaîne JSON ?",
+      "options": [
+        "JSON.stringify(objet)",
+        "JSON.parse(objet)",
+        "objet.toString()",
+        "objet.toJSON()"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "JSON.stringify() convertit un objet en chaîne JSON. JSON.parse() fait l'inverse."
+    },
+    {
+      "id": "js_int_q49",
+      "numero": 49,
+      "concept": "JSON",
+      "difficulté": "facile",
+      "énoncé": "Comment convertir une chaîne JSON en objet JavaScript ?",
+      "options": [
+        "JSON.parse(chaîne)",
+        "JSON.stringify(chaîne)",
+        "eval(chaîne)",
+        "chaîne.toObject()"
+      ],
+      "bonne_réponse_index": 0,
+      "explication": "JSON.parse() convertit une chaîne JSON en objet JavaScript."
+    },
+    {
+      "id": "js_int_q50",
+      "numero": 50,
+      "concept": "Performance",
+      "difficulté": "difficile",
+      "énoncé": "Laquelle de ces approches est la plus performante pour transformer un grand tableau ?",
+      "options": [
+        "Chaîner les méthodes fonctionnelles en une seule expression",
+        "Utiliser une boucle for traditionnelle",
+        "Utiliser forEach avec un accumulateur",
+        "Créer plusieurs variables temporaires"
+      ],
+      "bonne_réponse_index": 1,
+      "explication": "Une boucle for traditionnelle est généralement plus rapide pour les très grands tableaux, mais le chaînage de méthodes est plus lisible."
+    }
+  ]
+}
