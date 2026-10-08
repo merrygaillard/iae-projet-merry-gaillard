@@ -50,7 +50,7 @@
 
 ## 4. Décision
 
-**GO.**
+**GO SOUS CONDITIONS.** Condition : hébergement finalisé, alors GO.
 
 Justification : les 21 liens sources ont été vérifiés à la main le 2026-10-08. Le contenu débutant est prêt et cohérent (6 jeux d'exercices, 2 quiz).
 
@@ -66,5 +66,5 @@ Prochaines étapes (ne conditionnent plus la décision) :
 ## 5. Décisions à prendre
 
 - [ ] Hébergement du site : GitHub Pages à débloquer, ou autre solution ?
-- [x] Décision finale : GO (2026-10-08).
+- [x] Décision finale : GO SOUS CONDITIONS (2026-10-08). Passage à GO dès que l'hébergement est finalisé.
 - [ ] Qui relit les nouvelles leçons (G2) : vous seule, ou aussi une personne de confiance ?
