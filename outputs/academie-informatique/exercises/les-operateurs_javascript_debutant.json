@@ -12,8 +12,13 @@
       "type": "mcq",
       "difficulté": "facile",
       "énoncé": "Quel est le résultat de 10 + 5 ?",
-      "options": ["5", "15", "105", "Erreur"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "5",
+        "15",
+        "105",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "L'opérateur + avec deux nombres fait l'addition : 10 + 5 = 15."
     },
     {
@@ -22,8 +27,13 @@
       "type": "mcq",
       "difficulté": "facile",
       "énoncé": "Qu'affiche console.log(10 > 5) ?",
-      "options": ["10", "false", "true", "Erreur"],
-      "bonne_réponse_index": 2,
+      "options": [
+        "10",
+        "false",
+        "true",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 2,
       "explication": "10 est supérieur à 5, donc la comparaison retourne true."
     },
     {
@@ -32,8 +42,13 @@
       "type": "mcq",
       "difficulté": "facile",
       "énoncé": "Quel opérateur permet de donner une valeur à une variable ?",
-      "options": ["+", "==", "=", "!"],
-      "bonne_réponse_index": 2,
+      "options": [
+        "+",
+        "==",
+        "=",
+        "!"
+      ],
+      "bonne_reponse_index": 2,
       "explication": "L'opérateur = est l'opérateur d'assignation. Il donne une valeur à une variable."
     },
     {
@@ -42,8 +57,13 @@
       "type": "mcq",
       "difficulté": "facile",
       "énoncé": "Qu'affiche console.log(5 % 2) ?",
-      "options": ["2.5", "2", "1", "0"],
-      "bonne_réponse_index": 2,
+      "options": [
+        "2.5",
+        "2",
+        "1",
+        "0"
+      ],
+      "bonne_reponse_index": 2,
       "explication": "Le modulo (%) retourne le reste de la division : 5 divisé par 2 donne reste 1."
     },
     {
@@ -52,8 +72,13 @@
       "type": "mcq",
       "difficulté": "moyen",
       "énoncé": "Quelle est la différence entre == et === ?",
-      "options": ["Aucune différence", "== compare la valeur, === compare la valeur ET le type", "== est plus rapide", "=== n'existe pas"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "Aucune différence",
+        "== compare la valeur, === compare la valeur ET le type",
+        "== est plus rapide",
+        "=== n'existe pas"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "== ignore le type (5 == '5' est true), === compare strictement (5 === '5' est false)."
     },
     {
@@ -62,8 +87,13 @@
       "type": "mcq",
       "difficulté": "moyen",
       "énoncé": "Qu'affiche console.log(true && false) ?",
-      "options": ["true", "false", "Erreur", "undefined"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "true",
+        "false",
+        "Erreur",
+        "undefined"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "Le ET logique (&&) retourne true uniquement si les deux côtés sont true."
     },
     {
@@ -72,8 +102,13 @@
       "type": "mcq",
       "difficulté": "moyen",
       "énoncé": "Qu'affiche console.log(!true) ?",
-      "options": ["true", "false", "1", "Erreur"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "true",
+        "false",
+        "1",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "L'opérateur NON (!) inverse une valeur booléenne : !true = false."
     },
     {
@@ -82,8 +117,13 @@
       "type": "mcq",
       "difficulté": "moyen",
       "énoncé": "Qu'affiche console.log(2 + 3 * 4) ?",
-      "options": ["20", "14", "24", "Erreur"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "20",
+        "14",
+        "24",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "La multiplication a priorité sur l'addition : 3 * 4 = 12, puis 2 + 12 = 14."
     },
     {
@@ -92,8 +132,13 @@
       "type": "mcq",
       "difficulté": "difficile",
       "énoncé": "Qu'affiche console.log(5 !== 5) ?",
-      "options": ["true", "false", "0", "Erreur"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "true",
+        "false",
+        "0",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "!== signifie 'pas identique'. 5 === 5 est true, donc 5 !== 5 est false."
     },
     {
@@ -102,8 +147,13 @@
       "type": "mcq",
       "difficulté": "difficile",
       "énoncé": "Qu'affiche console.log((age >= 18) ? 'Adulte' : 'Enfant') si age = 20 ?",
-      "options": ["Adulte", "Enfant", "20", "Erreur"],
-      "bonne_réponse_index": 0,
+      "options": [
+        "Adulte",
+        "Enfant",
+        "20",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
       "explication": "L'opérateur ternaire retourne la première valeur si la condition est vraie, sinon la deuxième."
     },
     {

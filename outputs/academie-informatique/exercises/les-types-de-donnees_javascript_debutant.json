@@ -12,8 +12,13 @@
       "type": "mcq",
       "difficulté": "facile",
       "énoncé": "Quel est le type de la valeur 42 en JavaScript ?",
-      "options": ["String", "Number", "Boolean", "Object"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "String",
+        "Number",
+        "Boolean",
+        "Object"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "42 est un nombre entier, donc son type est Number."
     },
     {
@@ -22,8 +27,13 @@
       "type": "mcq",
       "difficulté": "facile",
       "énoncé": "Quel opérateur permet de vérifier le type d'une variable ?",
-      "options": ["checkType()", "type()", "typeof", "getType()"],
-      "bonne_réponse_index": 2,
+      "options": [
+        "checkType()",
+        "type()",
+        "typeof",
+        "getType()"
+      ],
+      "bonne_reponse_index": 2,
       "explication": "L'opérateur typeof permet de vérifier le type d'une valeur : typeof 5 retourne 'number'."
     },
     {
@@ -32,8 +42,13 @@
       "type": "mcq",
       "difficulté": "facile",
       "énoncé": "Qu'affiche console.log(typeof 'Bonjour') ?",
-      "options": ["'string'", "'String'", "'text'", "Erreur"],
-      "bonne_réponse_index": 0,
+      "options": [
+        "'string'",
+        "'String'",
+        "'text'",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 0,
       "explication": "typeof retourne toujours une chaîne en minuscules. Pour du texte, il retourne 'string'."
     },
     {
@@ -42,8 +57,13 @@
       "type": "mcq",
       "difficulté": "facile",
       "énoncé": "Quelle est la différence entre null et undefined ?",
-      "options": ["Aucune différence", "undefined est une erreur, null non", "null signifie 'intentionnellement vide', undefined signifie 'pas encore défini'", "undefined n'existe pas"],
-      "bonne_réponse_index": 2,
+      "options": [
+        "Aucune différence",
+        "undefined est une erreur, null non",
+        "null signifie 'intentionnellement vide', undefined signifie 'pas encore défini'",
+        "undefined n'existe pas"
+      ],
+      "bonne_reponse_index": 2,
       "explication": "null représente une absence de valeur volontaire, tandis que undefined signifie qu'une variable n'a pas encore reçu de valeur."
     },
     {
@@ -52,8 +72,13 @@
       "type": "mcq",
       "difficulté": "moyen",
       "énoncé": "Qu'affiche console.log(5 + '3') ?",
-      "options": ["8", "'53'", "Erreur", "undefined"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "8",
+        "'53'",
+        "Erreur",
+        "undefined"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "Quand + voit une chaîne, il concatène au lieu d'ajouter : 5 + '3' = '53'."
     },
     {
@@ -62,8 +87,13 @@
       "type": "mcq",
       "difficulté": "moyen",
       "énoncé": "Quel est le type de [1, 2, 3] selon typeof ?",
-      "options": ["'array'", "'object'", "'list'", "'Array'"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "'array'",
+        "'object'",
+        "'list'",
+        "'Array'"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "En JavaScript, typeof [] retourne 'object'. Les tableaux sont des objets spécialisés."
     },
     {
@@ -72,8 +102,13 @@
       "type": "mcq",
       "difficulté": "moyen",
       "énoncé": "Qu'affiche console.log(Number('25')) ?",
-      "options": ["'25'", "25", "Erreur", "NaN"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "'25'",
+        "25",
+        "Erreur",
+        "NaN"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "Number() convertit une chaîne en nombre. '25' devient 25 (le type change)."
     },
     {
@@ -82,8 +117,13 @@
       "type": "mcq",
       "difficulté": "moyen",
       "énoncé": "Comment accéder au premier élément d'un tableau ?",
-      "options": ["tableau[1]", "tableau[0]", "tableau.first", "tableau.get(0)"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "tableau[1]",
+        "tableau[0]",
+        "tableau.first",
+        "tableau.get(0)"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "Les indices commencent à 0 en programmation. Le premier élément est à l'indice 0."
     },
     {
@@ -92,8 +132,13 @@
       "type": "mcq",
       "difficulté": "difficile",
       "énoncé": "Qu'affiche console.log(typeof null) ?",
-      "options": ["'null'", "'object'", "'undefined'", "Erreur"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "'null'",
+        "'object'",
+        "'undefined'",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "C'est une anomalie en JavaScript : typeof null retourne 'object' au lieu de 'null'."
     },
     {
@@ -102,8 +147,13 @@
       "type": "mcq",
       "difficulté": "difficile",
       "énoncé": "Quelle conversion est possible sans perte d'information ?",
-      "options": ["String → Number (ex: '5' → 5)", "Number → String (ex: 5 → '5')", "Boolean → Number", "Object → Array"],
-      "bonne_réponse_index": 1,
+      "options": [
+        "String → Number (ex: '5' → 5)",
+        "Number → String (ex: 5 → '5')",
+        "Boolean → Number",
+        "Object → Array"
+      ],
+      "bonne_reponse_index": 1,
       "explication": "Convertir un nombre en chaîne est sans risque (5 → '5'). Convertir '5' en nombre fonctionne seulement si c'est un nombre valide."
     },
     {

@@ -16,7 +16,7 @@
         "forEach",
         "map"
       ],
-      "bonne_réponse": 0,
+      "bonne_reponse_index": 0,
       "explication": "for...in itère sur les propriétés énumérables d'un objet. for...of itère sur les valeurs d'un itérable (tableau, chaîne), pas les objets.",
       "indices": [
         "Indice 1 : 'in' signifie 'à l'intérieur de'",
@@ -34,7 +34,7 @@
         "Aucune différence",
         "for...of ne fonctionne pas sur les tableaux"
       ],
-      "bonne_réponse": 0,
+      "bonne_reponse_index": 0,
       "explication": "for...in itère sur les indices (0, 1, 2...), tandis que for...of itère directement sur les valeurs du tableau.",
       "indices": [
         "Indice 1 : Pensez à ce qu'on obtient à chaque itération",
@@ -52,7 +52,7 @@
         "Un nouveau tableau",
         "true ou false"
       ],
-      "bonne_réponse": 0,
+      "bonne_reponse_index": 0,
       "explication": "forEach() n'a pas de valeur de retour (undefined). Elle effectue juste une action pour chaque élément, sans retourner rien.",
       "indices": [
         "Indice 1 : forEach est pour les effets secondaires",
@@ -70,7 +70,7 @@
         "6",
         "undefined"
       ],
-      "bonne_réponse": 0,
+      "bonne_reponse_index": 0,
       "explication": "map() transforme chaque élément : 1*2=2, 2*2=4, 3*2=6. Elle retourne un nouveau tableau avec les valeurs transformées.",
       "indices": [
         "Indice 1 : map() = transformation",
@@ -88,7 +88,7 @@
         "3",
         "true"
       ],
-      "bonne_réponse": 0,
+      "bonne_reponse_index": 0,
       "explication": "filter() garde seulement les éléments où la condition est vraie. Les éléments > 2 sont 3, 4, et 5.",
       "indices": [
         "Indice 1 : filter() = sélectionner",
@@ -106,7 +106,7 @@
         "undefined",
         "[1, 2, 3, 4]"
       ],
-      "bonne_réponse": 0,
+      "bonne_reponse_index": 0,
       "explication": "reduce() accumule les valeurs : 0+1=1, 1+2=3, 3+3=6, 6+4=10. La valeur initiale est 0.",
       "indices": [
         "Indice 1 : reduce() = accumulation",
@@ -124,7 +124,7 @@
         "[3]",
         "undefined"
       ],
-      "bonne_réponse": 0,
+      "bonne_reponse_index": 0,
       "explication": "D'abord map transforme : [1*2, 2*2, 3*2] = [2, 4, 6]. Ensuite filter garde seulement les éléments > 3 : [4, 6].",
       "indices": [
         "Indice 1 : Appliquez d'abord map, puis filter",
@@ -142,7 +142,7 @@
         "map",
         "filter"
       ],
-      "bonne_réponse": 0,
+      "bonne_reponse_index": 0,
       "explication": "for...of accepte break et continue. forEach, map, filter ne les acceptent pas — vous devez utiliser une boucle traditionnelle ou for...of.",
       "indices": [
         "Indice 1 : break et continue fonctionnent dans les boucles traditionnelles",
@@ -160,7 +160,7 @@
         "3",
         "undefined"
       ],
-      "bonne_réponse": 0,
+      "bonne_reponse_index": 0,
       "explication": "reduce accumule les lettres dans une chaîne : ''+a='a', 'a'+b='ab', 'ab'+c='abc'. La valeur initiale est une chaîne vide ''.",
       "indices": [
         "Indice 1 : La valeur initiale est une chaîne vide",
@@ -178,7 +178,7 @@
         "'hello'.forEach(char => { })",
         "Impossible, seulement avec split()"
       ],
-      "bonne_réponse": 0,
+      "bonne_reponse_index": 0,
       "explication": "for...of fonctionne sur les chaînes et parcourt chaque caractère. for...in retournerait les indices (0, 1, 2...) seulement.",
       "indices": [
         "Indice 1 : Les chaînes sont itérables",
