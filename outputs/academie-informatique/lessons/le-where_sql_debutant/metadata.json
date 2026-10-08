@@ -1,0 +1,36 @@
+{
+  "titre": "Le WHERE en SQL",
+  "concept": "WHERE",
+  "langage": "SQL",
+  "niveau": "débutant",
+  "durée_minutes": 12,
+  "concepts_clés": [
+    "Filtrage de données",
+    "Clause WHERE",
+    "Opérateurs de comparaison (=, !=, >, <, >=, <=)",
+    "Opérateurs logiques (AND, OR, NOT)",
+    "BETWEEN pour les plages",
+    "IN pour les listes",
+    "LIKE pour la recherche textuelle",
+    "IS NULL pour les valeurs manquantes"
+  ],
+  "sources": [
+    {
+      "titre": "W3Schools — SQL WHERE",
+      "url": "https://www.w3schools.com/sql/sql_where.asp"
+    },
+    {
+      "titre": "TutorialsPoint — SQL WHERE Clause",
+      "url": "https://www.tutorialspoint.com/sql/sql-where-clause.htm"
+    },
+    {
+      "titre": "PostgreSQL — SELECT Documentation",
+      "url": "https://www.postgresql.org/docs/current/sql-select.html"
+    },
+    {
+      "titre": "Mode Analytics — SQL WHERE Tutorial",
+      "url": "https://mode.com/sql-tutorial/sql-where/"
+    }
+  ],
+  "sources_count": 4
+}
