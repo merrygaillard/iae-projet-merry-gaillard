@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les conditions en Python</title>
+</head>
+<body>
+    <div class="lesson-content">
+        <h1>Les conditions en Python</h1>
+
+        <p><strong>Durée estimée :</strong> 14 minutes | <strong>Niveau :</strong> Débutant</p>
+
+        <h2>Introduction</h2>
+        <p>Imaginez que vous créez un jeu vidéo. Vous voulez que quelque chose se passe <strong>si</strong> le joueur a assez de points, et quelque chose d'autre <strong>sinon</strong>. Ou imaginez un programme bancaire : si le solde est suffisant, autorise le retrait ; sinon, refuse-le.</p>
+        <p>La réponse est <strong>les conditions</strong>. C'est la fondation de la logique en programmation : dire au programme « Si telle chose est vraie, fais ça ; sinon, fais autre chose ».</p>
+
+        <h2>Qu'est-ce qu'une condition ?</h2>
+        <p>Une <strong>condition</strong> est une question que vous posez à votre programme. La réponse est toujours soit <strong>Vrai</strong> (True), soit <strong>Faux</strong> (False).</p>
+        <p>Exemples de conditions :</p>
+        <ul>
+            <li>« Est-ce que 5 est plus grand que 3 ? » → <strong>Vrai</strong></li>
+            <li>« Est-ce que l'utilisateur a 18 ans ou plus ? » → Dépend</li>
+            <li>« Est-ce que mon mot de passe est correct ? » → Dépend</li>
+        </ul>
+
+        <h2>Les opérateurs de comparaison</h2>
+        <p>Pour poser une question, vous avez besoin d'<strong>opérateurs de comparaison</strong>. Voici les principaux :</p>
+
+        <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Opérateur</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Signification</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Exemple</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Résultat</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>==</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Égal à</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>5 == 5</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">True</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>!=</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Différent de</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>5 != 3</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">True</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>&gt;</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Plus grand que</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>5 > 3</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">True</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>&lt;</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Plus petit que</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>5 < 3</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">False</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>&gt;=</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Plus grand ou égal</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>5 >= 5</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">True</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>&lt;=</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Plus petit ou égal</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>5 <= 3</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">False</td>
+            </tr>
+        </table>
+
+        <p><strong>⚠️ Attention :</strong> Ne confondez pas <code>==</code> (comparaison) et <code>=</code> (affectation). <code>==</code> pose une question, <code>=</code> assigne une valeur.</p>
+
+        <h2>La structure if (si)</h2>
+        <p>La structure <strong>if</strong> dit : « Si la condition est vraie, exécute ce code ».</p>
+
+        <h3>Syntaxe :</h3>
+        <pre><code>if condition:
+    # Code à exécuter si la condition est True
+    print("La condition est vraie")</code></pre>
+
+        <h3>Exemple 1 : Vérifier l'âge</h3>
+        <pre><code>age = 20
+if age >= 18:
+    print("Vous êtes majeur")</code></pre>
+        <p><strong>Explication :</strong> Si age est ≥ 18, le programme affiche « Vous êtes majeur ». Sinon, il ne se passe rien.</p>
+
+        <h2>La structure if ... else (si ... sinon)</h2>
+        <p><strong>else</strong> signifie « sinon ». Elle s'exécute si la condition est fausse.</p>
+
+        <h3>Syntaxe :</h3>
+        <pre><code>if condition:
+    # Code si True
+else:
+    # Code si False</code></pre>
+
+        <h3>Exemple 2 : Majorité</h3>
+        <pre><code>age = 15
+if age >= 18:
+    print("Vous êtes majeur")
+else:
+    print("Vous êtes mineur")</code></pre>
+        <p><strong>Explication :</strong> Ici, age = 15, donc 15 >= 18 est False. Le programme exécute le bloc else et affiche « Vous êtes mineur ».</p>
+
+        <h2>La structure if ... elif ... else</h2>
+        <p><strong>elif</strong> signifie « sinon si ». Elle permet de tester plusieurs conditions.</p>
+
+        <h3>Syntaxe :</h3>
+        <pre><code>if condition1:
+    # Code si condition1 est True
+elif condition2:
+    # Code si condition1 est False ET condition2 est True
+elif condition3:
+    # Code si condition1 et condition2 sont False ET condition3 est True
+else:
+    # Code si toutes les conditions sont False</code></pre>
+
+        <h3>Exemple 3 : Classification par note</h3>
+        <pre><code>note = 75
+if note >= 90:
+    print("Excellent")
+elif note >= 80:
+    print("Très bien")
+elif note >= 70:
+    print("Bien")
+elif note >= 60:
+    print("Passable")
+else:
+    print("Échec")</code></pre>
+        <p><strong>Explication :</strong> Avec note = 75, la première condition (>= 90) est fausse. La deuxième (>= 80) est aussi fausse. Mais la troisième (>= 70) est vraie, donc le programme affiche « Bien ».</p>
+
+        <h2>Les opérateurs logiques : and, or, not</h2>
+        <p>Parfois, vous avez besoin de combiner plusieurs conditions. Voici les opérateurs logiques :</p>
+
+        <h3>and (ET) :</h3>
+        <p><strong>and</strong> signifie « toutes les conditions doivent être vraies ».</p>
+        <pre><code>age = 25
+has_license = True
+if age >= 18 and has_license:
+    print("Vous pouvez conduire")</code></pre>
+        <p>Les deux conditions sont vraies, donc « Vous pouvez conduire » s'affiche.</p>
+
+        <h3>or (OU) :</h3>
+        <p><strong>or</strong> signifie « au moins une condition doit être vraie ».</p>
+        <pre><code>day = "samedi"
+if day == "samedi" or day == "dimanche":
+    print("C'est le week-end")</code></pre>
+        <p>Si le jour est samedi OU dimanche, « C'est le week-end » s'affiche.</p>
+
+        <h3>not (NON) :</h3>
+        <p><strong>not</strong> inverse le résultat : True devient False, et vice-versa.</p>
+        <pre><code>is_raining = True
+if not is_raining:
+    print("Allons au parc")
+else:
+    print("Restons à la maison")</code></pre>
+        <p>Comme is_raining est True, not is_raining est False. Donc « Restons à la maison » s'affiche.</p>
+
+        <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Opérateur</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Signification</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Exemple</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Résultat</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>and</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">ET logique</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>True and True</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">True</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>and</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">ET logique</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>True and False</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">False</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>or</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">OU logique</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>False or True</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">True</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>or</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">OU logique</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>False or False</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">False</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>not</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Inversion</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>not True</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">False</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>not</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Inversion</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>not False</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">True</td>
+            </tr>
+        </table>
+
+        <h2>Quand utiliser if, elif, else ?</h2>
+        <p>Voici un tableau récapitulatif :</p>
+
+        <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Structure</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Quand l'utiliser</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Exemple</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>if</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Tester UNE seule condition</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">« Affiche un message si l'âge ≥ 18 »</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>if ... else</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Faire quelque chose OU quelque chose d'autre</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">« Si majeur, print 'Oui', sinon print 'Non' »</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>if ... elif ... else</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Tester PLUSIEURS chemins</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">« Affiche différentes notes selon la moyenne »</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>and / or / not</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Combiner plusieurs conditions</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">« Si âge ≥ 18 AND a_license, autorise »</td>
+            </tr>
+        </table>
+
+        <h2>Exemple pratique complet</h2>
+        <p>Voici un programme qui utilise toutes les concepts :</p>
+
+        <h3>Système d'accès à un cinéma</h3>
+        <pre><code># Programme : Vérifier l'accès à un film
+age = 16
+has_ticket = True
+is_alone = False
+
+if age < 12:
+    print("Films recommandés : Enfants")
+elif age < 16:
+    print("Films recommandés : Ados")
+elif age < 18:
+    if has_ticket and not is_alone:
+        print("Accès autorisé avec un adulte")
+    else:
+        print("Accès refusé")
+else:
+    print("Accès autorisé (adulte)")</code></pre>
+
+        <p><strong>Explication pas à pas :</strong></p>
+        <ol>
+            <li>age = 16 : L'utilisateur a 16 ans</li>
+            <li>La première condition (age < 12) est False</li>
+            <li>La deuxième condition (age < 16) est False</li>
+            <li>La troisième condition (age < 18) est True</li>
+            <li>On rentre dans ce bloc et on teste : has_ticket = True et not is_alone = True (car is_alone = False)</li>
+            <li>Les deux conditions sont vraies (and), donc « Accès autorisé avec un adulte » s'affiche</li>
+        </ol>
+
+        <h2>Points clés à retenir</h2>
+        <ul>
+            <li>Une condition est toujours True (vrai) ou False (faux)</li>
+            <li><code>if</code> exécute du code si la condition est vraie</li>
+            <li><code>else</code> exécute du code si la condition est fausse</li>
+            <li><code>elif</code> teste une autre condition si la première est fausse</li>
+            <li>Les opérateurs : <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
+            <li><code>and</code> : toutes les conditions doivent être vraies</li>
+            <li><code>or</code> : au moins une condition doit être vraie</li>
+            <li><code>not</code> : inverse le résultat (True ↔ False)</li>
+            <li>L'indentation (espaces) est obligatoire après <code>if</code>, <code>else</code>, <code>elif</code></li>
+        </ul>
+
+        <h2>Sources</h2>
+        <ul>
+            <li><a href="https://www.w3schools.com/python/python_conditions.asp" target="_blank">W3Schools — Python Conditions</a></li>
+            <li><a href="https://docs.python.org/3/tutorial/controlflow.html" target="_blank">Documentation officielle Python — Contrôle du flux</a></li>
+            <li><a href="https://www.codecademy.com/learn/learn-python-3" target="_blank">Codecademy — Learn Python 3</a></li>
+            <li><a href="https://realpython.com/python-if-elif-else/" target="_blank">Real Python — Python if, elif, else Statements</a></li>
+        </ul>
+    </div>
+</body>
+</html>

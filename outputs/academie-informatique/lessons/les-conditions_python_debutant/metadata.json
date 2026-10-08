@@ -1,0 +1,36 @@
+{
+  "titre": "Les conditions en Python",
+  "concept": "conditions",
+  "langage": "Python",
+  "niveau": "débutant",
+  "durée_minutes": 14,
+  "concepts_clés": [
+    "Conditions (True/False)",
+    "Opérateurs de comparaison (==, !=, >, <, >=, <=)",
+    "Structure if",
+    "Structure if...else",
+    "Structure if...elif...else",
+    "Opérateurs logiques (and, or, not)",
+    "Indentation",
+    "Évaluation de conditions"
+  ],
+  "sources": [
+    {
+      "titre": "W3Schools — Python Conditions",
+      "url": "https://www.w3schools.com/python/python_conditions.asp"
+    },
+    {
+      "titre": "Documentation officielle Python — Contrôle du flux",
+      "url": "https://docs.python.org/3/tutorial/controlflow.html"
+    },
+    {
+      "titre": "Codecademy — Learn Python 3",
+      "url": "https://www.codecademy.com/learn/learn-python-3"
+    },
+    {
+      "titre": "Real Python — Python if, elif, else Statements",
+      "url": "https://realpython.com/python-if-elif-else/"
+    }
+  ],
+  "sources_count": 4
+}
