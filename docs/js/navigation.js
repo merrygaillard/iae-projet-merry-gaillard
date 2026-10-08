@@ -1628,6 +1628,34 @@ const exercisesData_SQL_Debutant = [
   {id:"sql_sel_libre_5",type:"free_text",numero:20,difficulte:"difficile",enonce:"Appliquez les bonnes pratiques : écrivez une requête SELECT avec colonnes spécifiques, point-virgule, et noms exacts",solution:"SELECT id, nom, prix, stock FROM produits;",explication:"Colonnes nommées explicitement, pas *, point-virgule, noms de colonnes corrects.",indices:["Indice 1 : Pas de * ; noms explicites.","Indice 2 : Point-virgule obligatoire."]}
 ];
 
+// Exercices pour SQL Débutant - WHERE
+const exercisesData_WHERE_SQL_Debutant = [
+  {id:"where_qcm_1",type:"mcq",numero:1,difficulte:"facile",enonce:"Quelle clause SQL permet de filtrer les enregistrements ?",options:["SELECT","FROM","WHERE","ORDER BY"],bonne_reponse_index:2,explication:"WHERE est la clause qui filtre les enregistrements selon une condition.",indices:["Indice 1 : Voir la leçon WHERE","Indice 2 : Pour filtrer les données"]},
+  {id:"where_qcm_2",type:"mcq",numero:2,difficulte:"facile",enonce:"Que signifie cette requête ? SELECT * FROM clients WHERE ville = 'Paris';",options:["Affiche tous les clients","Affiche seulement les clients de Paris","Affiche les villes","Erreur"],bonne_reponse_index:1,explication:"WHERE ville = 'Paris' filtre pour afficher seulement les clients de Paris.",indices:["Indice 1 : WHERE filtre par condition","Indice 2 : ville = 'Paris' est la condition"]},
+  {id:"where_qcm_3",type:"mcq",numero:3,difficulte:"facile",enonce:"Quel opérateur utiliser pour vérifier si un nombre est supérieur à 50 ?",options:["=","<",">","!="],bonne_reponse_index:2,explication:"L'opérateur > (supérieur à) vérifie si une valeur est strictement supérieure.",indices:["Indice 1 : Opérateurs de comparaison","Indice 2 : > = supérieur à"]},
+  {id:"where_qcm_4",type:"mcq",numero:4,difficulte:"facile",enonce:"Comment vérifier qu'une valeur est DIFFÉRENTE de 'Lyon' ?",options:["WHERE ville = 'Lyon'","WHERE ville != 'Lyon'","WHERE ville > 'Lyon'","WHERE LIKE 'Lyon'"],bonne_reponse_index:1,explication:"L'opérateur != (ou <>) signifie 'différent de'.",indices:["Indice 1 : Opérateur de non-égalité","Indice 2 : != signifie différent"]},
+  {id:"where_qcm_5",type:"mcq",numero:5,difficulte:"moyen",enonce:"Que retourne cette requête ? SELECT * FROM produits WHERE prix > 50 AND prix < 100;",options:["Produits à moins de 50€","Produits entre 50€ et 100€","Tous les produits","Produits à plus de 100€"],bonne_reponse_index:1,explication:"AND combine deux conditions : prix > 50 ET prix < 100 (plage 50-100€).",indices:["Indice 1 : AND combine les conditions","Indice 2 : Les deux doivent être vraies"]},
+  {id:"where_qcm_6",type:"mcq",numero:6,difficulte:"moyen",enonce:"Quel est l'ordre d'exécution dans : SELECT * FROM clients WHERE age > 18 ORDER BY nom;",options:["Trier d'abord, puis filtrer","Filtrer d'abord, puis trier","Les deux simultanément","Indéfini"],bonne_reponse_index:1,explication:"WHERE s'exécute en premier (filtre), ensuite ORDER BY (trie les résultats filtrés).",indices:["Indice 1 : WHERE est le filtre","Indice 2 : ORDER BY vient après"]},
+  {id:"where_qcm_7",type:"mcq",numero:7,difficulte:"moyen",enonce:"Que fait BETWEEN 20 AND 100 ?",options:["Entre 0 et 20","Entre 20 et 100 (inclus)","Seulement 20 ou 100","Supérieur à 100"],bonne_reponse_index:1,explication:"BETWEEN inclut les deux valeurs : entre 20 et 100 inclusivement.",indices:["Indice 1 : BETWEEN = intervalle","Indice 2 : Inclut les deux bornes"]},
+  {id:"where_qcm_8",type:"mcq",numero:8,difficulte:"moyen",enonce:"Que retourne IN ('Paris', 'Lyon', 'Marseille') ?",options:["Seulement Paris","Seulement un des trois","Au moins une de ces trois villes","Aucune de ces villes"],bonne_reponse_index:2,explication:"IN retourne les lignes qui correspondent à AU MOINS UNE des valeurs listées.",indices:["Indice 1 : IN pour listes de valeurs","Indice 2 : Retourne si DANS la liste"]},
+  {id:"where_qcm_9",type:"mcq",numero:9,difficulte:"difficile",enonce:"Que retourne LIKE 'A%' ?",options:["Texte qui finit par A","Texte qui commence par A","Texte contenant A","Texte égal à A"],bonne_reponse_index:1,explication:"% = joker (0 ou plusieurs caractères). 'A%' = commence par A.",indices:["Indice 1 : LIKE avec joker %","Indice 2 : 'A%' = commence par A"]},
+  {id:"where_qcm_10",type:"mcq",numero:10,difficulte:"difficile",enonce:"Comment trouver les enregistrements sans valeur (NULL) ?",options:["WHERE email = NULL","WHERE email IS NULL","WHERE email != NULL","WHERE NULL"],bonne_reponse_index:1,explication:"IS NULL teste si une valeur est manquante (NULL). On n'utilise pas = NULL.",indices:["Indice 1 : IS NULL pour tester NULL","Indice 2 : Pas = NULL"]}
+];
+
+// Exercices pour SQL Débutant - ORDER BY
+const exercisesData_OrderBy_SQL_Debutant = [
+  {id:"orderby_qcm_1",type:"mcq",numero:1,difficulte:"facile",enonce:"Quelle clause SQL permet de trier les résultats ?",options:["SELECT","FROM","WHERE","ORDER BY"],bonne_reponse_index:3,explication:"ORDER BY est la clause de tri des résultats.",indices:["Indice 1 : Voir la leçon ORDER BY","Indice 2 : Pour trier"]},
+  {id:"orderby_qcm_2",type:"mcq",numero:2,difficulte:"facile",enonce:"Quel est l'ordre par défaut de ORDER BY ?",options:["Aléatoire","Croissant (ASC)","Décroissant (DESC)","Inverse"],bonne_reponse_index:1,explication:"ORDER BY trie par défaut en ordre croissant (ASC).",indices:["Indice 1 : ASC = croissant","Indice 2 : Par défaut"}},
+  {id:"orderby_qcm_3",type:"mcq",numero:3,difficulte:"facile",enonce:"Qu'affiche cette requête ? SELECT * FROM clients ORDER BY nom;",options:["Clients aléatoires","Clients triés A→Z par nom","Clients triés Z→A par nom","Erreur"],bonne_reponse_index:1,explication:"ORDER BY nom trie alphabétiquement en ordre croissant (A→Z).",indices:["Indice 1 : ORDER BY par défaut croissant","Indice 2 : Alphabétique A→Z"]},
+  {id:"orderby_qcm_4",type:"mcq",numero:4,difficulte:"facile",enonce:"Quel mot-clé crée un tri décroissant ?",options:["ASC","DESC","REVERSE","DOWN"],bonne_reponse_index:1,explication:"DESC (descending) trie en ordre décroissant.",indices:["Indice 1 : DESC = décroissant","Indice 2 : Du grand au petit"]},
+  {id:"orderby_qcm_5",type:"mcq",numero:5,difficulte:"moyen",enonce:"Que retourne : SELECT * FROM produits ORDER BY prix DESC;",options:["Produits du moins cher au plus cher","Produits du plus cher au moins cher","Produits sans prix","Erreur"],bonne_reponse_index:1,explication:"DESC = décroissant = du plus grand au plus petit prix.",indices:["Indice 1 : DESC pour décroissant","Indice 2 : Plus cher d'abord"]},
+  {id:"orderby_qcm_6",type:"mcq",numero:6,difficulte:"moyen",enonce:"Comment trier par plusieurs colonnes ?",options:["ORDER BY col1, col2","ORDER BY col1 + col2","ORDER BY col1 OR col2","Impossible"],bonne_reponse_index:0,explication:"Séparez les colonnes par des virgules pour un tri multi-colonnes.",indices:["Indice 1 : Virgule pour séparer","Indice 2 : col1, col2"]},
+  {id:"orderby_qcm_7",type:"mcq",numero:7,difficulte:"moyen",enonce:"ORDER BY region, nom affichera comment ?",options:["Toutes les régions mélangées","Régions triées, puis noms triés dans chaque région","Seulement par région","Seulement par nom"],bonne_reponse_index:1,explication:"Le premier tri crée des groupes, le second tri organise les groupes.",indices:["Indice 1 : Tri hiérarchique","Indice 2 : region d'abord, nom ensuite"]},
+  {id:"orderby_qcm_8",type:"mcq",numero:8,difficulte:"moyen",enonce:"Quel est l'ordre d'exécution : SELECT * FROM clients WHERE age > 18 ORDER BY nom;",options:["Trier, puis filtrer","Filtrer, puis trier","Les deux en même temps","Indéfini"],bonne_reponse_index:1,explication:"WHERE filtre d'abord, ORDER BY trie les résultats filtrés.",indices:["Indice 1 : WHERE avant ORDER BY","Indice 2 : Filtre d'abord"]},
+  {id:"orderby_qcm_9",type:"mcq",numero:9,difficulte:"difficile",enonce:"Comment trier par la première colonne du SELECT ?",options:["ORDER BY col1","ORDER BY 1","ORDER BY *","ORDER BY first"],bonne_reponse_index:1,explication:"ORDER BY 1 trie par la première colonne du SELECT (par numéro).",indices:["Indice 1 : Numéro de colonne","Indice 2 : 1 = première colonne"]},
+  {id:"orderby_qcm_10",type:"mcq",numero:10,difficulte:"difficile",enonce:"Où apparaissent les valeurs NULL avec ORDER BY ?",options:["Toujours au début","Toujours à la fin","Mélangées au hasard","Dépend de la base de données"],bonne_reponse_index:3,explication:"La position des NULL varie selon la base de données (PostgreSQL, MySQL, etc.).",indices:["Indice 1 : Comportement variable","Indice 2 : Selon le système"]}
+];
+
 // Exercices pour JavaScript Débutant - Les types de données
 const exercisesData_Types_JS_Debutant = [
   {id:"types_qcm_1",type:"mcq",numero:1,difficulte:"facile",enonce:"Quel est le type de la valeur 42 en JavaScript ?",options:["String","Number","Boolean","Object"],bonne_reponse_index:1,explication:"42 est un nombre entier, donc son type est Number.",indices:["Indice 1 : Quelle catégorie pour un nombre ?","Indice 2 : Number est le type pour les nombres."]},
@@ -1890,6 +1918,12 @@ function getExercisesForLesson(lang, level, lessonId) {
   }
   if (lang === 'sql' && level === 'debutant' && lessonId === 'select') {
     return exercisesData_SQL_Debutant;
+  }
+  if (lang === 'sql' && level === 'debutant' && lessonId === 'where') {
+    return exercisesData_WHERE_SQL_Debutant;
+  }
+  if (lang === 'sql' && level === 'debutant' && lessonId === 'orderby') {
+    return exercisesData_OrderBy_SQL_Debutant;
   }
   return null;
 }

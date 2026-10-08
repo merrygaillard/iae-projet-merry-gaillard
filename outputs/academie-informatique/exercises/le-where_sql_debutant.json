@@ -1,0 +1,250 @@
+{
+  "concept": "WHERE",
+  "langage": "SQL",
+  "niveau": "débutant",
+  "total_questions": 20,
+  "points_par_question": 1,
+  "seuil_reussite": 15,
+  "exercices": [
+    {
+      "id": "where_qcm_1",
+      "numero": 1,
+      "type": "mcq",
+      "difficulte": "facile",
+      "énoncé": "Quelle clause SQL permet de filtrer les enregistrements ?",
+      "options": [
+        "SELECT",
+        "FROM",
+        "WHERE",
+        "ORDER BY"
+      ],
+      "bonne_reponse_index": 2,
+      "explication": "WHERE est la clause qui filtre les enregistrements selon une condition."
+    },
+    {
+      "id": "where_qcm_2",
+      "numero": 2,
+      "type": "mcq",
+      "difficulte": "facile",
+      "énoncé": "Que signifie cette requête ? SELECT * FROM clients WHERE ville = 'Paris';",
+      "options": [
+        "Affiche tous les clients",
+        "Affiche seulement les clients de Paris",
+        "Affiche les villes",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "WHERE ville = 'Paris' filtre pour afficher seulement les clients dont la ville est Paris."
+    },
+    {
+      "id": "where_qcm_3",
+      "numero": 3,
+      "type": "mcq",
+      "difficulte": "facile",
+      "énoncé": "Quel opérateur utiliser pour vérifier si un nombre est supérieur à 50 ?",
+      "options": [
+        "=",
+        "<",
+        ">",
+        "!="
+      ],
+      "bonne_reponse_index": 2,
+      "explication": "L'opérateur > (supérieur à) vérifie si une valeur est strictement supérieure."
+    },
+    {
+      "id": "where_qcm_4",
+      "numero": 4,
+      "type": "mcq",
+      "difficulte": "facile",
+      "énoncé": "Comment vérifier qu'une valeur est DIFFÉRENTE de 'Lyon' ?",
+      "options": [
+        "WHERE ville = 'Lyon'",
+        "WHERE ville != 'Lyon'",
+        "WHERE ville > 'Lyon'",
+        "WHERE LIKE 'Lyon'"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "L'opérateur != (ou <>) signifie 'différent de'."
+    },
+    {
+      "id": "where_qcm_5",
+      "numero": 5,
+      "type": "mcq",
+      "difficulte": "moyen",
+      "énoncé": "Que retourne cette requête ? SELECT * FROM produits WHERE prix > 50 AND prix < 100;",
+      "options": [
+        "Produits à moins de 50€",
+        "Produits entre 50€ et 100€",
+        "Tous les produits",
+        "Produits à plus de 100€"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "AND combine deux conditions : prix > 50 ET prix < 100 (plage 50-100€)."
+    },
+    {
+      "id": "where_qcm_6",
+      "numero": 6,
+      "type": "mcq",
+      "difficulte": "moyen",
+      "énoncé": "Quel est l'ordre d'exécution dans : SELECT * FROM clients WHERE age > 18 ORDER BY nom;",
+      "options": [
+        "Trier d'abord, puis filtrer",
+        "Filtrer d'abord, puis trier",
+        "Les deux simultanément",
+        "Indéfini"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "WHERE s'exécute en premier (filtre), ensuite ORDER BY (trie les résultats filtrés)."
+    },
+    {
+      "id": "where_qcm_7",
+      "numero": 7,
+      "type": "mcq",
+      "difficulte": "moyen",
+      "énoncé": "Que fait BETWEEN 20 AND 100 ?",
+      "options": [
+        "Entre 0 et 20",
+        "Entre 20 et 100 (inclus)",
+        "Seulement 20 ou 100",
+        "Supérieur à 100"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "BETWEEN inclut les deux valeurs : entre 20 et 100 inclusivement."
+    },
+    {
+      "id": "where_qcm_8",
+      "numero": 8,
+      "type": "mcq",
+      "difficulte": "moyen",
+      "énoncé": "Que retourne IN ('Paris', 'Lyon', 'Marseille') ?",
+      "options": [
+        "Seulement Paris",
+        "Seulement un des trois",
+        "Au moins une de ces trois villes",
+        "Aucune de ces villes"
+      ],
+      "bonne_reponse_index": 2,
+      "explication": "IN retourne les lignes qui correspondent à AU MOINS UNE des valeurs listées."
+    },
+    {
+      "id": "where_qcm_9",
+      "numero": 9,
+      "type": "mcq",
+      "difficulte": "difficile",
+      "énoncé": "Que retourne LIKE 'A%' ?",
+      "options": [
+        "Texte qui finit par A",
+        "Texte qui commence par A",
+        "Texte contenant A",
+        "Texte égal à A"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "% = joker (0 ou plusieurs caractères). 'A%' = commence par A."
+    },
+    {
+      "id": "where_qcm_10",
+      "numero": 10,
+      "type": "mcq",
+      "difficulte": "difficile",
+      "énoncé": "Comment trouver les enregistrements sans valeur (NULL) ?",
+      "options": [
+        "WHERE email = NULL",
+        "WHERE email IS NULL",
+        "WHERE email != NULL",
+        "WHERE NULL"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "IS NULL teste si une valeur est manquante (NULL). On n'utilise pas = NULL."
+    },
+    {
+      "id": "where_trou_1",
+      "numero": 11,
+      "type": "fill_blank",
+      "difficulte": "facile",
+      "énoncé": "Complète : SELECT * FROM clients _____ age > 18;",
+      "reponse_attendue": "WHERE",
+      "explication": "WHERE est la clause de filtrage."
+    },
+    {
+      "id": "where_trou_2",
+      "numero": 12,
+      "type": "fill_blank",
+      "difficulte": "facile",
+      "énoncé": "Complète : SELECT nom, prix FROM produits WHERE prix _____ 50;",
+      "reponse_attendue": ">",
+      "explication": "L'opérateur > signifie supérieur à."
+    },
+    {
+      "id": "where_trou_3",
+      "numero": 13,
+      "type": "fill_blank",
+      "difficulte": "moyen",
+      "énoncé": "Complète : SELECT * FROM produits WHERE prix >= 20 _____ prix <= 100;",
+      "reponse_attendue": "AND",
+      "explication": "AND combine deux conditions : les deux doivent être vraies."
+    },
+    {
+      "id": "where_trou_4",
+      "numero": 14,
+      "type": "fill_blank",
+      "difficulte": "moyen",
+      "énoncé": "Complète : SELECT * FROM clients WHERE ville _____ ('Paris', 'Lyon');",
+      "reponse_attendue": "IN",
+      "explication": "IN teste si la valeur fait partie d'une liste."
+    },
+    {
+      "id": "where_trou_5",
+      "numero": 15,
+      "type": "fill_blank",
+      "difficulte": "difficile",
+      "énoncé": "Complète : SELECT * FROM clients WHERE telephone _____ NULL;",
+      "reponse_attendue": "IS",
+      "explication": "IS NULL teste si la valeur est manquante."
+    },
+    {
+      "id": "where_libre_1",
+      "numero": 16,
+      "type": "free_text",
+      "difficulte": "moyen",
+      "énoncé": "Écris une requête pour afficher tous les produits avec un prix supérieur à 100.",
+      "solution": "SELECT * FROM produits WHERE prix > 100;",
+      "explication": "WHERE prix > 100 filtre les produits chers."
+    },
+    {
+      "id": "where_libre_2",
+      "numero": 17,
+      "type": "free_text",
+      "difficulte": "moyen",
+      "énoncé": "Écris une requête pour afficher les clients de Paris OU de Lyon.",
+      "solution": "SELECT * FROM clients WHERE ville = 'Paris' OR ville = 'Lyon';",
+      "explication": "OR combine deux conditions : au moins une doit être vraie."
+    },
+    {
+      "id": "where_libre_3",
+      "numero": 18,
+      "type": "free_text",
+      "difficulte": "moyen",
+      "énoncé": "Écris une requête pour afficher les produits entre 20 et 100€.",
+      "solution": "SELECT * FROM produits WHERE prix BETWEEN 20 AND 100;",
+      "explication": "BETWEEN est plus lisible que >= AND <=."
+    },
+    {
+      "id": "where_libre_4",
+      "numero": 19,
+      "type": "free_text",
+      "difficulte": "difficile",
+      "énoncé": "Écris une requête pour afficher les clients dont le nom commence par 'A'.",
+      "solution": "SELECT * FROM clients WHERE nom LIKE 'A%';",
+      "explication": "LIKE 'A%' cherche les noms commençant par A."
+    },
+    {
+      "id": "where_libre_5",
+      "numero": 20,
+      "type": "free_text",
+      "difficulte": "difficile",
+      "énoncé": "Écris une requête : clients Premium EN STOCK (stock > 0) et EN STOCK.",
+      "solution": "SELECT * FROM clients WHERE statut = 'Premium' AND stock > 0;",
+      "explication": "AND combine deux conditions de filtrage."
+    }
+  ]
+}
