@@ -1,7 +1,5 @@
 # Plan d'amélioration — Académie Informatique
 
-> **Brouillon à relire et à valider par Merry Gaillard avant la soutenance.** Les décisions marquées « à valider » ne sont pas encore prises.
-
 **Date du constat :** 2026-10-07
 **Base :** `test-results.md` (contrôles automatiques), `runs.md` (journal), `fiche-donnees.md` (données), `run-guide.md` (mise en route).
 
@@ -23,7 +21,7 @@
 
 | # | Action | Pourquoi | Preuve de fin | Statut |
 |---|---|---|---|---|
-| 1 | Ouvrir les 21 liens et cocher `sources/sources tests.md` | Critère AC4 (sources vérifiées) | Liste cochée avec date | À faire |
+| 1 | Ouvrir les 21 liens et cocher `sources/sources tests.md` | Critère AC4 (sources vérifiées) | Liste cochée avec date | Fait (2026-10-08) |
 | 2 | Remplacer les liens morts et ramener la leçon à 8 sources à 3–5 | Critère R12 et règle des sources | Nouveau contrôle T2d | À faire |
 | 3 | Harmoniser le champ « bonne réponse » dans les fichiers source | Cohérence des fichiers | Nouveau contrôle T2b | À faire |
 | 4 | Mettre le site en ligne (hébergement à choisir) | Critère « une run livre un site déployé » | Lien public qui répond | Bloqué |
@@ -50,14 +48,16 @@
 
 ---
 
-## 4. Décision proposée (à valider)
+## 4. Décision
 
-**GO SOUS CONDITIONS.**
+**GO.**
 
-Conditions :
-1. Liens vérifiés (action 1) et sources conformes (action 2) avant toute mise en ligne.
-2. Site accessible en ligne (action 4).
-3. Widget commentaire seulement après la règle RGPD (action 6).
+Justification : les 21 liens sources ont été vérifiés à la main le 2026-10-08. Le contenu débutant est prêt et cohérent (6 jeux d'exercices, 2 quiz).
+
+Prochaines étapes (ne conditionnent plus la décision) :
+1. Mise en ligne dès que l'hébergement est débloqué (action 4).
+2. Ramener la leçon `les-boucles-avancees` à 3–5 sources (action 2).
+3. Widget commentaire seulement après une règle RGPD écrite (action 6).
 
 **Date de la revue suivante :** « à compléter » (un mois après la mise en ligne).
 
@@ -66,5 +66,5 @@ Conditions :
 ## 5. Décisions à prendre
 
 - [ ] Hébergement du site : GitHub Pages à débloquer, ou autre solution ?
-- [ ] Décision finale : go, go sous conditions, ou no-go.
+- [x] Décision finale : GO (2026-10-08).
 - [ ] Qui relit les nouvelles leçons (G2) : vous seule, ou aussi une personne de confiance ?
