@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableau de bord — Académie Informatique</title>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1: #fcfcfb;
+    --surface-2: #f3f2ef;
+    --border: #d9d7d1;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #6f6e69;
+    --series-1: #2a78d6;      /* bleu : progression */
+    --status-good: #008300;   /* vert : terminé */
+    --status-warn: #c98500;   /* ambre : en pause */
+    --track: #e6e4df;
+    --warn-bg: #fff4dc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --surface-1: #1a1a19;
+      --surface-2: #232321;
+      --border: #3c3c39;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted: #a3a296;
+      --series-1: #3987e5;
+      --status-good: #3fa34d;
+      --status-warn: #e0a526;
+      --track: #34342f;
+      --warn-bg: #3a300f;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --surface-2: #232321;
+    --border: #3c3c39;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #a3a296;
+    --series-1: #3987e5;
+    --status-good: #3fa34d;
+    --status-warn: #e0a526;
+    --track: #34342f;
+    --warn-bg: #3a300f;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--surface-1);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+  }
+  main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  h2 { font-size: 1.15rem; margin: 32px 0 12px; }
+  .subtitle, .note { color: var(--text-secondary); margin: 0; }
+  .note { font-size: 0.9rem; }
+
+  .kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .kpi {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .kpi .label { color: var(--text-secondary); font-size: 0.9rem; }
+  .kpi .value { font-size: 2rem; font-weight: 700; margin: 4px 0; font-variant-numeric: tabular-nums; }
+  .kpi .value.na { font-size: 1.3rem; color: var(--text-secondary); }
+  .kpi .hint { color: var(--text-muted); font-size: 0.82rem; margin: 0; }
+
+  .poles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .pole {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .pole-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .pole h3 { margin: 0; font-size: 1.05rem; }
+  .status { font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
+  .status.done { color: var(--status-good); }
+  .status.progress { color: var(--series-1); }
+  .status.pause { color: var(--status-warn); }
+  .status.none { color: var(--text-muted); }
+
+  .level-row { margin-top: 12px; }
+  .level-row .meta { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary); }
+  .bar {
+    position: relative;
+    height: 12px;
+    background: var(--track);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .bar-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--series-1); border-radius: 6px; }
+  .bar-pause { position: absolute; top: 0; bottom: 0; background: var(--status-warn); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.85rem; color: var(--text-secondary); margin-top: 8px; }
+  .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 4px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { color: var(--text-secondary); font-weight: 600; }
+  td.num, th.num { text-align: right; }
+  .table-wrap { overflow-x: auto; background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; }
+
+  .issues { background: var(--warn-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; }
+  .issues ul { margin: 6px 0 0; padding-left: 20px; }
+  .issues li { margin: 4px 0; font-size: 0.92rem; }
+  .rules { font-size: 0.92rem; color: var(--text-secondary); padding-left: 20px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Tableau de bord — Académie Informatique</h1>
+  <p class="subtitle">Suivi de l'apprentissage sur JavaScript, Python et SQL. Données de <strong>simulation</strong> (fictives), lues depuis les CSV du dossier <code>data/</code>.</p>
+
+  <section class="kpis" aria-label="Indicateurs clés">
+    <article class="kpi">
+      <div class="label">Visites du site</div>
+      <div class="value na">Non mesuré</div>
+      <p class="hint">Le site ne compte pas les visites. La progression est gardée seulement dans le navigateur de chaque personne.</p>
+    </article>
+    <article class="kpi">
+      <div class="label">Leçons réalisées</div>
+      <div class="value" id="kpi-lessons">–</div>
+      <p class="hint" id="kpi-lessons-hint"></p>
+    </article>
+    <article class="kpi">
+      <div class="label">Exercices réalisés</div>
+      <div class="value" id="kpi-exercises">–</div>
+      <p class="hint" id="kpi-exercises-hint"></p>
+    </article>
+    <article class="kpi">
+      <div class="label">Parcours terminés</div>
+      <div class="value" id="kpi-done">–</div>
+      <p class="hint" id="kpi-done-hint"></p>
+    </article>
+  </section>
+
+  <h2>Avancement des pôles</h2>
+  <p class="note">Un pôle = un langage. Chaque pôle a 3 niveaux (débutant, intermédiaire, avancé). Chaque segment montre la part des apprenants qui ont terminé ce niveau. Le bonus n'est pas compté, comme sur le site.</p>
+  <section class="poles" id="poles" aria-label="Barres d'avancement des pôles"></section>
+  <div class="legend">
+    <span><span class="swatch" style="background:var(--series-1)"></span>Terminé</span>
+    <span><span class="swatch" style="background:var(--status-warn)"></span>En pause</span>
+    <span><span class="swatch" style="background:var(--track)"></span>Reste à faire</span>
+  </div>
+
+  <h2>Détail par pôle et niveau (vue tableau)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Pôle</th><th>Niveau</th>
+          <th class="num">Apprenants</th><th class="num">Terminés</th><th class="num">En cours</th><th class="num">En pause</th>
+          <th class="num">Leçons</th><th class="num">Exercices</th>
+        </tr>
+      </thead>
+      <tbody id="detail-body"></tbody>
+    </table>
+  </div>
+
+  <h2>Qualité des données</h2>
+  <div class="issues">
+    <p class="note">Le tableau de bord corrige ou écarte ces cas avant de calculer les chiffres :</p>
+    <ul id="issues"></ul>
+    <ul class="rules">
+      <li>Doublon d'un même apprenant, même pôle et même niveau : on garde la ligne la plus récente.</li>
+      <li>Une leçon en « draft » ou un identifiant en double n'est pas comptée dans le catalogue.</li>
+      <li>Les scores de quiz ne servent pas aux indicateurs de cette page.</li>
+    </ul>
+  </div>
+
+  <h2>Pour aller plus loin</h2>
+  <p class="note">Pour mesurer les visites, il faut ajouter un petit compteur dans le site (par exemple un outil d'audience) ou un journal de visites. Sans cela, ce chiffre reste inconnu.</p>
+</main>
+
+<!-- Données : copie fidèle de data/simulation-progression.csv -->
+<script type="text/plain" id="progress-csv">user_id,language,level,lessons_completed,exercises_completed,quiz_score,total_score,status,last_accessed
+U_001,javascript,beginner,7,15,82,200,completed,2026-10-05
+U_002,python,intermediate,4,9,0,95,in_progress,2026-10-04
+U_003,sql,beginner,3,6,65,120,paused,2026-09-28
+U_004,javascript,intermediate,5,12,88,160,in_progress,2026-10-05
+U_005,python,beginner,8,18,75,220,completed,2026-10-03
+U_006,sql,intermediate,6,14,92,200,in_progress,2026-10-02
+U_001,python,beginner,9,20,85,250,completed,2026-10-04
+U_002,javascript,advanced,7,28,125,310,completed,2026-10-01
+U_003,python,intermediate,0,0,0,50,in_progress,2026-10-05
+U_004,sql,beginner,4,8,72,140,paused,2026-09-30
+U_005,javascript,beginner,6,14,79,190,in_progress,2026-10-03
+U_006,python,intermediate,5,11,81,170,in_progress,2026-09-29
+U_007,sql,beginner,2,5,58,95,in_progress,2026-10-02
+U_008,javascript,intermediate,6,16,84,200,completed,2026-10-04
+U_009,python,advanced,8,35,91,350,in_progress,2026-10-05
+U_007,javascript,beginner,7,16,77,210,completed,2026-10-01
+U_010,sql,intermediate,4,10,89,170,in_progress,2026-09-27
+U_002,javascript,advanced,8,32,86,330,completed,2026-10-05
+U_011,python,beginner,5,12,68,160,in_progress,,
+U_012,javascript,beginner,3,7,72,110,paused,2026-09-25</script>
+
+<!-- Catalogue : copie fidèle de data/simulation-contenu.csv (colonnes utiles) -->
+<script type="text/plain" id="content-csv">lesson_id,lesson_title,language,level,status
+L_javascript_beginner_01,Les boucles en JavaScript,javascript,beginner,published
+L_javascript_beginner_02,Les variables et types,javascript,beginner,published
+L_javascript_beginner_03,Fonctions basiques,javascript,beginner,published
+L_javascript_intermediate_01,Programmation asynchrone,javascript,intermediate,published
+L_javascript_intermediate_02,Objets et prototypes,javascript,intermediate,published
+L_javascript_advanced_01,Closures et scope,javascript,advanced,published
+L_javascript_advanced_02,Patterns avancés,javascript,advanced,published
+L_javascript_bonus_01,WebAssembly avec JavaScript,javascript,bonus,published
+L_python_beginner_01,Syntaxe Python de base,python,beginner,published
+L_python_beginner_02,Listes et dictionnaires,python,beginner,published
+L_python_beginner_03,Conditions et boucles,python,beginner,published
+L_python_intermediate_01,Fonctions et paramètres,python,intermediate,published
+L_python_intermediate_02,Gestion des fichiers,python,intermediate,published
+L_python_advanced_01,Décorateurs et générateurs,python,advanced,published
+L_python_advanced_02,Programmation orientée objet,python,advanced,published
+L_python_bonus_01,Data Science avec Pandas,python,bonus,published
+L_sql_beginner_01,Requêtes SELECT de base,sql,beginner,published
+L_sql_beginner_02,Jointures simples,sql,beginner,published
+L_sql_beginner_03,Agrégation et GROUP BY,sql,beginner,published
+L_sql_intermediate_01,Subqueries et CTEs,sql,intermediate,published
+L_sql_intermediate_02,Transactions et contraintes,sql,intermediate,published
+L_sql_advanced_01,Optimisation des requêtes,sql,advanced,published
+L_sql_advanced_02,Fonctions SQL avancées,sql,advanced,published
+L_sql_bonus_01,Modélisation et normalisation,sql,bonus,published
+L_javascript_beginner_04,,javascript,beginner,draft
+L_python_intermediate_03,Librairies et modules,python,intermediate,published
+L_sql_beginner_02,Jointures simples,sql,beginner,published</script>
+
+<script>
+(function () {
+  const LANGS = [
+    { id: 'javascript', name: 'JavaScript' },
+    { id: 'python', name: 'Python' },
+    { id: 'sql', name: 'SQL' }
+  ];
+  const LEVELS = [
+    { id: 'beginner', name: 'Débutant' },
+    { id: 'intermediate', name: 'Intermédiaire' },
+    { id: 'advanced', name: 'Avancé' }
+  ];
+
+  const issues = [];
+
+  function parseCSV(text) {
+    const lines = text.trim().split(/\r?\n/);
+    const headers = lines[0].split(',').map(h => h.trim());
+    return lines.slice(1).map((line, i) => {
+      const values = line.split(',');
+      const row = { _line: i + 2 };
+      headers.forEach((h, j) => { row[h] = (values[j] ?? '').trim(); });
+      return row;
+    });
+  }
+
+  // ---- Progression : nettoyage ----
+  const raw = parseCSV(document.getElementById('progress-csv').textContent);
+  const latest = new Map();
+  raw.forEach(r => {
+    const key = `${r.user_id}|${r.language}|${r.level}`;
+    const prev = latest.get(key);
+    if (!prev) { latest.set(key, r); return; }
+    issues.push(`Doublon : ${r.user_id} en ${r.language} (${r.level}), lignes ${prev._line} et ${r._line}. On garde la plus récente.`);
+    // Date la plus récente gagne ; à égalité, la ligne la plus basse du fichier
+    const keep = (r.last_accessed || '') >= (prev.last_accessed || '') ? r : prev;
+    latest.set(key, keep);
+  });
+  const progress = [...latest.values()].map(r => ({
+    ...r,
+    lessons: parseInt(r.lessons_completed, 10) || 0,
+    exercises: parseInt(r.exercises_completed, 10) || 0
+  }));
+
+  raw.forEach(r => {
+    const q = parseInt(r.quiz_score, 10);
+    if (q > 100) issues.push(`Score de quiz impossible : ${r.user_id} en ${r.language} = ${q} (maximum 100). Non utilisé ici.`);
+    if (!r.last_accessed) issues.push(`Date de dernière visite manquante : ${r.user_id} en ${r.language} (${r.level}).`);
+    if (r.level !== 'beginner' && (parseInt(r.lessons_completed, 10) || 0) === 0) {
+      issues.push(`Incohérence : ${r.user_id} est au niveau ${r.level} en ${r.language} avec 0 leçon terminée.`);
+    }
+  });
+
+  // ---- Catalogue : nettoyage ----
+  const contentRaw = parseCSV(document.getElementById('content-csv').textContent);
+  const seen = new Set();
+  contentRaw.forEach(c => {
+    if (seen.has(c.lesson_id)) { issues.push(`Leçon en double ignorée : ${c.lesson_id}.`); return; }
+    seen.add(c.lesson_id);
+    if (c.status !== 'published') issues.push(`Leçon non publiée ignorée : ${c.lesson_id} (statut « ${c.status} »).`);
+    else if (!c.lesson_title) issues.push(`Titre manquant : ${c.lesson_id}.`);
+  });
+
+  // ---- Indicateurs ----
+  const sum = (arr, k) => arr.reduce((s, r) => s + r[k], 0);
+  const totalLessons = sum(progress, 'lessons');
+  const totalExercises = sum(progress, 'exercises');
+  const doneCount = progress.filter(r => r.status === 'completed').length;
+  const learners = new Set(progress.map(r => r.user_id)).size;
+
+  document.getElementById('kpi-lessons').textContent = totalLessons.toLocaleString('fr-FR');
+  document.getElementById('kpi-lessons-hint').textContent = `Total des leçons terminées, ${progress.length} parcours, ${learners} apprenants.`;
+  document.getElementById('kpi-exercises').textContent = totalExercises.toLocaleString('fr-FR');
+  document.getElementById('kpi-exercises-hint').textContent = `Total des exercices réalisés sur tous les parcours.`;
+  document.getElementById('kpi-done').textContent = `${doneCount} / ${progress.length}`;
+  document.getElementById('kpi-done-hint').textContent = `Parcours au statut « terminé ».`;
+
+  // ---- Pôles et niveaux ----
+  function cell(lang, level) {
+    const rows = progress.filter(r => r.language === lang.id && r.level === level.id);
+    return {
+      n: rows.length,
+      done: rows.filter(r => r.status === 'completed').length,
+      progress: rows.filter(r => r.status === 'in_progress').length,
+      pause: rows.filter(r => r.status === 'paused').length,
+      lessons: sum(rows, 'lessons'),
+      exercises: sum(rows, 'exercises')
+    };
+  }
+
+  function poleStatus(cells) {
+    const n = cells.reduce((s, c) => s + c.n, 0);
+    if (n === 0) return ['none', 'Non commencé'];
+    const done = cells.reduce((s, c) => s + c.done, 0);
+    if (done === n) return ['done', '✅ Terminé'];
+    const prog = cells.reduce((s, c) => s + c.progress, 0);
+    if (prog > 0) return ['progress', '📖 En cours'];
+    return ['pause', '⏸ En pause'];
+  }
+
+  const poles = document.getElementById('poles');
+  const detail = document.getElementById('detail-body');
+  LANGS.forEach(lang => {
+    const cells = LEVELS.map(level => cell(lang, level));
+    const [cls, label] = poleStatus(cells);
+
+    const card = document.createElement('article');
+    card.className = 'pole';
+    const levelsHtml = LEVELS.map((level, i) => {
+      const c = cells[i];
+      const pct = c.n ? (c.done / c.n) * 100 : 0;
+      const pausePct = c.n ? (c.pause / c.n) * 100 : 0;
+      const pauseStart = pct;
+      const tip = `${level.name} : ${c.done} terminé(s) sur ${c.n} apprenant(s), ${c.pause} en pause`;
+      const pauseSeg = pausePct > 0 ? `<div class="bar-pause" style="left:${pauseStart}%;width:${pausePct}%"></div>` : '';
+      return `
+        <div class="level-row">
+          <div class="meta"><span>${level.name}</span><span>${c.n ? `${c.done}/${c.n} terminés` : 'Aucun apprenant'}</span></div>
+          <div class="bar" role="progressbar" aria-label="${tip}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(pct)}" title="${tip}">
+            <div class="bar-fill" style="width:${pct}%"></div>${pauseSeg}
+          </div>
+        </div>`;
+    }).join('');
+    card.innerHTML = `
+      <div class="pole-head"><h3>${lang.name}</h3><span class="status ${cls}">${label}</span></div>
+      ${levelsHtml}`;
+    poles.appendChild(card);
+
+    LEVELS.forEach((level, i) => {
+      const c = cells[i];
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${lang.name}</td><td>${level.name}</td>
+        <td class="num">${c.n}</td><td class="num">${c.done}</td><td class="num">${c.progress}</td><td class="num">${c.pause}</td>
+        <td class="num">${c.lessons}</td><td class="num">${c.exercises}</td>`;
+      detail.appendChild(tr);
+    });
+  });
+
+  const publishedCount = new Set(contentRaw.filter(c => c.status === 'published').map(c => c.lesson_id)).size;
+  issues.unshift(`Catalogue : ${publishedCount} leçons publiées uniques (hors brouillon et doublon).`);
+  const issuesList = document.getElementById('issues');
+  issues.forEach(text => {
+    const li = document.createElement('li');
+    li.textContent = text;
+    issuesList.appendChild(li);
+  });
+})();
+</script>
+</body>
+</html>
