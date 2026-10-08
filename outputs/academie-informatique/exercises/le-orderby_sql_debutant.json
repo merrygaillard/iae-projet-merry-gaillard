@@ -1,0 +1,250 @@
+{
+  "concept": "ORDER BY",
+  "langage": "SQL",
+  "niveau": "débutant",
+  "total_questions": 20,
+  "points_par_question": 1,
+  "seuil_reussite": 15,
+  "exercices": [
+    {
+      "id": "orderby_qcm_1",
+      "numero": 1,
+      "type": "mcq",
+      "difficulte": "facile",
+      "énoncé": "Quelle clause SQL permet de trier les résultats ?",
+      "options": [
+        "SELECT",
+        "FROM",
+        "WHERE",
+        "ORDER BY"
+      ],
+      "bonne_reponse_index": 3,
+      "explication": "ORDER BY est la clause de tri des résultats."
+    },
+    {
+      "id": "orderby_qcm_2",
+      "numero": 2,
+      "type": "mcq",
+      "difficulte": "facile",
+      "énoncé": "Quel est l'ordre par défaut de ORDER BY ?",
+      "options": [
+        "Aléatoire",
+        "Croissant (ASC)",
+        "Décroissant (DESC)",
+        "Inverse"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "ORDER BY trie par défaut en ordre croissant (ASC)."
+    },
+    {
+      "id": "orderby_qcm_3",
+      "numero": 3,
+      "type": "mcq",
+      "difficulte": "facile",
+      "énoncé": "Qu'affiche cette requête ? SELECT * FROM clients ORDER BY nom;",
+      "options": [
+        "Clients aléatoires",
+        "Clients triés A→Z par nom",
+        "Clients triés Z→A par nom",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "ORDER BY nom trie alphabétiquement en ordre croissant (A→Z)."
+    },
+    {
+      "id": "orderby_qcm_4",
+      "numero": 4,
+      "type": "mcq",
+      "difficulte": "facile",
+      "énoncé": "Quel mot-clé crée un tri décroissant ?",
+      "options": [
+        "ASC",
+        "DESC",
+        "REVERSE",
+        "DOWN"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "DESC (descending) trie en ordre décroissant."
+    },
+    {
+      "id": "orderby_qcm_5",
+      "numero": 5,
+      "type": "mcq",
+      "difficulte": "moyen",
+      "énoncé": "Que retourne : SELECT * FROM produits ORDER BY prix DESC;",
+      "options": [
+        "Produits du moins cher au plus cher",
+        "Produits du plus cher au moins cher",
+        "Produits sans prix",
+        "Erreur"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "DESC = décroissant = du plus grand au plus petit prix."
+    },
+    {
+      "id": "orderby_qcm_6",
+      "numero": 6,
+      "type": "mcq",
+      "difficulte": "moyen",
+      "énoncé": "Comment trier par plusieurs colonnes ?",
+      "options": [
+        "ORDER BY col1, col2",
+        "ORDER BY col1 + col2",
+        "ORDER BY col1 OR col2",
+        "Impossible"
+      ],
+      "bonne_reponse_index": 0,
+      "explication": "Séparez les colonnes par des virgules pour un tri multi-colonnes."
+    },
+    {
+      "id": "orderby_qcm_7",
+      "numero": 7,
+      "type": "mcq",
+      "difficulte": "moyen",
+      "énoncé": "ORDER BY region, nom affichera comment ?",
+      "options": [
+        "Toutes les régions mélangées",
+        "Régions triées, puis noms triés dans chaque région",
+        "Seulement par région",
+        "Seulement par nom"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "Le premier tri crée des groupes, le second tri organise les groupes."
+    },
+    {
+      "id": "orderby_qcm_8",
+      "numero": 8,
+      "type": "mcq",
+      "difficulte": "moyen",
+      "énoncé": "Quel est l'ordre d'exécution : SELECT * FROM clients WHERE age > 18 ORDER BY nom;",
+      "options": [
+        "Trier, puis filtrer",
+        "Filtrer, puis trier",
+        "Les deux en même temps",
+        "Indéfini"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "WHERE filtre d'abord, ORDER BY trie les résultats filtrés."
+    },
+    {
+      "id": "orderby_qcm_9",
+      "numero": 9,
+      "type": "mcq",
+      "difficulte": "difficile",
+      "énoncé": "Comment trier par la première colonne du SELECT ?",
+      "options": [
+        "ORDER BY col1",
+        "ORDER BY 1",
+        "ORDER BY *",
+        "ORDER BY first"
+      ],
+      "bonne_reponse_index": 1,
+      "explication": "ORDER BY 1 trie par la première colonne du SELECT (par numéro)."
+    },
+    {
+      "id": "orderby_qcm_10",
+      "numero": 10,
+      "type": "mcq",
+      "difficulte": "difficile",
+      "énoncé": "Où apparaissent les valeurs NULL avec ORDER BY ?",
+      "options": [
+        "Toujours au début",
+        "Toujours à la fin",
+        "Mélangées au hasard",
+        "Dépend de la base de données"
+      ],
+      "bonne_reponse_index": 3,
+      "explication": "La position des NULL varie selon la base de données (PostgreSQL, MySQL, etc.)."
+    },
+    {
+      "id": "orderby_trou_1",
+      "numero": 11,
+      "type": "fill_blank",
+      "difficulte": "facile",
+      "énoncé": "Complète : SELECT * FROM clients _____ BY nom;",
+      "reponse_attendue": "ORDER",
+      "explication": "ORDER BY est la clause complète de tri."
+    },
+    {
+      "id": "orderby_trou_2",
+      "numero": 12,
+      "type": "fill_blank",
+      "difficulte": "facile",
+      "énoncé": "Complète : SELECT * FROM produits ORDER BY prix ____;",
+      "reponse_attendue": "DESC",
+      "explication": "DESC pour décroissant (du plus grand au plus petit)."
+    },
+    {
+      "id": "orderby_trou_3",
+      "numero": 13,
+      "type": "fill_blank",
+      "difficulte": "moyen",
+      "énoncé": "Complète : SELECT nom, age FROM clients ORDER BY age _____ , nom ASC;",
+      "reponse_attendue": "DESC",
+      "explication": "Âge décroissant d'abord, puis noms croissants pour chaque âge."
+    },
+    {
+      "id": "orderby_trou_4",
+      "numero": 14,
+      "type": "fill_blank",
+      "difficulte": "moyen",
+      "énoncé": "Complète : SELECT nom, prix FROM produits ORDER BY _____ ;",
+      "reponse_attendue": "prix",
+      "explication": "On trie par la colonne prix."
+    },
+    {
+      "id": "orderby_trou_5",
+      "numero": 15,
+      "type": "fill_blank",
+      "difficulte": "difficile",
+      "énoncé": "Complète : SELECT * FROM clients ORDER BY _____ (trier par 2ème colonne du SELECT)",
+      "reponse_attendue": "2",
+      "explication": "ORDER BY 2 trie par la 2ème colonne du SELECT."
+    },
+    {
+      "id": "orderby_libre_1",
+      "numero": 16,
+      "type": "free_text",
+      "difficulte": "moyen",
+      "énoncé": "Écris une requête pour afficher les clients triés par nom alphabétique.",
+      "solution": "SELECT * FROM clients ORDER BY nom;",
+      "explication": "ORDER BY nom trie alphabétiquement par défaut."
+    },
+    {
+      "id": "orderby_libre_2",
+      "numero": 17,
+      "type": "free_text",
+      "difficulte": "moyen",
+      "énoncé": "Écris une requête pour afficher les produits du plus cher au moins cher.",
+      "solution": "SELECT * FROM produits ORDER BY prix DESC;",
+      "explication": "DESC = décroissant = du plus grand au plus petit."
+    },
+    {
+      "id": "orderby_libre_3",
+      "numero": 18,
+      "type": "free_text",
+      "difficulte": "moyen",
+      "énoncé": "Écris une requête pour afficher les clients triés par région, puis par nom.",
+      "solution": "SELECT * FROM clients ORDER BY region, nom;",
+      "explication": "Tri multi-colonnes : région d'abord, puis nom."
+    },
+    {
+      "id": "orderby_libre_4",
+      "numero": 19,
+      "type": "free_text",
+      "difficulte": "difficile",
+      "énoncé": "Écris une requête : affiche nom, prix de produits en stock (stock > 0) triés du plus cher.",
+      "solution": "SELECT nom, prix FROM produits WHERE stock > 0 ORDER BY prix DESC;",
+      "explication": "WHERE filtre d'abord, ORDER BY trie ensuite."
+    },
+    {
+      "id": "orderby_libre_5",
+      "numero": 20,
+      "type": "free_text",
+      "difficulte": "difficile",
+      "énoncé": "Écris : clients Premium triés par ville, puis par nom (ordre alphabétique).",
+      "solution": "SELECT * FROM clients WHERE statut = 'Premium' ORDER BY ville, nom;",
+      "explication": "Filtre les Premium, puis trie par ville et nom."
+    }
+  ]
+}

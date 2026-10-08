@@ -977,6 +977,383 @@ SELECT email, nom FROM clients;
             type: 'Tutoriel interactif'
           }
         ]
+      },
+      {
+        id: 'where',
+        title: 'Le WHERE',
+        description: 'Filtrer les données selon des conditions',
+        duration: 12,
+        concepts: 'WHERE, filtrage, opérateurs de comparaison, AND, OR, NOT, BETWEEN, IN, LIKE, IS NULL',
+        content: `
+          <h1>Le WHERE en SQL</h1>
+
+          <p><strong>Durée estimée :</strong> 12 minutes | <strong>Niveau :</strong> Débutant</p>
+
+          <h2>Introduction</h2>
+          <p>Imaginez une base de données avec 1 million de clients. Vous voulez afficher seulement les clients qui habitent à Paris. Comment faire sans télécharger 1 million d'enregistrements inutiles ?</p>
+          <p>La réponse est <strong>WHERE</strong>. C'est l'instruction SQL qui vous permet de <strong>filtrer les données</strong> selon des conditions que vous définissez.</p>
+
+          <h2>Qu'est-ce que WHERE ?</h2>
+          <p><strong>WHERE</strong> est une clause SQL qui :</p>
+          <ul>
+            <li>Filtre les enregistrements selon une condition</li>
+            <li>Retourne seulement les lignes qui satisfont cette condition</li>
+            <li>Réduit drastiquement la quantité de données retournées</li>
+          </ul>
+
+          <h2>Syntaxe de base</h2>
+          <p>La syntaxe est simple :</p>
+          <pre><code>SELECT colonnes FROM table WHERE condition;</code></pre>
+
+          <p><strong>Explication :</strong></p>
+          <ul>
+            <li><code>SELECT colonnes</code> : les colonnes à afficher</li>
+            <li><code>FROM table</code> : la table source</li>
+            <li><code>WHERE condition</code> : la condition à remplir</li>
+          </ul>
+
+          <h2>Les opérateurs de comparaison</h2>
+          <p>Voici les opérateurs les plus courants pour les conditions :</p>
+
+          <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Opérateur</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Signification</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Exemple</th>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>=</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Égal à</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE ville = 'Paris'</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>!=</code> ou <code><></code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Différent de</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE ville != 'Lyon'</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>></code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Supérieur à</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE age > 18</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code><</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Inférieur à</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE prix < 100</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>>=</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Supérieur ou égal</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE age >= 18</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code><=</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Inférieur ou égal</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE prix <= 50</code></td>
+            </tr>
+          </table>
+
+          <h2>Exemples progressifs</h2>
+
+          <h3>Exemple 1 : Filtrer par texte exact</h3>
+          <p>Affichons tous les clients qui habitent à Paris :</p>
+          <pre><code>SELECT * FROM clients WHERE ville = 'Paris';</code></pre>
+          <p>Cela retourne seulement les enregistrements où <code>ville</code> égale exactement <code>'Paris'</code>.</p>
+
+          <h3>Exemple 2 : Filtrer par nombre</h3>
+          <p>Affichons tous les produits qui coûtent plus de 50 euros :</p>
+          <pre><code>SELECT nom, prix FROM produits WHERE prix > 50;</code></pre>
+          <p>Cela affiche le nom et le prix de tous les produits avec un prix supérieur à 50.</p>
+
+          <h3>Exemple 3 : Filtrer avec inégalité</h3>
+          <p>Affichons tous les clients sauf ceux de Lyon :</p>
+          <pre><code>SELECT nom, ville FROM clients WHERE ville != 'Lyon';</code></pre>
+          <p>Cela retourne tous les clients dont la ville est différente de Lyon.</p>
+
+          <h3>Exemple 4 : Filtrer une plage de nombres</h3>
+          <p>Affichons tous les produits avec un prix entre 20 et 100 euros :</p>
+          <pre><code>SELECT * FROM produits WHERE prix >= 20 AND prix <= 100;</code></pre>
+          <p>L'opérateur <code>AND</code> combine deux conditions : le prix doit être >= 20 ET <= 100.</p>
+
+          <h2>Les opérateurs logiques</h2>
+          <p>Vous pouvez combiner plusieurs conditions avec <code>AND</code> et <code>OR</code> :</p>
+
+          <h3>AND : Les deux conditions doivent être vraies</h3>
+          <pre><code>SELECT * FROM clients WHERE ville = 'Paris' AND age > 18;</code></pre>
+          <p>Affiche les clients qui habitent à Paris ET qui ont plus de 18 ans.</p>
+
+          <h3>OR : Au moins une condition doit être vraie</h3>
+          <pre><code>SELECT * FROM clients WHERE ville = 'Paris' OR ville = 'Lyon';</code></pre>
+          <p>Affiche les clients qui habitent à Paris OU à Lyon.</p>
+
+          <h3>NOT : Inverse une condition</h3>
+          <pre><code>SELECT * FROM clients WHERE NOT ville = 'Paris';</code></pre>
+          <p>Équivalent à <code>WHERE ville != 'Paris'</code>.</p>
+
+          <h2>Opérateurs spécialisés</h2>
+
+          <h3>BETWEEN : Entre deux valeurs</h3>
+          <pre><code>SELECT * FROM produits WHERE prix BETWEEN 20 AND 100;</code></pre>
+          <p>Plus lisible que <code>WHERE prix >= 20 AND prix <= 100;</code></p>
+
+          <h3>IN : Parmi une liste</h3>
+          <pre><code>SELECT * FROM clients WHERE ville IN ('Paris', 'Lyon', 'Marseille');</code></pre>
+          <p>Affiche les clients de Paris, Lyon OU Marseille.</p>
+
+          <h3>LIKE : Recherche textuelle avec jokers</h3>
+          <pre><code>SELECT * FROM clients WHERE nom LIKE 'A%';</code></pre>
+          <p>Affiche les clients dont le nom commence par 'A'. Le <code>%</code> est un joker (0 ou plusieurs caractères).</p>
+
+          <pre><code>SELECT * FROM clients WHERE nom LIKE '%son';</code></pre>
+          <p>Affiche les clients dont le nom finit par 'son' (ex: Dupont, Samson).</p>
+
+          <pre><code>SELECT * FROM clients WHERE nom LIKE '%ar%';</code></pre>
+          <p>Affiche les clients dont le nom contient 'ar' (ex: Martin, Dupont-Arcy).</p>
+
+          <h3>IS NULL : Valeurs manquantes</h3>
+          <pre><code>SELECT * FROM clients WHERE telephone IS NULL;</code></pre>
+          <p>Affiche les clients qui n'ont pas de numéro de téléphone (valeur NULL).</p>
+
+          <pre><code>SELECT * FROM clients WHERE telephone IS NOT NULL;</code></pre>
+          <p>Affiche les clients qui ont un numéro de téléphone.</p>
+
+          <h2>Tableau récapitulatif</h2>
+          <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Opérateur</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Description</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Exemple</th>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>=</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Égal</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE ville = 'Paris'</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>!=</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Différent</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE age != 0</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>></code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Supérieur</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE prix > 100</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>AND</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Les deux vraies</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE age > 18 AND ville = 'Paris'</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>OR</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Au moins une vraie</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE ville = 'Paris' OR ville = 'Lyon'</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>BETWEEN</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Entre deux valeurs</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE age BETWEEN 18 AND 65</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>IN</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Parmi une liste</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE ville IN ('Paris', 'Lyon')</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>LIKE</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Recherche texte</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE nom LIKE 'A%'</code></td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>IS NULL</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Valeur manquante</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE email IS NULL</code></td>
+            </tr>
+          </table>
+
+          <h2>Exemples pratiques</h2>
+
+          <h3>Exemple 1 : Boutique en ligne</h3>
+          <p>Affiche tous les produits en stock avec un prix inférieur à 50 euros :</p>
+          <pre><code>SELECT nom, prix, stock FROM produits WHERE stock > 0 AND prix < 50;</code></pre>
+
+          <h3>Exemple 2 : Gestion de clients</h3>
+          <p>Affiche les clients Premium qui habitent en Île-de-France :</p>
+          <pre><code>SELECT nom, email FROM clients WHERE statut = 'Premium' AND region = 'Île-de-France';</code></pre>
+
+          <h3>Exemple 3 : Recherche par pattern</h3>
+          <p>Affiche tous les produits dont le nom contient 'laptop' :</p>
+          <pre><code>SELECT * FROM produits WHERE nom LIKE '%laptop%';</code></pre>
+
+          <h2>Points clés à retenir</h2>
+          <ul>
+            <li>WHERE filtre les enregistrements selon une condition</li>
+            <li>Les opérateurs de comparaison : <code>=, !=, >, <, >=, <=</code></li>
+            <li><code>AND</code> : les deux conditions doivent être vraies</li>
+            <li><code>OR</code> : au moins une condition doit être vraie</li>
+            <li><code>LIKE</code> avec <code>%</code> pour rechercher du texte</li>
+            <li><code>BETWEEN</code> pour une plage de valeurs</li>
+            <li><code>IN</code> pour une liste de valeurs</li>
+            <li><code>IS NULL</code> pour les valeurs manquantes</li>
+          </ul>
+
+          <h2>Sources</h2>
+          <ul>
+            <li><a href="https://www.w3schools.com/sql/sql_where.asp" target="_blank">W3Schools — SQL WHERE</a></li>
+            <li><a href="https://www.tutorialspoint.com/sql/sql-where-clause.htm" target="_blank">TutorialsPoint — SQL WHERE Clause</a></li>
+            <li><a href="https://www.postgresql.org/docs/current/sql-select.html" target="_blank">PostgreSQL — SELECT Documentation</a></li>
+            <li><a href="https://mode.com/sql-tutorial/sql-where/" target="_blank">Mode Analytics — SQL WHERE Tutorial</a></li>
+          </ul>
+        `,
+        sources: [
+          {
+            url: 'https://www.w3schools.com/sql/sql_where.asp',
+            title: 'W3Schools - SQL WHERE',
+            type: 'Tutoriel interactif'
+          },
+          {
+            url: 'https://www.tutorialspoint.com/sql/sql-where-clause.htm',
+            title: 'TutorialsPoint - SQL WHERE Clause',
+            type: 'Tutoriel pédagogique'
+          },
+          {
+            url: 'https://www.postgresql.org/docs/current/sql-select.html',
+            title: 'PostgreSQL Documentation - SELECT',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://mode.com/sql-tutorial/sql-where/',
+            title: 'Mode Analytics - SQL WHERE Tutorial',
+            type: 'Tutoriel interactif'
+          }
+        ]
+      },
+      {
+        id: 'orderby',
+        title: 'Le ORDER BY',
+        description: 'Trier les résultats selon une ou plusieurs colonnes',
+        duration: 11,
+        concepts: 'ORDER BY, tri, ASC, DESC, ordre croissant, ordre décroissant, tri multiple',
+        content: `
+          <h1>Le ORDER BY en SQL</h1>
+
+          <p><strong>Durée estimée :</strong> 11 minutes | <strong>Niveau :</strong> Débutant</p>
+
+          <h2>Introduction</h2>
+          <p>Imaginez une liste de 1 000 clients. Les résultats apparaissent dans n'importe quel ordre. Comment afficher les clients triés par nom, ou par date d'inscription, ou par prix décroissant ?</p>
+          <p>La réponse est <strong>ORDER BY</strong>. C'est l'instruction SQL qui vous permet de <strong>trier les résultats</strong> dans l'ordre que vous choisissez : alphabétique, numérique, croissant ou décroissant.</p>
+
+          <h2>Qu'est-ce que ORDER BY ?</h2>
+          <p><strong>ORDER BY</strong> est une clause SQL qui :</p>
+          <ul>
+            <li>Trie les résultats selon une ou plusieurs colonnes</li>
+            <li>Affiche les données dans l'ordre choisi (croissant ou décroissant)</li>
+            <li>Améliore la lisibilité et l'organisation des données</li>
+          </ul>
+
+          <h2>Syntaxe de base</h2>
+          <p>La syntaxe est simple :</p>
+          <pre><code>SELECT colonnes FROM table ORDER BY colonne;</code></pre>
+
+          <p><strong>Explication :</strong></p>
+          <ul>
+            <li><code>SELECT colonnes</code> : les colonnes à afficher</li>
+            <li><code>FROM table</code> : la table source</li>
+            <li><code>ORDER BY colonne</code> : la colonne par laquelle trier (par défaut : croissant)</li>
+          </ul>
+
+          <h2>Ordre croissant vs décroissant</h2>
+          <p>Par défaut, ORDER BY trie en ordre <strong>croissant</strong> (ASC : 0→9, A→Z). Vous pouvez explicitement spécifier :</p>
+
+          <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Mot-clé</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Signification</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Exemple</th>
+              <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Résultat</th>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>ASC</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Ordre croissant (défaut)</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>ORDER BY age ASC</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">18, 25, 30, 45, 60</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>DESC</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">Ordre décroissant</td>
+              <td style="border: 1px solid #ddd; padding: 8px;"><code>ORDER BY age DESC</code></td>
+              <td style="border: 1px solid #ddd; padding: 8px;">60, 45, 30, 25, 18</td>
+            </tr>
+          </table>
+
+          <h2>Exemples progressifs</h2>
+
+          <h3>Exemple 1 : Trier par texte (ordre alphabétique)</h3>
+          <p>Affichons tous les clients triés par nom alphabétique :</p>
+          <pre><code>SELECT nom, email FROM clients ORDER BY nom;</code></pre>
+          <p>Résultat : Les noms apparaissent en ordre A→Z (Alice, Bob, Charles, David...).</p>
+
+          <h3>Exemple 2 : Trier par nombre (ordre croissant)</h3>
+          <p>Affichons tous les produits triés par prix du moins cher au plus cher :</p>
+          <pre><code>SELECT nom, prix FROM produits ORDER BY prix ASC;</code></pre>
+          <p>Résultat : Les produits apparaissent du moins cher (5€) au plus cher (500€).</p>
+
+          <h3>Exemple 3 : Trier en ordre décroissant</h3>
+          <p>Affichons les clients du plus jeun au plus âgé :</p>
+          <pre><code>SELECT nom, age FROM clients ORDER BY age DESC;</code></pre>
+          <p>Résultat : Les clients apparaissent de l'âge le plus élevé (80 ans) au plus bas (18 ans).</p>
+
+          <h3>Exemple 4 : Trier par plusieurs colonnes</h3>
+          <p>Affichons les clients triés d'abord par région, puis par nom à l'intérieur de chaque région :</p>
+          <pre><code>SELECT nom, region FROM clients ORDER BY region, nom;</code></pre>
+          <p>Résultat : Les régions sont triées alphabétiquement, et à l'intérieur de chaque région, les noms sont aussi triés alphabétiquement.</p>
+
+          <h3>Exemple 5 : Combiner WHERE et ORDER BY</h3>
+          <p>Affichons les produits en stock avec prix < 100, triés par prix décroissant :</p>
+          <pre><code>SELECT nom, prix, stock FROM produits WHERE stock > 0 AND prix < 100 ORDER BY prix DESC;</code></pre>
+          <p>L'ordre d'exécution : d'abord <code>WHERE</code> (filtre), ensuite <code>ORDER BY</code> (trie les résultats filtrés).</p>
+
+          <h2>Points clés à retenir</h2>
+          <ul>
+            <li>ORDER BY trie les résultats selon une ou plusieurs colonnes</li>
+            <li>ASC = ordre croissant (défaut) ; DESC = ordre décroissant</li>
+            <li>Le tri s'applique APRÈS le filtrage WHERE</li>
+            <li>Vous pouvez trier par plusieurs colonnes : <code>ORDER BY col1, col2</code></li>
+            <li>ORDER BY de colonne en texte suit l'ordre alphabétique</li>
+            <li>ORDER BY de colonne numérique suit l'ordre numérique</li>
+            <li>Les NULL s'affichent généralement à part (avant ou après)</li>
+          </ul>
+
+          <h2>Sources</h2>
+          <ul>
+            <li><a href="https://www.w3schools.com/sql/sql_orderby.asp" target="_blank">W3Schools — SQL ORDER BY</a></li>
+            <li><a href="https://www.tutorialspoint.com/sql/sql-order-by.htm" target="_blank">TutorialsPoint — SQL ORDER BY</a></li>
+            <li><a href="https://www.postgresql.org/docs/current/queries-order.html" target="_blank">PostgreSQL — ORDER BY Clause</a></li>
+            <li><a href="https://mode.com/sql-tutorial/sql-order-by/" target="_blank">Mode Analytics — SQL ORDER BY Tutorial</a></li>
+          </ul>
+        `,
+        sources: [
+          {
+            url: 'https://www.w3schools.com/sql/sql_orderby.asp',
+            title: 'W3Schools - SQL ORDER BY',
+            type: 'Tutoriel interactif'
+          },
+          {
+            url: 'https://www.tutorialspoint.com/sql/sql-order-by.htm',
+            title: 'TutorialsPoint - SQL ORDER BY',
+            type: 'Tutoriel pédagogique'
+          },
+          {
+            url: 'https://www.postgresql.org/docs/current/queries-order.html',
+            title: 'PostgreSQL - ORDER BY Clause',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://mode.com/sql-tutorial/sql-order-by/',
+            title: 'Mode Analytics - SQL ORDER BY Tutorial',
+            type: 'Tutoriel interactif'
+          }
+        ]
       }
     ],
     intermediaire: [],
@@ -1251,6 +1628,34 @@ const exercisesData_SQL_Debutant = [
   {id:"sql_sel_libre_5",type:"free_text",numero:20,difficulte:"difficile",enonce:"Appliquez les bonnes pratiques : écrivez une requête SELECT avec colonnes spécifiques, point-virgule, et noms exacts",solution:"SELECT id, nom, prix, stock FROM produits;",explication:"Colonnes nommées explicitement, pas *, point-virgule, noms de colonnes corrects.",indices:["Indice 1 : Pas de * ; noms explicites.","Indice 2 : Point-virgule obligatoire."]}
 ];
 
+// Exercices pour SQL Débutant - WHERE
+const exercisesData_WHERE_SQL_Debutant = [
+  {id:"where_qcm_1",type:"mcq",numero:1,difficulte:"facile",enonce:"Quelle clause SQL permet de filtrer les enregistrements ?",options:["SELECT","FROM","WHERE","ORDER BY"],bonne_reponse_index:2,explication:"WHERE est la clause qui filtre les enregistrements selon une condition.",indices:["Indice 1 : Voir la leçon WHERE","Indice 2 : Pour filtrer les données"]},
+  {id:"where_qcm_2",type:"mcq",numero:2,difficulte:"facile",enonce:"Que signifie cette requête ? SELECT * FROM clients WHERE ville = 'Paris';",options:["Affiche tous les clients","Affiche seulement les clients de Paris","Affiche les villes","Erreur"],bonne_reponse_index:1,explication:"WHERE ville = 'Paris' filtre pour afficher seulement les clients de Paris.",indices:["Indice 1 : WHERE filtre par condition","Indice 2 : ville = 'Paris' est la condition"]},
+  {id:"where_qcm_3",type:"mcq",numero:3,difficulte:"facile",enonce:"Quel opérateur utiliser pour vérifier si un nombre est supérieur à 50 ?",options:["=","<",">","!="],bonne_reponse_index:2,explication:"L'opérateur > (supérieur à) vérifie si une valeur est strictement supérieure.",indices:["Indice 1 : Opérateurs de comparaison","Indice 2 : > = supérieur à"]},
+  {id:"where_qcm_4",type:"mcq",numero:4,difficulte:"facile",enonce:"Comment vérifier qu'une valeur est DIFFÉRENTE de 'Lyon' ?",options:["WHERE ville = 'Lyon'","WHERE ville != 'Lyon'","WHERE ville > 'Lyon'","WHERE LIKE 'Lyon'"],bonne_reponse_index:1,explication:"L'opérateur != (ou <>) signifie 'différent de'.",indices:["Indice 1 : Opérateur de non-égalité","Indice 2 : != signifie différent"]},
+  {id:"where_qcm_5",type:"mcq",numero:5,difficulte:"moyen",enonce:"Que retourne cette requête ? SELECT * FROM produits WHERE prix > 50 AND prix < 100;",options:["Produits à moins de 50€","Produits entre 50€ et 100€","Tous les produits","Produits à plus de 100€"],bonne_reponse_index:1,explication:"AND combine deux conditions : prix > 50 ET prix < 100 (plage 50-100€).",indices:["Indice 1 : AND combine les conditions","Indice 2 : Les deux doivent être vraies"]},
+  {id:"where_qcm_6",type:"mcq",numero:6,difficulte:"moyen",enonce:"Quel est l'ordre d'exécution dans : SELECT * FROM clients WHERE age > 18 ORDER BY nom;",options:["Trier d'abord, puis filtrer","Filtrer d'abord, puis trier","Les deux simultanément","Indéfini"],bonne_reponse_index:1,explication:"WHERE s'exécute en premier (filtre), ensuite ORDER BY (trie les résultats filtrés).",indices:["Indice 1 : WHERE est le filtre","Indice 2 : ORDER BY vient après"]},
+  {id:"where_qcm_7",type:"mcq",numero:7,difficulte:"moyen",enonce:"Que fait BETWEEN 20 AND 100 ?",options:["Entre 0 et 20","Entre 20 et 100 (inclus)","Seulement 20 ou 100","Supérieur à 100"],bonne_reponse_index:1,explication:"BETWEEN inclut les deux valeurs : entre 20 et 100 inclusivement.",indices:["Indice 1 : BETWEEN = intervalle","Indice 2 : Inclut les deux bornes"]},
+  {id:"where_qcm_8",type:"mcq",numero:8,difficulte:"moyen",enonce:"Que retourne IN ('Paris', 'Lyon', 'Marseille') ?",options:["Seulement Paris","Seulement un des trois","Au moins une de ces trois villes","Aucune de ces villes"],bonne_reponse_index:2,explication:"IN retourne les lignes qui correspondent à AU MOINS UNE des valeurs listées.",indices:["Indice 1 : IN pour listes de valeurs","Indice 2 : Retourne si DANS la liste"]},
+  {id:"where_qcm_9",type:"mcq",numero:9,difficulte:"difficile",enonce:"Que retourne LIKE 'A%' ?",options:["Texte qui finit par A","Texte qui commence par A","Texte contenant A","Texte égal à A"],bonne_reponse_index:1,explication:"% = joker (0 ou plusieurs caractères). 'A%' = commence par A.",indices:["Indice 1 : LIKE avec joker %","Indice 2 : 'A%' = commence par A"]},
+  {id:"where_qcm_10",type:"mcq",numero:10,difficulte:"difficile",enonce:"Comment trouver les enregistrements sans valeur (NULL) ?",options:["WHERE email = NULL","WHERE email IS NULL","WHERE email != NULL","WHERE NULL"],bonne_reponse_index:1,explication:"IS NULL teste si une valeur est manquante (NULL). On n'utilise pas = NULL.",indices:["Indice 1 : IS NULL pour tester NULL","Indice 2 : Pas = NULL"]}
+];
+
+// Exercices pour SQL Débutant - ORDER BY
+const exercisesData_OrderBy_SQL_Debutant = [
+  {id:"orderby_qcm_1",type:"mcq",numero:1,difficulte:"facile",enonce:"Quelle clause SQL permet de trier les résultats ?",options:["SELECT","FROM","WHERE","ORDER BY"],bonne_reponse_index:3,explication:"ORDER BY est la clause de tri des résultats.",indices:["Indice 1 : Voir la leçon ORDER BY","Indice 2 : Pour trier"]},
+  {id:"orderby_qcm_2",type:"mcq",numero:2,difficulte:"facile",enonce:"Quel est l'ordre par défaut de ORDER BY ?",options:["Aléatoire","Croissant (ASC)","Décroissant (DESC)","Inverse"],bonne_reponse_index:1,explication:"ORDER BY trie par défaut en ordre croissant (ASC).",indices:["Indice 1 : ASC = croissant","Indice 2 : Par défaut"}},
+  {id:"orderby_qcm_3",type:"mcq",numero:3,difficulte:"facile",enonce:"Qu'affiche cette requête ? SELECT * FROM clients ORDER BY nom;",options:["Clients aléatoires","Clients triés A→Z par nom","Clients triés Z→A par nom","Erreur"],bonne_reponse_index:1,explication:"ORDER BY nom trie alphabétiquement en ordre croissant (A→Z).",indices:["Indice 1 : ORDER BY par défaut croissant","Indice 2 : Alphabétique A→Z"]},
+  {id:"orderby_qcm_4",type:"mcq",numero:4,difficulte:"facile",enonce:"Quel mot-clé crée un tri décroissant ?",options:["ASC","DESC","REVERSE","DOWN"],bonne_reponse_index:1,explication:"DESC (descending) trie en ordre décroissant.",indices:["Indice 1 : DESC = décroissant","Indice 2 : Du grand au petit"]},
+  {id:"orderby_qcm_5",type:"mcq",numero:5,difficulte:"moyen",enonce:"Que retourne : SELECT * FROM produits ORDER BY prix DESC;",options:["Produits du moins cher au plus cher","Produits du plus cher au moins cher","Produits sans prix","Erreur"],bonne_reponse_index:1,explication:"DESC = décroissant = du plus grand au plus petit prix.",indices:["Indice 1 : DESC pour décroissant","Indice 2 : Plus cher d'abord"]},
+  {id:"orderby_qcm_6",type:"mcq",numero:6,difficulte:"moyen",enonce:"Comment trier par plusieurs colonnes ?",options:["ORDER BY col1, col2","ORDER BY col1 + col2","ORDER BY col1 OR col2","Impossible"],bonne_reponse_index:0,explication:"Séparez les colonnes par des virgules pour un tri multi-colonnes.",indices:["Indice 1 : Virgule pour séparer","Indice 2 : col1, col2"]},
+  {id:"orderby_qcm_7",type:"mcq",numero:7,difficulte:"moyen",enonce:"ORDER BY region, nom affichera comment ?",options:["Toutes les régions mélangées","Régions triées, puis noms triés dans chaque région","Seulement par région","Seulement par nom"],bonne_reponse_index:1,explication:"Le premier tri crée des groupes, le second tri organise les groupes.",indices:["Indice 1 : Tri hiérarchique","Indice 2 : region d'abord, nom ensuite"]},
+  {id:"orderby_qcm_8",type:"mcq",numero:8,difficulte:"moyen",enonce:"Quel est l'ordre d'exécution : SELECT * FROM clients WHERE age > 18 ORDER BY nom;",options:["Trier, puis filtrer","Filtrer, puis trier","Les deux en même temps","Indéfini"],bonne_reponse_index:1,explication:"WHERE filtre d'abord, ORDER BY trie les résultats filtrés.",indices:["Indice 1 : WHERE avant ORDER BY","Indice 2 : Filtre d'abord"]},
+  {id:"orderby_qcm_9",type:"mcq",numero:9,difficulte:"difficile",enonce:"Comment trier par la première colonne du SELECT ?",options:["ORDER BY col1","ORDER BY 1","ORDER BY *","ORDER BY first"],bonne_reponse_index:1,explication:"ORDER BY 1 trie par la première colonne du SELECT (par numéro).",indices:["Indice 1 : Numéro de colonne","Indice 2 : 1 = première colonne"]},
+  {id:"orderby_qcm_10",type:"mcq",numero:10,difficulte:"difficile",enonce:"Où apparaissent les valeurs NULL avec ORDER BY ?",options:["Toujours au début","Toujours à la fin","Mélangées au hasard","Dépend de la base de données"],bonne_reponse_index:3,explication:"La position des NULL varie selon la base de données (PostgreSQL, MySQL, etc.).",indices:["Indice 1 : Comportement variable","Indice 2 : Selon le système"]}
+];
+
 // Exercices pour JavaScript Débutant - Les types de données
 const exercisesData_Types_JS_Debutant = [
   {id:"types_qcm_1",type:"mcq",numero:1,difficulte:"facile",enonce:"Quel est le type de la valeur 42 en JavaScript ?",options:["String","Number","Boolean","Object"],bonne_reponse_index:1,explication:"42 est un nombre entier, donc son type est Number.",indices:["Indice 1 : Quelle catégorie pour un nombre ?","Indice 2 : Number est le type pour les nombres."]},
@@ -1513,6 +1918,12 @@ function getExercisesForLesson(lang, level, lessonId) {
   }
   if (lang === 'sql' && level === 'debutant' && lessonId === 'select') {
     return exercisesData_SQL_Debutant;
+  }
+  if (lang === 'sql' && level === 'debutant' && lessonId === 'where') {
+    return exercisesData_WHERE_SQL_Debutant;
+  }
+  if (lang === 'sql' && level === 'debutant' && lessonId === 'orderby') {
+    return exercisesData_OrderBy_SQL_Debutant;
   }
   return null;
 }

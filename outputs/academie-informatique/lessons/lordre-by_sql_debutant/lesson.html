@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le ORDER BY en SQL</title>
+</head>
+<body>
+    <div class="lesson-content">
+        <h1>Le ORDER BY en SQL</h1>
+
+        <p><strong>Durée estimée :</strong> 11 minutes | <strong>Niveau :</strong> Débutant</p>
+
+        <h2>Introduction</h2>
+        <p>Imaginez une liste de 1 000 clients. Les résultats apparaissent dans n'importe quel ordre. Comment afficher les clients triés par nom, ou par date d'inscription, ou par prix décroissant ?</p>
+        <p>La réponse est <strong>ORDER BY</strong>. C'est l'instruction SQL qui vous permet de <strong>trier les résultats</strong> dans l'ordre que vous choisissez : alphabétique, numérique, croissant ou décroissant.</p>
+
+        <h2>Qu'est-ce que ORDER BY ?</h2>
+        <p><strong>ORDER BY</strong> est une clause SQL qui :</p>
+        <ul>
+            <li>Trie les résultats selon une ou plusieurs colonnes</li>
+            <li>Affiche les données dans l'ordre choisi (croissant ou décroissant)</li>
+            <li>Améliore la lisibilité et l'organisation des données</li>
+        </ul>
+
+        <h2>Syntaxe de base</h2>
+        <p>La syntaxe est simple :</p>
+        <pre><code>SELECT colonnes FROM table ORDER BY colonne;</code></pre>
+
+        <p><strong>Explication :</strong></p>
+        <ul>
+            <li><code>SELECT colonnes</code> : les colonnes à afficher</li>
+            <li><code>FROM table</code> : la table source</li>
+            <li><code>ORDER BY colonne</code> : la colonne par laquelle trier (par défaut : croissant)</li>
+        </ul>
+
+        <h2>Ordre croissant vs décroissant</h2>
+        <p>Par défaut, ORDER BY trie en ordre <strong>croissant</strong> (ASC : 0→9, A→Z). Vous pouvez explicitement spécifier :</p>
+
+        <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Mot-clé</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Signification</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Exemple</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Résultat</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>ASC</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Ordre croissant (défaut)</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>ORDER BY age ASC</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">18, 25, 30, 45, 60</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>DESC</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Ordre décroissant</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>ORDER BY age DESC</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">60, 45, 30, 25, 18</td>
+            </tr>
+        </table>
+
+        <h2>Exemples progressifs</h2>
+
+        <h3>Exemple 1 : Trier par texte (ordre alphabétique)</h3>
+        <p>Affichons tous les clients triés par nom alphabétique :</p>
+        <pre><code>SELECT nom, email FROM clients ORDER BY nom;</code></pre>
+        <p>Résultat : Les noms apparaissent en ordre A→Z (Alice, Bob, Charles, David...).</p>
+
+        <h3>Exemple 2 : Trier par nombre (ordre croissant)</h3>
+        <p>Affichons tous les produits triés par prix du moins cher au plus cher :</p>
+        <pre><code>SELECT nom, prix FROM produits ORDER BY prix ASC;</code></pre>
+        <p>Résultat : Les produits apparaissent du moins cher (5€) au plus cher (500€).</p>
+
+        <h3>Exemple 3 : Trier en ordre décroissant</h3>
+        <p>Affichons les clients du plus jeune au plus âgé :</p>
+        <pre><code>SELECT nom, age FROM clients ORDER BY age DESC;</code></pre>
+        <p>Résultat : Les clients apparaissent de l'âge le plus élevé (80 ans) au plus bas (18 ans).</p>
+
+        <h3>Exemple 4 : Trier par plusieurs colonnes</h3>
+        <p>Affichons les clients triés d'abord par région, puis par nom à l'intérieur de chaque région :</p>
+        <pre><code>SELECT nom, region FROM clients ORDER BY region, nom;</code></pre>
+        <p>Résultat : Les régions sont triées alphabétiquement, et à l'intérieur de chaque région, les noms sont aussi triés alphabétiquement.</p>
+
+        <h3>Exemple 5 : Combiner WHERE et ORDER BY</h3>
+        <p>Affichons les produits en stock avec prix < 100, triés par prix décroissant :</p>
+        <pre><code>SELECT nom, prix, stock FROM produits WHERE stock > 0 AND prix < 100 ORDER BY prix DESC;</code></pre>
+        <p>L'ordre d'exécution : d'abord <code>WHERE</code> (filtre), ensuite <code>ORDER BY</code> (trie les résultats filtrés).</p>
+
+        <h2>Cas particuliers</h2>
+
+        <h3>Trier par colonne numérique stockée en texte</h3>
+        <p>Si une colonne contient des nombres mais est stockée en texte (ex: '10', '2', '100'), l'ordre alphabétique donne un mauvais résultat :</p>
+        <pre><code>SELECT nom, code FROM produits ORDER BY code;</code></pre>
+        <p>Résultat faux : '1', '10', '100', '2', '20'... (ordre alphabétique, pas numérique).</p>
+        <p>Solution : Convertir en nombre lors du tri :</p>
+        <pre><code>SELECT nom, code FROM produits ORDER BY CAST(code AS INTEGER);</code></pre>
+
+        <h3>Trier avec NULL</h3>
+        <p>Les valeurs NULL (vides) apparaissent généralement à la fin. Certaines bases de données les placent au début. Exemple :</p>
+        <pre><code>SELECT nom, telephone FROM clients ORDER BY telephone;</code></pre>
+        <p>Les clients sans téléphone (NULL) s'affichent séparément, généralement à la fin.</p>
+
+        <h2>Tableau récapitulatif : quand utiliser ORDER BY</h2>
+        <table style="width:100%; border-collapse: collapse;">
+            <tr style="background: #f0f0f0;">
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Cas d'usage</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Syntaxe</th>
+                <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Résultat</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">Trier par une colonne croissant</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>ORDER BY nom</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Alice, Bob, Charles (A→Z)</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">Trier par une colonne décroissant</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>ORDER BY prix DESC</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">500€, 100€, 10€ (grand→petit)</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">Trier par 2+ colonnes</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>ORDER BY region, nom</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Région 1 (Alice, Bob), Région 2 (Charles)</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">Trier avec WHERE</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>WHERE age > 18 ORDER BY nom</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Filtre d'abord, trie ensuite</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 8px;">Trier par colonne de rang</td>
+                <td style="border: 1px solid #ddd; padding: 8px;"><code>ORDER BY 1 ASC</code></td>
+                <td style="border: 1px solid #ddd; padding: 8px;">Trie par la 1ère colonne du SELECT</td>
+            </tr>
+        </table>
+
+        <h2>Exemples pratiques</h2>
+
+        <h3>Exemple 1 : Boutique en ligne</h3>
+        <p>Affiche les 10 produits les plus chers :</p>
+        <pre><code>SELECT nom, prix FROM produits ORDER BY prix DESC LIMIT 10;</code></pre>
+
+        <h3>Exemple 2 : Gestion de clients</h3>
+        <p>Affiche les clients par date d'inscription (plus récents en premier) :</p>
+        <pre><code>SELECT nom, date_inscription FROM clients ORDER BY date_inscription DESC;</code></pre>
+
+        <h3>Exemple 3 : Rapports</h3>
+        <p>Affiche les ventes par représentant, puis par montant décroissant :</p>
+        <pre><code>SELECT representant, montant FROM ventes ORDER BY representant, montant DESC;</code></pre>
+
+        <h2>Points clés à retenir</h2>
+        <ul>
+            <li>ORDER BY trie les résultats selon une ou plusieurs colonnes</li>
+            <li>ASC = ordre croissant (défaut) ; DESC = ordre décroissant</li>
+            <li>Le tri s'applique APRÈS le filtrage WHERE</li>
+            <li>Vous pouvez trier par plusieurs colonnes : <code>ORDER BY col1, col2</code></li>
+            <li>ORDER BY de colonne en texte suit l'ordre alphabétique</li>
+            <li>ORDER BY de colonne numérique suit l'ordre numérique</li>
+            <li>Les NULL s'affichent généralement à part (avant ou après)</li>
+        </ul>
+
+        <h2>Sources</h2>
+        <ul>
+            <li><a href="https://www.w3schools.com/sql/sql_orderby.asp" target="_blank">W3Schools — SQL ORDER BY</a></li>
+            <li><a href="https://www.tutorialspoint.com/sql/sql-order-by.htm" target="_blank">TutorialsPoint — SQL ORDER BY</a></li>
+            <li><a href="https://www.postgresql.org/docs/current/queries-order.html" target="_blank">PostgreSQL — ORDER BY Clause</a></li>
+            <li><a href="https://mode.com/sql-tutorial/sql-order-by/" target="_blank">Mode Analytics — SQL ORDER BY Tutorial</a></li>
+        </ul>
+    </div>
+</body>
+</html>

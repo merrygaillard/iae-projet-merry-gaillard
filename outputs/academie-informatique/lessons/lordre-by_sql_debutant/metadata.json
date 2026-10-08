@@ -1,0 +1,37 @@
+{
+  "titre": "Le ORDER BY en SQL",
+  "concept": "ORDER BY",
+  "langage": "SQL",
+  "niveau": "débutant",
+  "durée_minutes": 11,
+  "concepts_clés": [
+    "Tri de données",
+    "Clause ORDER BY",
+    "Ordre croissant (ASC)",
+    "Ordre décroissant (DESC)",
+    "Tri par une colonne",
+    "Tri par plusieurs colonnes",
+    "Combinaison WHERE et ORDER BY",
+    "Gestion des NULL",
+    "Conversion de types pour le tri"
+  ],
+  "sources": [
+    {
+      "titre": "W3Schools — SQL ORDER BY",
+      "url": "https://www.w3schools.com/sql/sql_orderby.asp"
+    },
+    {
+      "titre": "TutorialsPoint — SQL ORDER BY",
+      "url": "https://www.tutorialspoint.com/sql/sql-order-by.htm"
+    },
+    {
+      "titre": "PostgreSQL — ORDER BY Clause",
+      "url": "https://www.postgresql.org/docs/current/queries-order.html"
+    },
+    {
+      "titre": "Mode Analytics — SQL ORDER BY Tutorial",
+      "url": "https://mode.com/sql-tutorial/sql-order-by/"
+    }
+  ],
+  "sources_count": 4
+}
