@@ -26,11 +26,6 @@
       "domaine": "mdn.org"
     },
     {
-      "url": "https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach",
-      "titre": "MDN — Array.forEach()",
-      "domaine": "mdn.org"
-    },
-    {
       "url": "https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
       "titre": "MDN — Array.map()",
       "domaine": "mdn.org"
@@ -44,19 +39,9 @@
       "url": "https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce",
       "titre": "MDN — Array.reduce()",
       "domaine": "mdn.org"
-    },
-    {
-      "url": "https://www.w3schools.com/js/js_loop_for.asp",
-      "titre": "W3Schools — JavaScript for Loop",
-      "domaine": "w3schools.com"
-    },
-    {
-      "url": "https://www.w3schools.com/js/js_array_methods.asp",
-      "titre": "W3Schools — Array Methods",
-      "domaine": "w3schools.com"
     }
   ],
-  "sources_count": 8,
+  "sources_count": 5,
   "prérequis": [
     "Les boucles de base (for, while, do...while)",
     "Les tableaux et leurs propriétés",
