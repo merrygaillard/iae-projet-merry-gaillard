@@ -171,3 +171,12 @@ Bonus intégré (4 niveaux au lieu de 3); hors comptage 30-35h; accessibilité a
 - Widget « Un commentaire ? » (AC7) : absent du code.
 - Détection des données personnelles dans les notes (C1) : non implémentée.
 - Cas piégés (valeur impossible, doublon, donnée personnelle, consigne cachée) : non corrigés, non rejoués.
+
+## Correction et nouveau contrôle — 2026-10-08
+
+| Test | Avant | Correction | Après (rejoué) |
+|---|---|---|---|
+| T2b — Champ « bonne réponse » | 4 fichiers, 3 noms de champ | Les 4 fichiers utilisent `bonne_reponse_index` (numéro, 0 = première option) ; le contenu n'a pas changé | **4 / 4 OK** : chaque QCM a une réponse valide |
+| T2d — Sources par leçon | `les-boucles-avancees` : 8 sources | Ramenée à 5 sources, comme sur le site (retrait de MDN Array.forEach(), W3Schools for loop, W3Schools Array Methods) | **4 / 4 OK** (3 à 5 sources) |
+
+Le site (`docs/js/navigation.js`) n'affichait déjà que 5 sources pour cette leçon. La correction aligne les fichiers source sur ce que voit l'apprenant.

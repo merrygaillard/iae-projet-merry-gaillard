@@ -22,8 +22,8 @@
 | # | Action | Pourquoi | Preuve de fin | Statut |
 |---|---|---|---|---|
 | 1 | Ouvrir les 21 liens et cocher `sources/sources tests.md` | Critère AC4 (sources vérifiées) | Liste cochée avec date | Fait (2026-10-08) |
-| 2 | Remplacer les liens morts et ramener la leçon à 8 sources à 3–5 | Critère R12 et règle des sources | Nouveau contrôle T2d | À faire |
-| 3 | Harmoniser le champ « bonne réponse » dans les fichiers source | Cohérence des fichiers | Nouveau contrôle T2b | À faire |
+| 2 | Remplacer les liens morts et ramener la leçon à 8 sources à 3–5 | Critère R12 et règle des sources | Nouveau contrôle T2d | Fait (2026-10-08, 5 sources) |
+| 3 | Harmoniser le champ « bonne réponse » dans les fichiers source | Cohérence des fichiers | Nouveau contrôle T2b | Fait (2026-10-08) |
 | 4 | Mettre le site en ligne (hébergement à choisir) | Critère « une run livre un site déployé » | Lien public qui répond | Bloqué |
 | 5 | Contrôler les fichiers d'entrée : valeurs impossibles, doublons, champ manquant, données personnelles, consignes cachées | Non implémenté aujourd'hui | Cas de test rejoués, résultat noté | À faire |
 | 6 | Ajouter le widget « Un commentaire ? » (AC7) **seulement après** une règle RGPD écrite | Feedback utilisateur, donc collecte de données | Règle écrite, puis widget testé | À faire |
