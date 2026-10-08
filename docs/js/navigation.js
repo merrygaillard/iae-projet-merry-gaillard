@@ -868,6 +868,28 @@ print(message)  # Affiche : J'ai 25 ans</code></pre>
         description: 'if, elif, else, opérateurs logiques (and, or, not)',
         duration: 14,
         concepts: 'Conditions, if, elif, else, opérateurs logiques',
+        sources: [
+          {
+            url: 'https://www.w3schools.com/python/python_conditions.asp',
+            title: 'W3Schools — Python Conditions',
+            type: 'Tutoriel interactif'
+          },
+          {
+            url: 'https://docs.python.org/3/tutorial/controlflow.html',
+            title: 'Documentation officielle Python — Contrôle du flux',
+            type: 'Documentation officielle'
+          },
+          {
+            url: 'https://www.codecademy.com/learn/learn-python-3',
+            title: 'Codecademy — Learn Python 3',
+            type: 'Plateforme interactive'
+          },
+          {
+            url: 'https://realpython.com/python-if-elif-else/',
+            title: 'Real Python — Python if, elif, else Statements',
+            type: 'Tutoriel pédagogique'
+          }
+        ],
         content: `
                   <h1>Les conditions en Python</h1>
 
